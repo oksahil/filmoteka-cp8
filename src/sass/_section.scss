@@ -1,0 +1,66 @@
+.gallery {
+    padding-top: 20px;
+    padding-bottom: 40px;
+}
+@media screen and (min-width: 768px) {
+    .gallery  {
+    padding-top: 60px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .gallery {
+padding-top: 60px;
+    }
+}
+.film-genre {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: calc(24px /20px);
+    color: #FF6B08;
+}
+
+.film-title {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: calc(24px /20px);
+    margin-top: 10px;
+    padding-left: 0px;
+    color: #000000;
+    text-transform: uppercase;
+}
+
+.film-item {
+    display: flex;
+}
+.film-img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.film-list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+        gap: 16px;
+}
+
+.films {
+    width: 280px;
+    background-color: #ffffff;
+    gap: 32px;
+    
+}
+
+@media screen and (min-width: 768px) {
+    .films {
+    width: 336px;
+   gap: 16px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .films {
+width: 394px;
+    }
+}
