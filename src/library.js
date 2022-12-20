@@ -20,7 +20,9 @@ const onWatch = () => {
     console.log("this is test")
 };
 
-const onQueue = () => {};
+const onQueue = () => {
+    console.log('anotha test');
+};
 
 refs.watched.addEventListener('click', onWatch);
 refs.queue.addEventListener('click', onQueue);
