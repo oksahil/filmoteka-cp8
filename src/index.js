@@ -35,7 +35,7 @@ refs.input.addEventListener('input', debounce(fetchFilm), DEBOUNCE_DELAY);
 export let items = [];
 export let strGenres = [];
 
-export const filmTemplate = ({ poster_path, original_title, release_date, genre_ids, first_air_date,id }) => {
+export const filmTemplate = ({ poster_path, original_name, release_date, genre_ids, first_air_date,id, original_title }) => {
     renderIds(genre_ids, listg);
     console.log('strGenres', strGenres);
     if (genre_ids === '') {
@@ -47,12 +47,15 @@ export const filmTemplate = ({ poster_path, original_title, release_date, genre_
     if (release_date === undefined) {
         release_date = first_air_date;
     }
+    if (original_name === undefined) {
+        original_name = original_title;
+    }
     let dataFilm = release_date.slice(0, 4);
     if (poster_path === null) {
         return `<li class="film-item list" id="${id}">
     <div class="films">
-    <img class="film-img" src="./src/images/error_img.jpg">
-    <h2 class="film-title">${original_title}</h2>
+    <img class="film-img" src="/src/images/error_img.jpg">
+    <h2 class="film-title">${original_name}</h2>
     <h3 class="film-genre">${strGenres} | ${dataFilm}</h3>
     </div>
     </li>`;
@@ -60,7 +63,7 @@ export const filmTemplate = ({ poster_path, original_title, release_date, genre_
         return `<li class="film-item list" id="${id}">
     <div class="films">
     <img class="film-img" src="https://image.tmdb.org/t/p/w500/${poster_path}">
-    <h2 class="film-title">${original_title}</h2>
+    <h2 class="film-title">${original_name}</h2>
     <h3 class="film-genre">${strGenres} | ${dataFilm}</h3>
     </div>
     </li>`;

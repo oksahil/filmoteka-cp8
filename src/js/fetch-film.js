@@ -7,7 +7,6 @@ import Notiflix from 'notiflix';
 import { render } from '/src/index';
 
 
-
 export async function fetchFilm(e) {
      e.preventDefault();
     fetchGenres();

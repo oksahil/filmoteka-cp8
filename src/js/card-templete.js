@@ -1,13 +1,13 @@
 import { rendserIds } from '/src/index';
 
-export const cardTemplate = ({original_title,vote_average,vote_count,popularity,genres,overview,poster_path}) =>
+export const cardTemplate = ({original_name,vote_average,vote_count,popularity,genres,overview,poster_path}) =>
  `<li class="card-item list">
     <div class="picture_container">
         <img class="film-img"
             src="https://image.tmdb.org/t/p/w500/${poster_path}">
     </div>
 
-    <h2 class="film-title">${original_title}</h2>
+    <h2 class="film-title">${original_name}</h2>
 
     <ul class="info-film list">
         <li class="info-film-left">
@@ -19,7 +19,7 @@ export const cardTemplate = ({original_title,vote_average,vote_count,popularity,
         <li class="info-film-right">
             <p class="text-discription"><span class="vote-highlighted">${vote_average}</span> / ${vote_count}</p>
             <p class="text-discription">${popularity}</p>
-            <p class="text-discription to-upercase">${original_title}</p>
+            <p class="text-discription to-upercase">${original_name}</p>
             <p class="text-discription">${genres.map(genr=>genr.name)}</p>
         </li>
     </ul>

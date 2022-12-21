@@ -61,14 +61,14 @@
 .films {
     width: 280px;
     background-color: #ffffff;
-    gap: 32px;
+    // gap: 32px;
 
 }
 
 @media screen and (min-width: 768px) {
     .films {
         width: 336px;
-        gap: 16px;
+        // gap: 16px;
     }
 }
 
