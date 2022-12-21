@@ -21,7 +21,7 @@ export default class fireStorage {
       if (user) {
         const dataLib = `users/${user.uid}/libs/watched`;
 
-        update(ref(db, dataLib), this._watched);
+        update(ref(db, dataLib), thi._watched);
       }
     });
   }
@@ -44,7 +44,7 @@ export default class fireStorage {
         const dataLib =
           `users/${user.uid}/libs/watched` + Object.keys(this._watched);
 
-        remove(ref(db, dataLib));
+        remove(db, dataLib);
       }
     });
   }
