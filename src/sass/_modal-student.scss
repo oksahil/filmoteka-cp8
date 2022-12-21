@@ -1,0 +1,21 @@
+.modal-student--bg {
+    display: none;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0px;
+    top: 0px;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.modal-student {
+    background-color: #fff;
+    width: 400px;
+    height: 400px;
+    border: #000 1px solid;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 999;
+}
