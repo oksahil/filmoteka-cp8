@@ -45,11 +45,17 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    gap: 16px;
+    gap: 20px;
 }
 @media screen and (min-width: 768px) {
     .film-list {
     justify-content: space-between;
+    gap: 32px;
+    }
+}
+@media screen and (min-width: 768px) {
+    .film-list {
+        gap: 16px;
     }
 }
 .films {
