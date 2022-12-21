@@ -11,7 +11,7 @@ export async function fetchFilmInfo() {
     fetchGenres();
   
     try {
-  const response = await axios.get(`${URL}${KEY}&query=${value}`)
+      const response = await axios.get(`${URL}${KEY}&query=${value}`)
        let itemsInfo = response.data.results;
         return renderInfo(itemsInfo);
         } catch (error) {

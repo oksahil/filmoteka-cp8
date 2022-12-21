@@ -3,10 +3,11 @@ import Notiflix from 'notiflix';
 var debounce = require('lodash.debounce');
 import { initializeApp } from 'firebase/app';
 import { getAnalytics } from 'firebase/analytics';
-import { getDatabase, ref, set } from 'firebase/database';
+import { getDatabase, ref, get } from 'firebase/database';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { firebaseConfig } from './js/Firebase/firebase-config';
 import fireStorage from './js/Firebase/fireStorage';
+
 // import { ApiService } from './js/Firebase/api-service';
 
 const DEBOUNCE_DELAY = 300;
@@ -16,10 +17,11 @@ const URL = 'https://api.themoviedb.org/3/search/movie?api_key=';
 const app = initializeApp(firebaseConfig);
 
 const refs = {
-  input: document.querySelector('.search-input'),
-  list: document.querySelector('.film-list'),
-  watched: document.querySelector('.watched-btn'),
-  queue: document.querySelector('.queue-btn'),
+    input: document.querySelector('.search-input'),
+    list: document.querySelector('.film-list'),
+    watched: document.querySelector('.watched-btn'),
+    queue: document.querySelector('.queue-btn'),
+    libraryList: document.querySelector('.films-list-library')
 };
 
 const data = {
@@ -31,7 +33,25 @@ const { watchedInfo, queueInfo } = data;
 new fireStorage(watchedInfo, queueInfo);
 
 const onWatched = () => {
-  console.log('this is test');
+    onAuthStateChanged = (auth, user) => {
+        if (user) {
+            const libUserId = `users/${user.uid}/lib/watched/`
+
+            get(ref(db, libUserId)).then(snapshot => {
+                if (snapshot.exists()) {
+                    const dataId = Object.keys(snapshot.val())
+                } else {
+                    libraryList.innerHTML = '';
+                }
+            }).catch(error => {
+                console.log(error)
+            })
+        }
+        
+        // get(ref(db, userId)).then(snapshot => {
+        //     console.log(snapshot)
+        // })
+    }
 };
 
 const onQueue = () => {
