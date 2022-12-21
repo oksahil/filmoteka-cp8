@@ -12,7 +12,7 @@ import { listg } from '/src/js/fetch-genres';
 
 var debounce = require('lodash.debounce');
 
-const DEBOUNCE_DELAY = 300;
+const DEBOUNCE_DELAY = 1000;
 export const KEY = '27a3692489226a6f77b57cb0bdb9ce9a';
 export const URL = 'https://api.themoviedb.org/3/search/movie?api_key=';
 
@@ -25,6 +25,7 @@ export const refs = {
     closeModalBtn: document.querySelector('[data-modal-close]'),
     modal: document.querySelector('[data-modal]'),
     cardList: document.querySelector('.card-list'),
+    error: document.querySelector('.error'),
 }
 
 document.addEventListener('DOMContentLoaded', fetchFilmPopularity());
@@ -50,7 +51,7 @@ export const filmTemplate = ({ poster_path, original_title, release_date, genre_
     if (poster_path === null) {
         return `<li class="film-item list" id="${id}">
     <div class="films">
-    <img class="film-img" src="https://pixabay.com/get/gb7db569fc3e8b14cffd882555f170a29f60967eb4b440951996ecf4dacfea8c4e24bfffa9b9a672bc4413d9a61fbeb317cbfc98195588fe198e02464199770bf_640.jpg">
+    <img class="film-img" src="./src/images/error_img.jpg">
     <h2 class="film-title">${original_title}</h2>
     <h3 class="film-genre">${strGenres} | ${dataFilm}</h3>
     </div>
@@ -65,6 +66,7 @@ export const filmTemplate = ({ poster_path, original_title, release_date, genre_
     </li>`;
     }
 };
+
 
 // const cardTemplate = ({ poster_path, original_title, release_date, genre_ids, first_air_date, vote_average, vote_count, popularity }) => {
 //     renderIds(genre_ids, listg);
@@ -134,6 +136,7 @@ export const filmTemplate = ({ poster_path, original_title, release_date, genre_
 //     </li>`;
 //     }
 // }
+
 
 function renderIds(genre_ids, listg) {
     console.log('genre_ids', genre_ids);

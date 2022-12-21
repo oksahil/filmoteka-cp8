@@ -11,13 +11,15 @@ import { render } from '/src/index';
 export async function fetchFilm(e) {
      e.preventDefault();
     fetchGenres();
-    const value = e.target.value;
+  const value = e.target.value;
+  refs.error.textContent = '';
     try { const response = await axios.get(`${URL}${KEY}&query=${value}`)
       let items = response.data.results;
         return render(items);
         } catch (error) {
-            console.log(error);
+      // console.log(error);
+            refs.error.textContent = 'Search result not successful. Enter the correct movie name.';
             refs.list.innerHTML = '';
-            return Notiflix.Notify.failure('Oops, there is no film with that name.');
+            return Notiflix.Notify.failure('Search result not successful. Enter the correct movie name.');
             };
  };
