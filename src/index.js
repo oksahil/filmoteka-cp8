@@ -6,80 +6,152 @@ import { fetchFilmInfo } from '/src/js/fetch-film-info';
 import { fetchFilm } from '/src/js/fetch-film';
 // import { filmTemplate } from '/src/js/film-templete';
 import { listg } from '/src/js/fetch-genres';
-
-
-
+import { createPagination } from './js/pagination';
 
 var debounce = require('lodash.debounce');
 
-const DEBOUNCE_DELAY = 300;
+const DEBOUNCE_DELAY = 5000;
 export const KEY = '27a3692489226a6f77b57cb0bdb9ce9a';
 export const URL = 'https://api.themoviedb.org/3/search/movie?api_key=';
 
 export const refs = {
-    input: document.querySelector('.search-input'),
-    list: document.querySelector('.film-list'),
-     // openModalBtn: document.querySelector('.films'),
-    openModalBtn: document.querySelector('[data-modal-open]'),
-    card: document.querySelector('[data-modal-open]'),
-    closeModalBtn: document.querySelector('[data-modal-close]'),
-    modal: document.querySelector('[data-modal]'),
-    cardList: document.querySelector('.card-list'),
+  input: document.querySelector('.search-input'),
+  list: document.querySelector('.film-list'),
+  // openModalBtn: document.querySelector('.films'),
+  openModalBtn: document.querySelector('[data-modal-open]'),
+  card: document.querySelector('[data-modal-open]'),
+  closeModalBtn: document.querySelector('[data-modal-close]'),
+  modal: document.querySelector('[data-modal]'),
+  cardList: document.querySelector('.card-list'),
+  searchForm: document.querySelector('.search-form'),
+};
+
+document.addEventListener('DOMContentLoaded', main);
+// const fetchFilmsWithDebounce = debounce(renderSearchFilms, DEBOUNCE_DELAY);
+// refs.input.addEventListener('input', fetchFilmsWithDebounce);
+
+async function renderPopularFilms() {
+  const filmsData = await fetchFilmPopularity();
+  console.log('result  :', filmsData);
+
+  console.log('eeeeeeeeeeeeee');
+
+  const paginationButtons = createPagination(
+    filmsData.total_pages,
+    5,
+    filmsData.page
+  );
+  paginationButtons.render(document.querySelector('.pagination-wrapper'));
+
+  paginationButtons.onChange(e => {
+    fetchFilmPopularity(e.target.value);
+    console.log('wwwwwwwwwwwwwwwwwwwwww', e);
+  });
 }
 
-document.addEventListener('DOMContentLoaded', fetchFilmPopularity());
-refs.input.addEventListener('input', debounce(fetchFilm), DEBOUNCE_DELAY);
+async function renderSearchFilms() {
+  const filmsData = await fetchFilm();
+  console.log('result  :', filmsData);
 
+  const paginationButtons = createPagination(
+    filmsData.total_pages,
+    5,
+    filmsData.page
+  );
+
+  refs.input.addEventListener('input', e => {
+    e.preventDefault();
+    const value = e.target.value;
+
+    if (value !== '') {
+      paginationButtons.destroy();
+      paginationButtons.render(document.querySelector('.pagination-wrapper'));
+
+      fetchFilm(value, 1);
+
+      paginationButtons.onChange(e => {
+        fetchFilm(value, e.target.value);
+      });
+    }
+  });
+}
+
+async function main() {
+  const input = refs.input;
+
+  refs.searchForm.addEventListener('submit', e => {
+    e.preventDefault();
+  });
+
+  renderSearchFilms();
+
+  renderPopularFilms();
+}
 
 export let items = [];
 export let strGenres = [];
 
-export const filmTemplate = ({ poster_path, original_title, release_date, genre_ids, first_air_date }) => {
-    renderIds(genre_ids, listg);
-    console.log('strGenres', strGenres);
-    if (genre_ids === '') {
-        genre_ids = "no ganeres";
-    }
-    if (release_date === "") {
-        release_date = "no relase date";
-    }
-    if (release_date === undefined) {
-        release_date = first_air_date;
-    }
-    let dataFilm = release_date.slice(0, 4);
-    if (poster_path === null) {
-        return `<li class="film-item list">
+export const filmTemplate = ({
+  poster_path,
+  original_title,
+  release_date,
+  genre_ids,
+  first_air_date,
+}) => {
+  renderIds(genre_ids, listg);
+  console.log('strGenres', strGenres);
+  if (genre_ids === '') {
+    genre_ids = 'no ganeres';
+  }
+  if (release_date === '') {
+    release_date = 'no relase date';
+  }
+  if (release_date === undefined) {
+    release_date = first_air_date;
+  }
+  let dataFilm = release_date.slice(0, 4);
+  if (poster_path === null) {
+    return `<li class="film-item list">
     <div class="films">
     <img class="film-img" src="https://pixabay.com/get/gb7db569fc3e8b14cffd882555f170a29f60967eb4b440951996ecf4dacfea8c4e24bfffa9b9a672bc4413d9a61fbeb317cbfc98195588fe198e02464199770bf_640.jpg">
     <h2 class="film-title">${original_title}</h2>
     <h3 class="film-genre">${strGenres} | ${dataFilm}</h3>
     </div>
     </li>`;
-    } else {
-        return `<li class="film-item list">
+  } else {
+    return `<li class="film-item list">
     <div class="films">
     <img class="film-img" src="https://image.tmdb.org/t/p/w500/${poster_path}">
     <h2 class="film-title">${original_title}</h2>
     <h3 class="film-genre">${strGenres} | ${dataFilm}</h3>
     </div>
     </li>`;
-    }
-}
+  }
+};
 
-const cardTemplate = ({ poster_path, original_title, release_date, genre_ids, first_air_date, vote_average, vote_count, popularity }) => {
-    renderIds(genre_ids, listg);
-    if (genre_ids === '') {
-        genre_ids = "no ganeres";
-    }
-    if (release_date === "") {
-        release_date = "no relase date";
-    }
-    if (release_date === undefined) {
-        release_date = first_air_date;
-    }
-    let dataFilm = release_date.slice(0, 4);
-    if (poster_path === null) {
-        return `<li class="card-item list"  data-modal-open>
+const cardTemplate = ({
+  poster_path,
+  original_title,
+  release_date,
+  genre_ids,
+  first_air_date,
+  vote_average,
+  vote_count,
+  popularity,
+}) => {
+  renderIds(genre_ids, listg);
+  if (genre_ids === '') {
+    genre_ids = 'no ganeres';
+  }
+  if (release_date === '') {
+    release_date = 'no relase date';
+  }
+  if (release_date === undefined) {
+    release_date = first_air_date;
+  }
+  let dataFilm = release_date.slice(0, 4);
+  if (poster_path === null) {
+    return `<li class="card-item list"  data-modal-open>
     <img class="film-img" src="https://pixabay.com/get/gb7db569fc3e8b14cffd882555f170a29f60967eb4b440951996ecf4dacfea8c4e24bfffa9b9a672bc4413d9a61fbeb317cbfc98195588fe198e02464199770bf_640.jpg">
     </li>
     <li>
@@ -105,8 +177,8 @@ const cardTemplate = ({ poster_path, original_title, release_date, genre_ids, fi
             <li class="btn-item"><button class="add-queue-btn btn" type="button"><span class="btn-text">ADD TO QUEUE</span></button></li>
         </ul>
     </li>`;
-    } else {
-        return `<li class="card-item list"  data-modal-open>
+  } else {
+    return `<li class="card-item list"  data-modal-open>
     <img class="film-img" src="https://image.tmdb.org/t/p/w500/${poster_path}">
     </li>
     <li>
@@ -132,38 +204,37 @@ const cardTemplate = ({ poster_path, original_title, release_date, genre_ids, fi
             <li class="btn-item"><button class="add-queue-btn btn" type="button"><span class="btn-text">ADD TO QUEUE</span></button></li>
         </ul>
     </li>`;
-    }
-}
+  }
+};
 
 function renderIds(genre_ids, listg) {
-    console.log('genre_ids', genre_ids);
-    console.log('listg', listg);
-    strGenres = [];
-    for (const i of genre_ids) { 
-        for (const l of listg) {
-            if (l.id === i) {
-                strGenres.push(l.name);
-            }
-        }
+  console.log('genre_ids', genre_ids);
+  console.log('listg', listg);
+  strGenres = [];
+  for (const i of genre_ids) {
+    for (const l of listg) {
+      if (l.id === i) {
+        strGenres.push(l.name);
+      }
     }
- 
-    return strGenres;
+  }
+
+  return strGenres;
 }
 
 export function render(items) {
-    const filmList = items.map(filmTemplate); 
-   
-        refs.list.innerHTML = '';
-        refs.list.insertAdjacentHTML('beforeend', filmList.join(''));
+  const filmList = items.map(filmTemplate);
+
+  refs.list.innerHTML = '';
+  refs.list.insertAdjacentHTML('beforeend', filmList.join(''));
 }
 
 export function renderInfo(itemsInfo) {
-        const filmListInfo = itemsInfo.map(cardTemplate);    
-        refs.cardList.innerHTML = '';
-        refs.cardList.insertAdjacentHTML('beforeend', filmListInfo.join(''));
+  const filmListInfo = itemsInfo.map(cardTemplate);
+  refs.cardList.innerHTML = '';
+  refs.cardList.insertAdjacentHTML('beforeend', filmListInfo.join(''));
 }
 // refs.openModalBtn.addEventListener('click', textInfo);
 // function textInfo() {
 //     fetchFilmInfo();
 // }
-

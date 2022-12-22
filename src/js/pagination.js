@@ -17,11 +17,21 @@ const pageNumbers = (total, max, current) => {
   return Array.from({ length: Math.min(total, max) }, (_, i) => i + 1 + from);
 };
 
-function createPagination(
+export function createPagination(
   totalPages = 50,
   maxPagesVisible = 5,
   currentPage = 1
 ) {
+  // destroy pagination if it exists already on the page
+  const destroy = () => {
+    const paginationButtons = document.querySelector('.pagination-buttons');
+    if (paginationButtons) {
+      paginationButtons.remove();
+    }
+  };
+
+  destroy();
+
   let pages = pageNumbers(totalPages, maxPagesVisible, currentPage);
   let currentPageBtn = null;
   const buttons = new Map();
@@ -150,26 +160,48 @@ function createPagination(
     render,
     update,
     onChange,
+    destroy,
   };
 }
 
-const paginationButtons = createPagination(50, 10, 1);
+// const paginationButtons = createPagination(20, 10, 1);
 
-paginationButtons.render(document.querySelector('.pagination-wrapper'));
+// paginationButtons.render(document.querySelector('.pagination-wrapper'));
 
-paginationButtons.onChange(e => {
-  console.log(e.target.value);
-});
+// paginationButtons.onChange(e => {
+//   console.log(e.target.value);
+// });
 
-const refsBtn = {
-  startPageBtn: document.querySelector('.pagination-buttons'),
-  prevPageBtn: document.querySelector('.prev-page'),
-  nextPageBtn: document.querySelector('.next-page'),
-  endPageBtn: document.querySelector('.end-page'),
-};
+// const refsBtn = {
+//   startPageBtn: document.querySelector('.pagination-buttons'),
+//   prevPageBtn: document.querySelector('.prev-page'),
+//   nextPageBtn: document.querySelector('.next-page'),
+//   endPageBtn: document.querySelector('.end-page'),
+// };
 
-refsBtn.startPageBtn.addEventListener('click', www);
+// refsBtn.startPageBtn.addEventListener('click', fetchFilm);
 
-function www(e) {
-  console.log(e);
-}
+// import axios from 'axios';
+// import { KEY } from '/src/index';
+// import { URL } from '/src/index';
+// import { fetchGenres } from '/src/js/fetch-genres';
+// import { refs } from '/src/index';
+// import Notiflix from 'notiflix';
+// import { render } from '/src/index';
+
+// export async function fetchFilm(e) {
+//   e.preventDefault();
+//   fetchGenres();
+//   const value = e.target.value;
+//   try {
+//     const response = await axios.get(
+//       `${URL}${KEY}&page=${nextPagPage}&query=${value}`
+//     );
+//     let items = response.data.results;
+//     return render(items);
+//   } catch (error) {
+//     console.log(error);
+//     refs.list.innerHTML = '';
+//     return Notiflix.Notify.failure('Oops, there is no film with that name.');
+//   }
+// }
