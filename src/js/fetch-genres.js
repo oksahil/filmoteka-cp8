@@ -14,7 +14,7 @@ export async function fetchGenres() {
         console.log(listg);
         return listg;
         } catch (error) {
-            console.log(error);
+            console.log(error.message);
             refs.list.innerHTML = '';
             return Notiflix.Notify.failure('Oops, there is no film with that name.');
             };

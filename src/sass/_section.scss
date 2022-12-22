@@ -2,17 +2,19 @@
     padding-top: 20px;
     padding-bottom: 40px;
 }
+
 @media screen and (min-width: 768px) {
-    .gallery  {
-    padding-top: 60px;
+    .gallery {
+        padding-top: 60px;
     }
 }
 
 @media screen and (min-width: 1280px) {
     .gallery {
-padding-top: 60px;
+        padding-top: 60px;
     }
 }
+
 .film-genre {
     font-weight: 500;
     font-size: 20px;
@@ -33,6 +35,7 @@ padding-top: 60px;
 .film-item {
     display: flex;
 }
+
 .film-img {
     width: 100%;
     border-radius: 5px;
@@ -42,25 +45,66 @@ padding-top: 60px;
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-        gap: 16px;
+    gap: 20px;
 }
-
+@media screen and (min-width: 768px) {
+    .film-list {
+    justify-content: space-between;
+    gap: 32px;
+    }
+}
+@media screen and (min-width: 768px) {
+    .film-list {
+        gap: 16px;
+    }
+}
 .films {
     width: 280px;
     background-color: #ffffff;
-    gap: 32px;
-    
+    // gap: 32px;
+
 }
 
 @media screen and (min-width: 768px) {
     .films {
-    width: 336px;
-   gap: 16px;
+        width: 336px;
+        // gap: 16px;
     }
 }
 
 @media screen and (min-width: 1280px) {
     .films {
-width: 394px;
+        width: 394px;
     }
+} 
+
+.text-img {
+    width: 280px;
+    height: 402px;
+    background-color: #c2bbb6;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: calc(65px /50px);
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 100px;
+}
+@media screen and (min-width: 768px) {
+    .text-img {
+        width: 336px;
+        height: 455px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .text-img {
+        width: 394px;
+        height: 574px;
+    }
+}
+
+.text-smile {
+    font-weight: 500;
+        font-size: 65px;
+        line-height: calc(80px /65px);
 }
