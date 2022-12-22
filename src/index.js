@@ -54,7 +54,9 @@ export const filmTemplate = ({ poster_path, original_name, release_date, genre_i
     if (poster_path === null) {
         return `<li class="film-item list" id="${id}">
     <div class="films">
-    <img class="film-img" src="/src/images/error_img.jpg">
+    <div class="text-img">
+    Sorry,<br>poster for film don't find <br>:(
+    </div>
     <h2 class="film-title">${original_name}</h2>
     <h3 class="film-genre">${strGenres} | ${dataFilm} <span>${vote_average}</span></h3>
     </div>
