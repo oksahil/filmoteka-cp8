@@ -17,7 +17,7 @@ export default class fireStorage {
   }
   set watched(newWatched) {
     this._watched = newWatched;
-    onAuthStateChanged(auth, user => {
+    onAuthStateChanged((auth, user) => {
       if (user) {
         const dataLib = `users/${user.uid}/libs/watched`;
 
@@ -30,7 +30,7 @@ export default class fireStorage {
   }
   set queue(newQueue) {
     this._queue = newQueue;
-    onAuthStateChanged(auth, user => {
+    onAuthStateChanged((auth, user) => {
       if (user) {
         const dataLib = `users/${user.uid}/libs/queue`;
 
@@ -39,7 +39,7 @@ export default class fireStorage {
     });
   }
   removeWatched() {
-    onAuthStateChanged(auth, user => {
+    onAuthStateChanged((auth, user) => {
       if (user) {
         const dataLib =
           `users/${user.uid}/libs/watched` + Object.keys(this._watched);
@@ -49,7 +49,7 @@ export default class fireStorage {
     });
   }
   removeQueue() {
-    onAuthStateChanged(auth, user => {
+    onAuthStateChanged((auth, user) => {
       if (user) {
         const dataLib =
           `users/${user.uid}/libs/watched` + Object.keys(this._queue);
