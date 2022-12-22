@@ -36,6 +36,7 @@
 .film-item {
     display: flex;
     transition: all linear 250ms;
+    border-radius: 8px;
 }
 
 .film-item:hover {
