@@ -55,7 +55,7 @@ export const filmTemplate = ({ poster_path, original_name, release_date, genre_i
         return `<li class="film-item list" id="${id}">
     <div class="films">
     <div class="text-img">
-    Sorry,<br>poster for film don't find <br>:(
+    Sorry,<br>haven't found such a poster <br>:(
     </div>
     <h2 class="film-title">${original_name}</h2>
     <h3 class="film-genre">${strGenres} | ${dataFilm} <span>${vote_average}</span></h3>
