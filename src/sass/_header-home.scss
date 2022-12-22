@@ -29,8 +29,37 @@
 .film {
     width: 24px;
     height: 24px;
+    position: relative;
+  bottom: 23px;
+   stroke: #FFFFFF;
+    
+  &:hover,
+  &:focus,
+  &:active {
+    animation-play-state: paused;
+    stroke: #FF001B;
+  }
 
+  animation: pulsing 2s infinite;}
+
+
+@keyframes pulsing {
+  0% {
+  
+    transform: scale(0.8, 0.8) rotate(10deg);
+  }
+  50% {
+  
+    transform: scale(1.0, 1.0) rotate(0deg);
+  }
+  100% {
+
+    transform: scale(0.8, 0.8) rotate(10deg);
+  }
+  
 }
+
+
 
 .navigation-main-list {
     display: flex;
@@ -61,7 +90,6 @@
         align-items: center;
         text-align: center;
         text-transform: uppercase;
-    
         color: #FFFFFF;
 }
 
@@ -97,11 +125,16 @@
 }
 
 .search-form {
-    margin-top: 53px;
-    text-align: center;
+    top: 53px;
+  display: flex;
+  position: relative;
+  width: 280px;
+  margin: 0 auto 22px;
+  justify-content: center;
 }
 
 .search-input {
+    width: 100%;
     background-color: transparent;
     width: 280px;
     height: 20px;
@@ -110,25 +143,65 @@
     border-bottom-color: #FFFFFF;
     line-height: calc(16px /14px);
     color: #FFFFFF;
+
         &::placeholder {
-        
+
             font-size: 14px;
             line-height: calc(16px /14px);
             text-justify: auto;
-            
-        
-            color: #FFFFFF;
-        
+            color: #757171;
 
     }
-   
+&:hover,
+  &:focus,
+  &:active {
+    outline: none;
+    border-bottom: 1px solid #FF001B;
+  }
+ transition-property: border-bottom;
+  transition-duration: 250ms;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  
+}
+
+
+.search-btn {
+position: absolute;
+  left: 0;
+  bottom: 4px;
+
+
+
+  padding: 0;
+
+  background-color: transparent;
+  border: transparent;
+
+  color: #FFFFFF;
+  .search-input:focus ~ & {
+    color: #FF001B;
+  }
+}
+.search-icon{
+    position: absolute;
+  left: 260px;
+  bottom: 2px;
+  stroke: #FFFFFF;
+    fill: none;
+  &:hover,
+  &:focus,
+  &:active {
+    stroke: #FF001B;
+    cursor: pointer;
+  }
+ 
 }
 @media screen and (min-width: 768px) {
     .search-input {
         width: 336px;
     }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1280px) {
     .search-input {
         width: 394px;
     }
