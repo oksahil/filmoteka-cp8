@@ -87,7 +87,23 @@
 // };
 
 // const onQueue = () => {
-//   console.log('anotha test');
+//    onAuthStateChanged((auth, user) => {
+//      if (user) {
+//        const libUserId = `users/${user.uid}/lib/queue/`;
+
+//        get(ref(db, libUserId))
+//          .then(snapshot => {
+//            if (snapshot.exists()) {
+//              const dataId = Object.keys(snapshot.val());
+//            } else {
+//              libraryList.innerHTML = '';
+//            }
+//          })
+//          .catch(error => {
+//            console.log(error);
+//          });
+//      }
+//    });
 // };
 
 // const renderById = async (dataId) => {
