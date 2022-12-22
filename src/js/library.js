@@ -15,6 +15,7 @@ const KEY = '27a3692489226a6f77b57cb0bdb9ce9a';
 const URL = 'https://api.themoviedb.org/3/search/movie?api_key=';
 
 const app = initializeApp(firebaseConfig);
+console.log(app);
 
 const refs = {
     input: document.querySelector('.search-input'),
@@ -33,55 +34,55 @@ const { watchedInfo, queueInfo } = data;
 new fireStorage(watchedInfo, queueInfo);
 const filmsApi = new ApiService();
 
-// const onWatchedBlankClick = () => {
-//     // const filmTitle = document.querySelector('.film-title')
-//     // const modalWatch = document.querySelector('.modal-watch')
-//     watchedInfo[e.target.dataset.id] = filmTitle.textContent;
-//     const firebase = new fireStorage(watchedInfo, queueInfo);
-//     firebase.removeWatched();
+const onWatchedBlankClick = () => {
+    const filmTitle = document.querySelector('.film-title')
+    const modalWatch = document.querySelector('.modal-watch')
+    watchedInfo[e.target.dataset.id] = filmTitle.textContent;
+    const firebase = new fireStorage(watchedInfo, queueInfo);
+    firebase.removeWatched();
 
-//     onAuthStateChanged = (auth, user) => {
-//       if (user) {
-//         const libUserId = `users/${user.uid}/lib/watched/`;
+    onAuthStateChanged = (auth, user) => {
+      if (user) {
+        const libUserId = `users/${user.uid}/lib/watched/`;
 
-//         get(ref(db, libUserId))
-//           .then(snapshot => {
-//             if (snapshot.exists()) {
-//               const dataId = Object.keys(snapshot.val());
-//             } else {
-//               libraryList.innerHTML = '';
-//             }
-//           })
-//           .catch(error => {
-//             console.log(error);
-//           });
-//         }
-//         else {
-//         firebase.watched = {
-//             [e.target.dataset.id]: filmTitle.textContent,
-//           }
+        get(ref(db, libUserId))
+          .then(snapshot => {
+            if (snapshot.exists()) {
+              const dataId = Object.keys(snapshot.val());
+            } else {
+              libraryList.innerHTML = '';
+            }
+          })
+          .catch(error => {
+            console.log(error);
+          });
+        }
+        else {
+        firebase.watched = {
+            [e.target.dataset.id]: filmTitle.textContent,
+          }
           
-//           onAuthStateChanged = (auth, user) => {
-//             if (user) {
-//               const libUserId = `users/${user.uid}/lib/watched/`;
+          onAuthStateChanged = (auth, user) => {
+            if (user) {
+              const libUserId = `users/${user.uid}/lib/watched/`;
 
-//               get(ref(db, libUserId))
-//                 .then(snapshot => {
-//                   if (snapshot.exists()) {
-//                     const dataId = Object.keys(snapshot.val());
-//                   } else {
-//                     libraryList.innerHTML = '';
-//                   }
-//                 })
-//                 .catch(error => {
-//                   console.log(error);
-//                 });
-//             }
-//           };
-//     }
-//     }
+              get(ref(db, libUserId))
+                .then(snapshot => {
+                  if (snapshot.exists()) {
+                    const dataId = Object.keys(snapshot.val());
+                  } else {
+                    libraryList.innerHTML = '';
+                  }
+                })
+                .catch(error => {
+                  console.log(error);
+                });
+            }
+          };
+    }
+    }
 
-// }
+}
 
 const onWatched = () => {
     onAuthStateChanged = (auth, user) => {
@@ -102,7 +103,23 @@ const onWatched = () => {
 };
 
 const onQueue = () => {
-  console.log('anotha test');
+  onAuthStateChanged = (auth, user) => {
+    if (user) {
+      const libUserId = `users/${user.uid}/lib/queue/`;
+
+      get(ref(db, libUserId))
+        .then(snapshot => {
+          if (snapshot.exists()) {
+            const dataId = Object.keys(snapshot.val());
+          } else {
+            libraryList.innerHTML = '';
+          }
+        })
+        .catch(error => {
+          console.log(error);
+        });
+    }
+  };
 };
 
 const renderById = async (dataId) => {
