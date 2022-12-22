@@ -1,0 +1,24 @@
+.btn-auth {
+  width: 70px;
+  height: 28px;
+  margin-left: 20px;
+  padding: 3px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: contain;
+  cursor: pointer;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:focus,
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
+    filter: drop-shadow(0px 8px 25px rgba(255, 107, 1, 0.6));
+  }
+}
