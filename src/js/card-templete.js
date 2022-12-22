@@ -3,8 +3,7 @@ import { rendserIds } from '/src/index';
 export const cardTemplate = ({original_title,vote_average,vote_count,popularity,genres,overview,poster_path}) =>
  `<li class="card-item list">
     <div class="picture_container">
-        <img class="film-img"
-            src="https://image.tmdb.org/t/p/w500/${poster_path}">
+        <img class="film-img" src="https://image.tmdb.org/t/p/w500/${poster_path}">
     </div>
 
     <div>
@@ -32,5 +31,6 @@ export const cardTemplate = ({original_title,vote_average,vote_count,popularity,
          
         <button class="add-watched-btn btn" type="button">ADD TO WATCHED</button>
         <button class="add-queue-btn btn" type="button">ADD TO QUEUE</button> 
+    </div>
     </div>
 </li>`;
