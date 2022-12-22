@@ -6,7 +6,6 @@ export const cardTemplate = ({original_title,vote_average,vote_count,popularity,
         <img class="film-img" src="https://image.tmdb.org/t/p/w500/${poster_path}">
     </div>
 
-
     <div>
     
         <h2 class="film-title">${original_title}</h2>

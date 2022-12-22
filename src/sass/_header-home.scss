@@ -1,29 +1,25 @@
-
-
 .header_home {
-    background-color: #2F303A;
-    background-image: url(/src/images/abstract-background-mob.jpg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-    // margin: 0px auto;
-    height: 230px;
-
+  background-color: #2f303a;
+  background-image: url(/src/images/abstract-background-mob.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  // margin: 0px auto;
+  height: 230px;
 }
 
 @media screen and (min-width: 768px) {
-    .header_home {
-        background-image: url(/src/images/abstract-background-tab.jpg);
-        height: 216px;
-    }
+  .header_home {
+    background-image: url(/src/images/abstract-background-tab.jpg);
+    height: 216px;
+  }
 }
 
 @media screen and (min-width: 1280px) {
-    .header_home {
-        background-image: url(/src/images/abstract-background.jpg);
-        height: 216px;
-
-    }
+  .header_home {
+    background-image: url(/src/images/abstract-background.jpg);
+    height: 216px;
+  }
 }
 
 .film {
@@ -58,6 +54,7 @@
     transform: scale(0.8, 0.8) rotate(10deg);
   }
   
+
 }
 
 
@@ -67,85 +64,74 @@
 
 
 .navigation-main-list {
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
 }
 
 .navigation-list-ferst {
-    display: flex;
-    gap: 8px;
-    padding-top: 40px;
-
+  display: flex;
+  gap: 8px;
+  padding-top: 40px;
 }
 
 .navigation-list-second {
-    display: flex;
-    gap: 40px;
-    padding-top: 49px;
-
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding-top: 49px;
 }
 
 .nav-text {
-        font-style: normal;
-        font-weight: 500;
-        font-size: 12px;
-        line-height: calc(14px /12px);
-        align-items: center;
-        text-align: center;
-        text-transform: uppercase;
-        color: #FFFFFF;
-        transition: all linear 250ms;
-}
+  font-style: normal;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: calc(14px / 12px);
+  align-items: center;
+  text-align: center;
+  text-transform: uppercase;
 
-.nav-text:hover {
-  font-weight: 900;
-  color: #cbcbcb;
+  color: #ffffff;
+
 }
 
 .nav-logo {
-    font-weight: 500;
-    font-size: 30px;
+  font-weight: 500;
+  font-size: 30px;
 
-    line-height: calc(35px /30px);
-    display: none;
-    align-items: center;
-    text-align: center;
+  line-height: calc(35px / 30px);
+  display: none;
+  align-items: center;
+  text-align: center;
 
-    color: #FFFFFF;
-    transition: all linear 250ms;
-}
 
-.navigation-item-ferst:hover {
-  .nav-logo{
-    font-weight: 700;
-  }
+  color: #ffffff;
+
 }
 
 @media screen and (min-width: 768px) {
-    .nav-logo {
-        display: flex;
-    }
+  .nav-logo {
+    display: flex;
+  }
 }
 
 .aktive {
-    position: relative;
+  position: relative;
 }
 
 .aktive::after {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 3px;
-    background: #FF001B;
-    // border-radius: 5px;
-    left: 0;
-    bottom: -3px;
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 3px;
+  background: #ff001b;
+  // border-radius: 5px;
+  left: 0;
+  bottom: -3px;
 }
 
 .search-form {
-    top: 53px;
+  top: 53px;
   display: flex;
   position: relative;
   width: 280px;
@@ -182,7 +168,6 @@
  transition-property: border-bottom;
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  
 }
 
 
@@ -219,9 +204,9 @@ position: absolute;
 }
 
 @media screen and (min-width: 768px) {
-    .search-input {
-        width: 336px;
-    }
+  .search-input {
+    width: 336px;
+  }
 }
 
 @media screen and (min-width: 1280px) { 
@@ -239,17 +224,20 @@ margin-top: 80px;
     color: #FF001B;
 }
 
-.navigation-item-ferst {
-  margin: auto;
-  cursor: pointer;
-}
 
-// input.search-input::-ms-clear {
-//   display: none;
-//   width: 0;
-//   height: 0;
+// .navigation-item-ferst {
+//   margin: auto;
+//   cursor: pointer;
 // }
 
-input[type="search"]::-webkit-search-cancel-button {
-  -webkit-appearance: none;
-}
+// // input.search-input::-ms-clear {
+// //   display: none;
+// //   width: 0;
+// //   height: 0;
+// // }
+
+// input[type="search"]::-webkit-search-cancel-button {
+//   -webkit-appearance: none;
+// }
+
+
