@@ -151,6 +151,18 @@ margin-left: 16px;
         color: #FFFFFF;
 }
 
+.btn-text-library {
+    font-weight: 500;
+    font-size: 12px;
+
+    line-height: calc(16px /12px);
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #000000;
+}
+
 .btn {
 width: 130px;
     height: 44px;

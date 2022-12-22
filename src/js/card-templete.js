@@ -1,4 +1,4 @@
-import { rendserIds } from '/src/index';
+// import { rendserIds } from '/src/index';
 
 export const cardTemplate = ({original_title,vote_average,vote_count,popularity,genres,overview,poster_path}) =>
  `<li class="card-item list">
@@ -7,6 +7,7 @@ export const cardTemplate = ({original_title,vote_average,vote_count,popularity,
     </div>
 
     <div>
+    
         <h2 class="film-title">${original_title}</h2>
 
         <ul class="info-film list">
@@ -25,11 +26,12 @@ export const cardTemplate = ({original_title,vote_average,vote_count,popularity,
 
         <h3 class="modal-about to-upercase">About</h3>
         <p class="modal-overwiew">${overview}</p>
-    </div>   
+       
 
     <div class="modal-btn-list">
-         
-        <button class="add-watched-btn btn" type="button">ADD TO WATCHED</button>
+        
+        <button class="add-watched-btn "watched-btn btn-text-library btn" type="button">ADD TO WATCHED</button>
+
         <button class="add-queue-btn btn" type="button">ADD TO QUEUE</button> 
     </div>
     </div>
