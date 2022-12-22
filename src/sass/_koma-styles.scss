@@ -1,16 +1,36 @@
-// .card-item {
-//     letter-spacing: 0.05em;
-// }
+.card-item {
+    @media screen and (min-width:768px) {
+        display: flex;
+        justify-content: space-between;
+    }
+}
 .picture_container {
     width: 240px;
+    margin-bottom: 20px;
     @media screen and (min-width:768px) {
-        width: 264px;
+        min-width: 264px;
+        height: 374px;
+        margin-right: 68px;
     }
-    
+    @media screen and (min-width:1280px) {
+       width: 375px;
+       height: 478px;
+       margin-right: 16px;
+       margin-bottom: 0;
+       & img {height: 478px;}
+    }
+}
+.modal-textcontainer {
+    @media screen and (min-width:768px) {
+       width: 264px;
+    }
+    @media screen and (min-width:1280px) {
+       width: 391px;
+    }
 }
 
 .film-title {
-    margin-top: 20px;
+    margin-top: 0;
     margin-bottom: 20px;
 
     font-family: 'Roboto';
@@ -49,7 +69,7 @@
 
 .vote-highlighted {
     display: inline-block;
-    padding: 2px;
+    padding-top: 3px;
     width: 36px;
     height: 16px;
 
