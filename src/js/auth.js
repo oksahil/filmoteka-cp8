@@ -25,21 +25,21 @@ const btnLibrary = document.querySelector('.js-library');
 console.log(btnAuth);
 console.log(btnLibrary);
 
-function checkLogSatus() {
-  btnLibrary.style.display = 'none';
-  btnAuth.textContent = 'Log in';
+// function checkLogSatus() {
+//   btnLibrary.style.display = 'none';
+//   btnAuth.textContent = 'Log in';
 
-  onAuthStateChanged(auth, user => {
-    if (user) {
-      btnLibrary.style.display = 'block';
-      btnAuth.setAttribute('actions', 'logged');
-      btnAuth.textContent = 'Log out';
-    } else {
-      btnAuth.setAttribute('actions', 'out');
-    }
-  });
-  btnAuth.addEventListener('click', authHandler);
-}
+//   onAuthStateChanged(auth, user => {
+//     if (user) {
+//       btnLibrary.style.display = 'block';
+//       btnAuth.setAttribute('actions', 'logged');
+//       btnAuth.textContent = 'Log out';
+//     } else {
+//       btnAuth.setAttribute('actions', 'out');
+//     }
+//   });
+//   btnAuth.addEventListener('click', authHandler);
+// }
 
 function authHandler(e) {
   if (e.currentTarget.getAttribute('actions') === 'logged') {
