@@ -8,7 +8,8 @@ refs.list.addEventListener('click', onCardClickOpenModal);
 refs.closeModalBtn.addEventListener('click', toggleModal);
 
 function onCardClickOpenModal(e) {
-    // console.dir(e.target.closest('.film-item').id);
+    // console.log(e.target.closest('.film-item'));
+    console.log(e);
     const filmTemplateId =e.target.closest('.film-item').id;
     toggleModal();
 
