@@ -7,7 +7,7 @@ import { fetchFilm } from '/src/js/fetch-film';
 // import { filmTemplate } from '/src/js/film-templete';
 import { listg } from '/src/js/fetch-genres';
 
-import './js/auth';
+// import './js/auth';
 
 var debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 1000;
