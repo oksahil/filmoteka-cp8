@@ -35,7 +35,7 @@ refs.input.addEventListener('input', debounce(fetchFilm), DEBOUNCE_DELAY);
 export let items = [];
 export let strGenres = [];
 
-export const filmTemplate = ({ poster_path, original_name, release_date, genre_ids, first_air_date,id, original_title }) => {
+export const filmTemplate = ({ poster_path, original_name, release_date, genre_ids, first_air_date,id, original_title,vote_average }) => {
     renderIds(genre_ids, listg);
     console.log('strGenres', strGenres);
     if (genre_ids === '') {
@@ -56,7 +56,7 @@ export const filmTemplate = ({ poster_path, original_name, release_date, genre_i
     <div class="films">
     <img class="film-img" src="/src/images/error_img.jpg">
     <h2 class="film-title">${original_name}</h2>
-    <h3 class="film-genre">${strGenres} | ${dataFilm}</h3>
+    <h3 class="film-genre">${strGenres} | ${dataFilm} <span>${vote_average}</span></h3>
     </div>
     </li>`;
     } else {
@@ -64,7 +64,7 @@ export const filmTemplate = ({ poster_path, original_name, release_date, genre_i
     <div class="films">
     <img class="film-img" src="https://image.tmdb.org/t/p/w500/${poster_path}">
     <h2 class="film-title">${original_name}</h2>
-    <h3 class="film-genre">${strGenres} | ${dataFilm}</h3>
+    <h3 class="film-genre">${strGenres} | ${dataFilm} <span class="vote-highlighted">${vote_average.toFixed(1)}</span></h3>
     </div>
     </li>`;
     }

@@ -1,36 +1,42 @@
 import { refs } from '/src/index.js';
 import { fetchFilmInfo } from "/src/js/fetch-film-info";
 import { cardTemplate } from "/src/js/card-templete";
+import { fetchFilmPopularity } from "/src/js/fetch-film-popularity";
 
 console.log(refs);
-refs.list.addEventListener('click', onCardClick);
-// window.addEventListener()
+refs.list.addEventListener('click', onCardClickOpenModal);
+refs.closeModalBtn.addEventListener('click', toggleModal);
 
-function onCardClick(e) {
+function onCardClickOpenModal(e) {
     // console.dir(e.target.closest('.film-item').id);
     const filmTemplateId =e.target.closest('.film-item').id;
     toggleModal();
 
-    fetchFilmInfo(filmTemplateId).then(respFilmInfo);
+    fetchFilmInfo(filmTemplateId).then(respFilmInfo).catch(errorFilmInfo);
 };
 
 function respFilmInfo(resp) {
-    console.log(resp.data);
-    console.log(resp.data.popularity);
+    console.log(resp);
+    // console.log(resp.data.popularity);
 
     refs.cardList.innerHTML = cardTemplate(resp.data);
 
     window.addEventListener('keydown', onEscCloseModal);
     refs.modal.addEventListener('click', onOutsideClickCloseModal);
 };
-
-//   refs.openModalBtn.addEventListener('click', toggleModal);
-refs.closeModalBtn.addEventListener('click', toggleModal);
+function errorFilmInfo(er) {
+    console.log(er);
+    // fetchFilmPopularity();
+    // refs.cardList.innerHTML = "Sorry we can't load film data!";
+    window.addEventListener('keydown', onEscCloseModal);
+    refs.modal.addEventListener('click', onOutsideClickCloseModal);
+};
 
 function toggleModal() {
     refs.modal.classList.toggle('is-hidden');
 };
 
+// ----------------- CLOSE MODAL------------------------------
 function onEscCloseModal(e) {
     if (e.code !== 'Escape') {
         return;
