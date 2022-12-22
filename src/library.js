@@ -10,7 +10,7 @@ import fireStorage from './js/Firebase/fireStorage';
 
 import { ApiService } from './js/Firebase/api-service';
 
-const DEBOUNCE_DELAY = 300;
+const DEBOUNCE_DELAY = 1000;
 const KEY = '27a3692489226a6f77b57cb0bdb9ce9a';
 const URL = 'https://api.themoviedb.org/3/search/movie?api_key=';
 
