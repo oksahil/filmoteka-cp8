@@ -23,11 +23,13 @@
     }
 }
 
-.film {
-    width: 24px;
-    height: 24px;
-
-}
+// .film {
+//     width: 28px;
+//     height: 24px;
+//   position: relative;
+//   bottom: 23px;
+//     cursor: pointer;
+// }
 
 .navigation-main-list {
     display: flex;
@@ -147,6 +149,18 @@ margin-left: 16px;
         text-transform: uppercase;
     
         color: #FFFFFF;
+}
+
+.btn-text-library {
+    font-weight: 500;
+    font-size: 12px;
+
+    line-height: calc(16px /12px);
+    align-items: center;
+    text-align: center;
+    text-transform: uppercase;
+
+    color: #000000;
 }
 
 .btn {

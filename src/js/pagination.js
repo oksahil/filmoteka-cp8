@@ -17,11 +17,23 @@ const pageNumbers = (total, max, current) => {
   return Array.from({ length: Math.min(total, max) }, (_, i) => i + 1 + from);
 };
 
-function createPagination(
+export const destroyPagination = () => {
+  const paginationButtons = document.querySelector('.pagination-buttons');
+  if (paginationButtons) {
+    paginationButtons.remove();
+  }
+};
+
+export function createPagination(
   totalPages = 50,
   maxPagesVisible = 5,
   currentPage = 1
 ) {
+  // destroy pagination if it exists already on the page
+  const destroy = destroyPagination;
+
+  destroy();
+
   let pages = pageNumbers(totalPages, maxPagesVisible, currentPage);
   let currentPageBtn = null;
   const buttons = new Map();
@@ -150,26 +162,6 @@ function createPagination(
     render,
     update,
     onChange,
+    destroy,
   };
-}
-
-const paginationButtons = createPagination(50, 10, 1);
-
-paginationButtons.render(document.querySelector('.pagination-wrapper'));
-
-paginationButtons.onChange(e => {
-  console.log(e.target.value);
-});
-
-const refsBtn = {
-  startPageBtn: document.querySelector('.pagination-buttons'),
-  prevPageBtn: document.querySelector('.prev-page'),
-  nextPageBtn: document.querySelector('.next-page'),
-  endPageBtn: document.querySelector('.end-page'),
-};
-
-refsBtn.startPageBtn.addEventListener('click', www);
-
-function www(e) {
-  console.log(e);
 }
