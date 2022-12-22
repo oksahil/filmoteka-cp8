@@ -1,10 +1,11 @@
 :root {
     --color-title: #000000;
     --color-text: #000000;
-    
+
     --bgcolor-aktive: #FF6B01;
     --color-aktive: #FFFFFF;
 }
+
 .is-hidden {
     position: absolute;
     white-space: nowrap;
@@ -100,10 +101,10 @@ body {
 
 
 .logo {
-        font-style: normal;
-        font-weight: 500;
-        font-size: 30px;
-        line-height: calc( 35px /30px );
- 
-        color: #FFFFFF;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 30px;
+    line-height: calc(35px /30px);
+
+    color: #FFFFFF;
 }
