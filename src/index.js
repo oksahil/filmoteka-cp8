@@ -133,6 +133,7 @@ export const filmTemplate = ({
   }
 };
 
+
 // const cardTemplate = ({ poster_path, original_title, release_date, genre_ids, first_air_date, vote_average, vote_count, popularity }) => {
 //     renderIds(genre_ids, listg);
 //     if (genre_ids === '') {
