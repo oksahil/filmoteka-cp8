@@ -44,7 +44,7 @@
 // }
 
 .page-btn {
-  background: #ddd;
+  background: #fff;
   color: #2c303a;
   height: 35px;
   border-radius: 2px;
@@ -73,16 +73,25 @@
 .pagination-buttons {
   display: flex;
   align-items: center;
+   padding: 0;
+ 
+  cursor: pointer;
+  font-family: Roboto;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.333;
 }
 
 .page-btn[class*='-page'] {
-  background: #ccc;
+   background-color: #fff;
+  border: none;
+  color: #ff6b0a;
   font-size: 0.6em;
   font-weight: 700;
 }
 
 .btn-active {
-  background: #717790;
+  background:#ff6b0a ;
   color: #fff;
 }
 
