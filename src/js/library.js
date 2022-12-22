@@ -34,58 +34,41 @@ const { watchedInfo, queueInfo } = data;
 new fireStorage(watchedInfo, queueInfo);
 const filmsApi = new ApiService();
 
-const onWatchedBlankClick = () => {
-    const filmTitle = document.querySelector('.film-title')
-    const modalWatch = document.querySelector('.modal-watch')
-    watchedInfo[e.target.dataset.id] = filmTitle.textContent;
-    const firebase = new fireStorage(watchedInfo, queueInfo);
-    firebase.removeWatched();
+// const onWatchedBlankClick = () => {
+//     const filmTitle = document.querySelector('.film-title')
+//     const modalWatch = document.querySelector('.modal-watch')
+//     watchedInfo[e.target.dataset.id] = filmTitle.textContent;
+//     const firebase = new fireStorage(watchedInfo, queueInfo);
+//     firebase.removeWatched();
 
-    onAuthStateChanged = (auth, user) => {
-      if (user) {
-        const libUserId = `users/${user.uid}/lib/watched/`;
+//     onAuthStateChanged((auth, user) => {
+//       if (user) {
+//         const libUserId = `users/${user.uid}/lib/watched/`;
 
-        get(ref(db, libUserId))
-          .then(snapshot => {
-            if (snapshot.exists()) {
-              const dataId = Object.keys(snapshot.val());
-            } else {
-              libraryList.innerHTML = '';
-            }
-          })
-          .catch(error => {
-            console.log(error);
-          });
-        }
-        else {
-        firebase.watched = {
-            [e.target.dataset.id]: filmTitle.textContent,
-          }
-          
-          onAuthStateChanged = (auth, user) => {
-            if (user) {
-              const libUserId = `users/${user.uid}/lib/watched/`;
+//         get(ref(db, libUserId))
+//           .then(snapshot => {
+//             if (snapshot.exists()) {
+//               const dataId = Object.keys(snapshot.val());
+//             } else {
+//               libraryList.innerHTML = '';
+//             }
+//           })
+//           .catch(error => {
+//             console.log(error);
+//           });
+//         }
+//         else {
+//         firebase.watched = {
+//             [e.target.dataset.id]: filmTitle.textContent,
+//           }
+        
+//     }
+//     })
 
-              get(ref(db, libUserId))
-                .then(snapshot => {
-                  if (snapshot.exists()) {
-                    const dataId = Object.keys(snapshot.val());
-                  } else {
-                    libraryList.innerHTML = '';
-                  }
-                })
-                .catch(error => {
-                  console.log(error);
-                });
-            }
-          };
-    }
-    }
-
-}
+// }
 
 const onWatched = () => {
-    onAuthStateChanged = (auth, user) => {
+    onAuthStateChanged((auth, user) => {
         if (user) {
             const libUserId = `users/${user.uid}/lib/watched/`
 
@@ -99,11 +82,11 @@ const onWatched = () => {
                 console.log(error)
             })
         }
-    }
+    })
 };
 
 const onQueue = () => {
-  onAuthStateChanged = (auth, user) => {
+  onAuthStateChanged((auth, user) => {
     if (user) {
       const libUserId = `users/${user.uid}/lib/queue/`;
 
@@ -119,7 +102,7 @@ const onQueue = () => {
           console.log(error);
         });
     }
-  };
+  })
 };
 
 const renderById = async (dataId) => {
