@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Loading } from "notiflix";
-import { KEY } from "../..";
+import { KEY } from "/src/index";
 
 axios.defaults.baseURL = 'https://api.themoviedb.org/3/'
 
