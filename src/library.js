@@ -8,7 +8,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import { firebaseConfig } from './js/Firebase/firebase-config';
 import fireStorage from './js/Firebase/fireStorage';
 
-// import { ApiService } from './js/Firebase/api-service';
+import { ApiService } from './js/Firebase/api-service';
 
 const DEBOUNCE_DELAY = 300;
 const KEY = '27a3692489226a6f77b57cb0bdb9ce9a';
@@ -31,6 +31,57 @@ const data = {
 const { watchedInfo, queueInfo } = data;
 
 new fireStorage(watchedInfo, queueInfo);
+const filmsApi = new ApiService();
+
+const onWatchedBlankClick = () => {
+    const filmTitle = document.querySelector('.film-title')
+    const modalWatch = document.querySelector('.modal-watch')
+    watchedInfo[e.target.dataset.id] = filmTitle.textContent;
+    const firebase = new fireStorage(watchedInfo, queueInfo);
+    firebase.removeWatched();
+
+    onAuthStateChanged = (auth, user) => {
+      if (user) {
+        const libUserId = `users/${user.uid}/lib/watched/`;
+
+        get(ref(db, libUserId))
+          .then(snapshot => {
+            if (snapshot.exists()) {
+              const dataId = Object.keys(snapshot.val());
+            } else {
+              libraryList.innerHTML = '';
+            }
+          })
+          .catch(error => {
+            console.log(error);
+          });
+        }
+        else {
+        firebase.watched = {
+            [e.target.dataset.id]: filmTitle.textContent,
+          }
+          
+          onAuthStateChanged = (auth, user) => {
+            if (user) {
+              const libUserId = `users/${user.uid}/lib/watched/`;
+
+              get(ref(db, libUserId))
+                .then(snapshot => {
+                  if (snapshot.exists()) {
+                    const dataId = Object.keys(snapshot.val());
+                  } else {
+                    libraryList.innerHTML = '';
+                  }
+                })
+                .catch(error => {
+                  console.log(error);
+                });
+            }
+          };
+    }
+    }
+
+}
 
 const onWatched = () => {
     onAuthStateChanged = (auth, user) => {
@@ -47,16 +98,26 @@ const onWatched = () => {
                 console.log(error)
             })
         }
-        
-        // get(ref(db, userId)).then(snapshot => {
-        //     console.log(snapshot)
-        // })
     }
 };
 
 const onQueue = () => {
   console.log('anotha test');
 };
+
+const renderById = async (dataId) => {
+    try {
+        const dataArr = dataId.map(async id => {
+            filmsApi.id = id;
+            return await filmsApi.fetchId();
+        })
+        const films = await Promise.all(dataArr);
+
+    }
+    catch {
+
+    }
+}
 
 refs.watched.addEventListener('click', onWatched);
 refs.queue.addEventListener('click', onQueue);
