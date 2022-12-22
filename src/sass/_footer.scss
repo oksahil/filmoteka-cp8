@@ -35,13 +35,39 @@ text-align: center;
             line-height: calc(19px /16px);
     }
 }
-.heard {
+.icon-favorite {
+    fill: #ff6b0a;
     width: 14px;
     height: 13px;
     align-items: center;
     text-align: center;
     justify-content: center;
     align-content: center;
+    position: relative;
+    top: 3px;
+      cursor: pointer;
+      animation-name: 'anime';
+	
+	animation-duration: 600ms;
+	
+	animation-iteration-count: infinite;
+	
+	animation-direction: alternate;
+		
+	animation-timing-function: ease-in;
+@keyframes anime {
+	from {
+		transform: scale(1);
+	}
+	to {
+		transform: scale(1.3);
+	}
+}
+
+  &:hover,
+  &:focus {
+    animation-play-state: paused;
+  }
 }
 .footer-list {
     align-items: center;
