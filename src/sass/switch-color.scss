@@ -1,0 +1,88 @@
+body.dark-theme {
+    background-color: #21282f;
+    color: var(--color-aktive);
+}
+
+body.light-theme {
+    background-color: var(--color-aktive);
+    color: var(--color-text);
+}
+
+.light-theme {
+    background-color: #F7F7F7;
+    color: #545454;
+}
+
+.dark-theme {
+    color:  var(--color-aktive);
+    background-color: #1a1f24;
+}
+
+.switch {
+    display: flex;
+    justify-content: flex-end;
+    padding: 16px 24px;
+    margin: 0 auto;
+    position: absolute;
+    right: 15;
+    top: 160px;
+}
+
+.switch__wrap {
+    display: flex;
+    align-items: center;
+}
+
+.switch__input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    opacity: 0;
+    height: 0;
+    width: 0;
+    pointer-events: none;
+}
+
+.switch__input:checked ~.switch__marker {
+    transform: translateX(18px);
+}
+
+.switch__control {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    position: relative;
+    width: 36px;
+    height: 18px;
+    border-radius: 50em;
+    padding: 3px 0;
+}
+
+.switch__label {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    color: transparent;
+    user-select: none;
+    background-color: #293434;
+    border-radius: inherit;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.switch__marker {
+    position: relative;
+    background-color: #fff;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    z-index: 2;
+    pointer-events: none;
+    box-shadow: 0 1px 1px rgb(0 0 0 / 25%);
+    transform: translateX(3px);
+    transition: transform .25s cubic-bezier(0.4, 0, 0.2, 1);
+}
