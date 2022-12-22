@@ -28,7 +28,6 @@
     line-height: calc(24px /20px);
     margin-top: 10px;
     padding-left: 0px;
-    color: #000000;
     text-transform: uppercase;
 }
 
@@ -60,7 +59,7 @@
 }
 .films {
     width: 280px;
-    background-color: #ffffff;
+    gap: 32px;
     // gap: 32px;
 
 }
@@ -76,4 +75,35 @@
     .films {
         width: 394px;
     }
+} 
+
+.text-img {
+    width: 280px;
+    height: 402px;
+    background-color: #c2bbb6;
+    font-weight: 500;
+    font-size: 50px;
+    line-height: calc(65px /50px);
+    border-radius: 5px;
+    text-align: center;
+    padding-top: 100px;
+}
+@media screen and (min-width: 768px) {
+    .text-img {
+        width: 336px;
+        height: 455px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .text-img {
+        width: 394px;
+        height: 574px;
+    }
+}
+
+.text-smile {
+    font-weight: 500;
+        font-size: 65px;
+        line-height: calc(80px /65px);
 }
