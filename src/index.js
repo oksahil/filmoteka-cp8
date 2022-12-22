@@ -73,6 +73,7 @@ export const filmTemplate = ({ poster_path, original_name, release_date, genre_i
 };
 
 
+
 // const cardTemplate = ({ poster_path, original_title, release_date, genre_ids, first_air_date, vote_average, vote_count, popularity }) => {
 //     renderIds(genre_ids, listg);
 //     if (genre_ids === '') {
@@ -150,7 +151,7 @@ function renderIds(genre_ids, listg) {
     for (const i of genre_ids) { 
         for (const l of listg) {
             if (l.id === i) {
-                strGenres.push(l.name);
+                strGenres.push(` ${l.name}`);
             }
         }
     }
