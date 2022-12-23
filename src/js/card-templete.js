@@ -1,10 +1,17 @@
 // import { rendserIds } from '/src/index';
 
 const imgUrl = "https://image.tmdb.org/t/p/w500/";
-export const cardTemplate = ({original_title,vote_average,vote_count,popularity,genres,overview,poster_path},currentPictSrc) =>
+export const cardTemplate = ({
+    original_title = "no data",
+    vote_average,
+    vote_count,
+    popularity,
+    genres,
+    overview = "no data",
+    poster_path }) =>
  `<li class="modal_card_container list">
     <div class="modal_pict_container">
-        <img class="film-img" src="${poster_path === null?currentPictSrc:imgUrl + poster_path}">
+        <img class="film-img" src="${poster_path === null?"/src/images/BOX.jpg":imgUrl + poster_path}">
     </div>
 
     <div class="modal_text_container">
@@ -13,7 +20,7 @@ export const cardTemplate = ({original_title,vote_average,vote_count,popularity,
 
         <ul class="modal_filminfo list">
             <li class="filminfo_left"><p class="modal_filminfo-data">Vote / Votes</p></li>
-            <li class="filminfo_right"><p class="modal_filminfo-data"><span class="vote-highlighted">${vote_average.toFixed(1)}</span> / ${vote_count}</p></li>
+            <li class="filminfo_right"><p class="modal_filminfo-data"><span class="vote_highlighted">${vote_average.toFixed(1)}</span> / ${vote_count}</p></li>
 
             <li class="filminfo_left"><p class="modal_filminfo-data">Popularity</p></li>
             <li class="filminfo_right"><p class="modal_filminfo-data">${popularity}</p></li>
@@ -22,7 +29,7 @@ export const cardTemplate = ({original_title,vote_average,vote_count,popularity,
             <li class="filminfo_right"><p class="modal_filminfo-data to-upercase">${original_title}</p></li>
 
             <li class="filminfo_left"><p class="modal_filminfo-data">Genre</p></li>
-            <li class="filminfo_right"><p class="modal_filminfo-data">${genres.map(genr=>genr.name).join(', ')}</p></li>
+            <li class="filminfo_right"><p class="modal_filminfo-data">${genres.length === 0?"no data":genres.map(genr=>genr.name).join(', ')}</p></li>
         </ul>
 
         <h3 class="modal_text_container-about to-upercase">About</h3>
@@ -36,3 +43,5 @@ export const cardTemplate = ({original_title,vote_average,vote_count,popularity,
         </div>
     </div>
 </li>`;
+
+// <img class="film-img" src="${poster_path === null?currentPictSrc:imgUrl + poster_path}">

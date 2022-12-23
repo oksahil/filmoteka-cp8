@@ -156,23 +156,38 @@
     display: inline-block;
     margin-bottom: 8px;
 }
-.vote-highlighted {
+.vote_highlighted {
     display: inline-block;
     padding-top: 1px;
     padding-left: 8px;
     width: 36px;
     height: 16px;
 
-
     font-weight: 500;
     font-size: 12px;
     line-height: 1.17;
     vertical-align: middle;
 
-
     color: #FFFFFF;
     background: var(--bgcolor-aktive);
     border-radius: 5px;
+}
+// .vote_highlighted-main {
+//     display: inline-block;
+//     padding-top: 3px;
+//     padding-left: 11px;
+//     width: 40px;
+//     height: 20px;
+
+//     font-weight: 500;
+//     font-size: 12px;
+//     line-height: 1.17;
+//     color: #FFFFFF;
+//     background: var(--bgcolor-aktive);
+//     border-radius: 5px;
+// }
+.leveling {
+    text-align: center;
 }
 
 
