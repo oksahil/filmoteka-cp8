@@ -173,11 +173,6 @@ width: 130px;
     border: #FFFFFF solid 1px;
     background-color: transparent;
     border-radius: 5px;
-
-    transition: color 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-        background-color 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-        box-shadow 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-        border-radius 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 @media screen and (min-width: 768px) {
     .btn {
@@ -195,10 +190,9 @@ width: 130px;
         width: 130px;
         height: 44px;
         color: #FFFFFF;
-        background-color: #FF6B01;
+        background: #FF6B01;
         box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
-        border-radius: 0 15px;
-
+        border-radius: 5px;
 }
 @media screen and (min-width: 768px) {
     .btn:hover,
