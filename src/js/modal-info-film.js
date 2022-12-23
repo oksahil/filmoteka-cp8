@@ -3,9 +3,11 @@ import { fetchFilmInfo } from "/src/js/fetch-film-info";
 import { cardTemplate } from "/src/js/card-templete";
 import { fetchFilmPopularity } from "/src/js/fetch-film-popularity";
 
+
 console.log(refs);
 refs.list.addEventListener('click', onCardClickOpenModal);
 refs.closeModalBtn.addEventListener('click', toggleModal);
+
 
 function onCardClickOpenModal(e) {
     // console.log(e.target.closest('.film-item'));
@@ -35,6 +37,37 @@ function errorFilmInfo(er) {
 
 function toggleModal() {
     refs.modal.classList.toggle('is-hidden');
+};
+
+const addToWatchedList = () => {
+  console.log('hello');
+  // let watchArr = [];
+  // const watchArrJson = getLocalSt('watched');
+  // console.log(watchArrJson);
+  // if (watchArrJson) {
+  //     watchArr = [...watchArrJson];
+  // }
+  // let queueArr = [];
+  // const queueArrJson = getLocalSt('queue');
+  // if (watchArrJson) {
+  //   queueArr = [...queueArrJson];
+  // }
+  // const watchSet = new Set(watchArr);
+  // if (watchSet.has(id)) {
+  //     console.log("it's watching time")
+  // } else {
+  //     watchArr.push(id);
+  //     setLocalSt('watched', watchArr);
+  // }
+
+  // const queueSet = new Set(queueArr);
+  // if (queueSet.has(id)) {
+  //   remLocalSt('queue');
+
+  // let index = queueArr.indexOf(id);
+  // queueArr.splice(index, 1);
+  //     setLocalSt('queue', queueArr);
+  //     }
 };
 
 // ----------------- CLOSE MODAL------------------------------

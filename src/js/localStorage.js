@@ -22,9 +22,3 @@ export const remLocalSt = (key) => {
     console.log('Error', error);
   }
 };
-
-export {
-    getLocalSt,
-    setLocalSt, 
-    remLocalSt
-}
