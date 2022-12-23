@@ -48,15 +48,20 @@
 }
 
 .vote-highlighted {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
     padding: 2px;
     width: 36px;
     height: 16px;
 
+
     font-weight: 500;
     font-size: 12px;
-    line-height: 1.16;
-    text-align: center;
+    line-height: 1.17;
+    vertical-align: middle;
+
 
     color: #FFFFFF;
     background: var(--bgcolor-aktive);
