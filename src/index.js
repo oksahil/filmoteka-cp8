@@ -25,6 +25,7 @@ export const refs = {
   cardList: document.querySelector('.card-list'),
   error: document.querySelector('.error'),
   searchForm: document.querySelector('.search-form'),
+  addWatched: document.querySelector('.add-watched-btn'),
 };
 document.addEventListener('DOMContentLoaded', main);
 // const fetchFilmsWithDebounce = debounce(renderSearchFilms, DEBOUNCE_DELAY);
@@ -115,7 +116,7 @@ export const filmTemplate = ({
     return `<li class="film-item list" id="${id}">
     <div class="films">
     <div class="text-img">
-    Sorry,<br>poster for film don't find <br>:(
+    Sorry,<br>haven't found such a poster <br>:(
     </div>
     <h2 class="film-title">${original_name}</h2>
     <h3 class="film-genre">${strGenres} | ${dataFilm} <span>${vote_average}</span></h3>
