@@ -5,6 +5,9 @@
     background-position: center;
     background-size: cover;
     height: 230px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
 
 @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
@@ -255,4 +258,12 @@ input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
 }
 
+.header-two-input {
+  display: flex;
+  justify-content: end;
+}
+
+.switch {
+  margin-left: 35px;
+}
 

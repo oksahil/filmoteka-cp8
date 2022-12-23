@@ -25,12 +25,12 @@
                                 class="navigation__link link aktive"><span class="nav-text">HOME</span></a></li>
                         <li class="navigation-item-second js-library"><a href="./library.html"
                                 class="navigation__link link"><span class="nav-text">MY LIBRARY</span></a></li>
-                        <li class="navigation-item-second"><button type="button" class="btn-auth js-btn-auth">Log
-                                in</button></li>
                     </ul>
                 </li>
             </ul>
         </nav>
+        <div class="header-two-input">
+        <div class="header-form">
         <form class="search-form" id="search-form">
             <input type="search" class="search-input" name="searchInput" autocomplete="off" placeholder="Search for a movie" />
             <button type="submit" class="search-btn">
@@ -41,6 +41,26 @@
 
             </div>
         </form>
+        </div>
+        <div class="switch">
+            <div class="switch__wrap">
+                <svg class="icon-moon" width="17" height="17">
+                    <use href="/src/images/icons.svg#icon-moon"></use>
+                </svg>
+                <div class="switch__control">
+                    <input type="checkbox" class="switch__input" id="switch__input">
+                    <label class="switch__label" for="switch__input"></label>
+                    <div class="switch__marker"></div>
+                </div>
+                <svg class="icon-sun" width="17px" height="17px">
+                    <use href="/src/images/icons.svg#icon-sun"></use>
+                </svg>
+            </div>
+        </div>
+</div> 
+
+
         <div class="error"></div>
+
     </div>
 </header>
