@@ -8,6 +8,7 @@
     position: fixed;
     top: 0px;
     width: 100%;
+    opacity: 100;
 
 @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
@@ -268,9 +269,10 @@ input[type="search"]::-webkit-search-cancel-button {
   justify-content: space-between;
 }
 
-// .void {
-//   width: 100px;
+.void {
+  width: 100px;
+  color: transparentize($color: transparent, $amount: 0);
 
-// }
+}
 
 
