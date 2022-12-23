@@ -8,7 +8,7 @@ export const getLocalSt = (key) => {
 }
 export const setLocalSt = (key, value) => {
   try {
-      const stringer = JSON.stringify(value);
+      const setten = JSON.stringify(value);
       localStorage.setItem(key, setten);
     
   } catch (error) {

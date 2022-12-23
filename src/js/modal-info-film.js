@@ -3,7 +3,7 @@ import { fetchFilmInfo } from "/src/js/fetch-film-info";
 import { cardTemplate } from "/src/js/card-templete";
 import { fetchFilmPopularity } from "/src/js/fetch-film-popularity";
 import { getLocalSt, setLocalSt, remLocalSt } from './localStorage';
-
+import Notiflix from 'notiflix';
 
 
 console.log(refs);
@@ -25,35 +25,45 @@ function onCardClickOpenModal(e) {
     fetchFilmInfo(filmTemplateId).then(respFilmInfo).catch(errorFilmInfo);
 };
 
-function respFilmInfo(resp) {
-    console.log(resp.data);
-    // console.log(resp.data.popularity);
+function respFilmInfo({ data }) {
+  console.log(data);
+  console.log(data.id);
+  // console.log(resp.data.popularity);
 
-    refs.cardList.innerHTML = cardTemplate(resp.data, currentPictSrc);
-    
-    //-------------------------------------------WATCHED-QUEUE-----------------------------------
+  refs.cardList.innerHTML = cardTemplate(data, currentPictSrc);
 
-    const addWatched = document.querySelector('.add-watched-btn');
+  //-------------------------------------WATCHED-QUEUE----------------------------------------
 
-    const onWatchedModalBtn = () => {
-        console.log('hello');
-        let watchArr = [];
-        const watchArrJson = getLocalSt('watched');
-        console.log(watchArrJson);
-        if (watchArrJson) {
-          watchArr = [...watchArrJson];
-        }
-        let queueArr = [];
-        const queueArrJson = getLocalSt('queue');
-        if (watchArrJson) {
-          queueArr = [...queueArrJson];
-        }
+  const WATCHED_KEY = 'watched';
+  const QUEUE_KEY = 'queue';
+
+  const addQueue = document.querySelector('.add-queue-btn');
+  const addWatched = document.querySelector('.add-watched-btn');
+
+  const onWatchedModalBtn = () => {
+    let watchArr = [];
+    const cardObj = data;
+
+    if (getLocalSt(WATCHED_KEY)) {
+      watchArr.splice(data.id, 1);
+      setLocalSt(WATCHED_KEY, watchArr);
+      Notiflix.Notify.failure('Removed from watched');
+      return;
     }
+    watchArr.push(cardObj);
+    console.log(cardObj.id);
+    const stringedWatchArr = JSON.stringify(watchArr);
+    localStorage.setItem('watched', stringedWatchArr);
+    console.log(stringedWatchArr);
+    addWatched.textContent = 'Added to watched';
+  };
 
-    addWatched.addEventListener('click', onWatchedModalBtn)
+  addWatched.addEventListener('click', onWatchedModalBtn);
 
-    window.addEventListener('keydown', onEscCloseModal);
-    refs.modal.addEventListener('click', onOutsideClickCloseModal);
+  //------------------------------------WATCHED-QUEUE---------------------------
+
+  window.addEventListener('keydown', onEscCloseModal);
+  refs.modal.addEventListener('click', onOutsideClickCloseModal);
 };
 function errorFilmInfo(er) {
     console.log(er);
