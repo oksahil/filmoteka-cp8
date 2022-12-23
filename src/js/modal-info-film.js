@@ -2,6 +2,9 @@ import { refs } from '/src/index.js';
 import { fetchFilmInfo } from "/src/js/fetch-film-info";
 import { cardTemplate } from "/src/js/card-templete";
 import { fetchFilmPopularity } from "/src/js/fetch-film-popularity";
+import { getLocalSt, setLocalSt, remLocalSt } from './localStorage';
+
+
 
 console.log(refs);
 refs.list.addEventListener('click', onCardClickOpenModal);
@@ -28,6 +31,25 @@ function respFilmInfo(resp) {
 
     refs.cardList.innerHTML = cardTemplate(resp.data,currentPictSrc);
 
+    const addWatched = document.querySelector('.add-watched-btn');
+
+    const onWatchedModalBtn = () => {
+        console.log('hello');
+        let watchArr = [];
+        const watchArrJson = getLocalSt('watched');
+        console.log(watchArrJson);
+        if (watchArrJson) {
+          watchArr = [...watchArrJson];
+        }
+        let queueArr = [];
+        const queueArrJson = getLocalSt('queue');
+        if (watchArrJson) {
+          queueArr = [...queueArrJson];
+        }
+    }
+
+    addWatched.addEventListener('click', onWatchedModalBtn)
+
     window.addEventListener('keydown', onEscCloseModal);
     refs.modal.addEventListener('click', onOutsideClickCloseModal);
 };
@@ -42,6 +64,8 @@ function errorFilmInfo(er) {
 function toggleModal() {
     refs.modal.classList.toggle('is-hidden');
 };
+
+
 
 // ----------------- CLOSE MODAL------------------------------
 function onEscCloseModal(e) {
