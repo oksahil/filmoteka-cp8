@@ -18,6 +18,7 @@
 
 .modal-icon-close {
     background: #FFFFFF;
+    
 }
 
 .btn-close {
@@ -28,8 +29,8 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
    
     position: absolute;
-    top: 8px;
-    right: 8px;
+    top: 7px;
+    right: 7px;
     transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover,

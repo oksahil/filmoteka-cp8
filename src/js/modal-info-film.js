@@ -2,6 +2,10 @@ import { refs } from '/src/index.js';
 import { fetchFilmInfo } from "/src/js/fetch-film-info";
 import { cardTemplate } from "/src/js/card-templete";
 import { fetchFilmPopularity } from "/src/js/fetch-film-popularity";
+import { getLocalSt, setLocalSt, remLocalSt } from './localStorage';
+import Notiflix from 'notiflix';
+// import { add } from 'lodash';
+
 
 console.log(refs);
 refs.list.addEventListener('click', onCardClickOpenModal);
@@ -24,8 +28,109 @@ function respFilmInfo(resp) {
     refs.cardList.innerHTML = cardTemplate(resp.data);
     // refs.cardList.innerHTML = cardTemplate(resp.data,currentPictSrc);
 
-    window.addEventListener('keydown', onEscCloseModal);
-    refs.modal.addEventListener('click', onOutsideClickCloseModal);
+  //-------------------------------------WATCHED-QUEUE----------------------------------------
+
+  const WATCHED_KEY = 'watched';
+  const QUEUE_KEY = 'queue';
+
+  const addQueue = document.querySelector('.add-queue-btn');
+  const addWatched = document.querySelector('.add-watched-btn');
+
+  const makeArr = (id, list) => {
+    let newArr = [];
+    let localArr = getLocalSt(list);
+    if (localArr) {
+      newArr = [...localArr];
+    }
+    const arrSet = new Set(newArr);
+    return arrSet.has(id);
+  };
+
+  async function textWatchDelay() {
+    setTimeout(() => {
+      addWatched.textContent = 'Remove from watched';
+      addWatched.disabled = false;
+    }, 1000);
+  }
+  async function textQueueDelay() {
+    setTimeout(() => {
+      addQueue.textContent = 'Remove from queue';
+      addQueue.disabled = false;
+    }, 1000);
+  }
+  const onWatchedModalBtn = e => {
+    let watchArr = [];
+    const watchObj = data;
+
+    if (addWatched.classList.contains('active')) {
+      console.log(data.id);
+      remLocalSt(WATCHED_KEY);
+
+      let index = watchArr.indexOf(data.id);
+      watchArr.splice(index, 1);
+
+      const stringedWatchArr = JSON.stringify(watchArr);
+      localStorage.setItem(WATCHED_KEY, stringedWatchArr);
+      console.log(stringedWatchArr);
+      Notiflix.Notify.failure('Removed from watched');
+      addWatched.classList.remove('active');
+      addWatched.textContent = 'Add to watched';
+      return;
+    }
+    watchArr.push(watchObj);
+
+    const stringedWatchArr = JSON.stringify(watchArr);
+    localStorage.setItem('watched', stringedWatchArr);
+    console.log(stringedWatchArr);
+
+    addWatched.textContent = 'Added from watched';
+    addWatched.disabled = true;
+
+    textWatchDelay();
+    addWatched.classList.add('active');
+  };
+
+  const onQueueModalBtn = e => {
+    console.log('hello!');
+    e.preventDefault();
+    let queueArr = [];
+    const queueObj = data;
+
+    if (addQueue.classList.contains('active')) {
+      console.log(data.id);
+      remLocalSt(QUEUE_KEY);
+
+      let index = queueArr.indexOf(data.id);
+      queueArr.splice(index, 1);
+
+      const stringedQueueArr = JSON.stringify(queueArr);
+      localStorage.setItem(QUEUE_KEY, stringedQueueArr);
+      console.log(stringedQueueArr);
+      Notiflix.Notify.failure('Removed from queue');
+      addQueue.classList.remove('active');
+      addQueue.textContent = 'Add to queue';
+      return;
+    }
+    queueArr.push(queueObj);
+
+    const stringedQueueArr = JSON.stringify(queueArr);
+    localStorage.setItem('queue', stringedQueueArr);
+    console.log(stringedQueueArr);
+
+    addQueue.textContent = 'Added from queue';
+    addQueue.disabled = true;
+
+    textQueueDelay();
+    addQueue.classList.add('active');
+  };
+
+  addWatched.addEventListener('click', onWatchedModalBtn);
+  addQueue.addEventListener('click', onQueueModalBtn);
+
+  //------------------------------------WATCHED-QUEUE---------------------------
+
+  window.addEventListener('keydown', onEscCloseModal);
+  refs.modal.addEventListener('click', onOutsideClickCloseModal);
 };
 function errorFilmInfo(er) {
     console.log(er);
@@ -38,6 +143,8 @@ function errorFilmInfo(er) {
 function toggleModal() {
     refs.modal.classList.toggle('is-hidden');
 };
+
+
 
 // ----------------- CLOSE MODAL------------------------------
 function onEscCloseModal(e) {

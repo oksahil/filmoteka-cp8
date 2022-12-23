@@ -5,6 +5,10 @@
     background-position: center;
     background-size: cover;
     height: 230px;
+    position: fixed;
+    top: 0px;
+    width: 100%;
+    z-index: 1000;
 
 @media (min-device-pixel-ratio: 2),
   (min-resolution: 192dpi),
@@ -169,6 +173,7 @@
     border-bottom-color: #FFFFFF;
     line-height: calc(16px /14px);
     color: #FFFFFF;
+    // margin-right: 100px;
 
 
         &::placeholder {
@@ -189,6 +194,20 @@
   transition-duration: 250ms;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
 }
+@media screen and (min-width: 768px) {
+  .search-input {
+    width: 336px;
+    // margin-right: 300px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .search-input {
+    width: 394px;
+    // margin-right: 800px;
+  }
+}
+
 
 
 .search-btn {
@@ -223,17 +242,7 @@ position: absolute;
  
 }
 
-@media screen and (min-width: 768px) {
-  .search-input {
-    width: 336px;
-  }
-}
 
-@media screen and (min-width: 1280px) { 
-    .search-input {
-        width: 394px;
-    }
-}
 
 .error {
 margin-top: 80px;
@@ -253,6 +262,17 @@ margin-top: 80px;
 
 input[type="search"]::-webkit-search-cancel-button {
   -webkit-appearance: none;
+}
+
+.header-two-input {
+  display: flex;
+  justify-content: space-between;
+}
+
+.void {
+  width: 100px;
+  color: transparentize($color: transparent, $amount: 0);
+
 }
 
 
