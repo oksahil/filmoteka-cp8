@@ -210,7 +210,7 @@ function renderIds(genre_ids, listg) {
   for (const i of genre_ids) {
     for (const l of listg) {
       if (l.id === i) {
-        strGenres.push(l.name);
+        strGenres.push(` ${l.name}`);
       }
     }
   }
