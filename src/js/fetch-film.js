@@ -5,6 +5,7 @@ import { fetchGenres } from '/src/js/fetch-genres';
 import { refs } from '/src/index';
 import Notiflix from 'notiflix';
 import { render } from '/src/index';
+
 export async function fetchFilm(name = 0, pageNumber = 1) {
   fetchGenres();
 

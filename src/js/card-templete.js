@@ -1,12 +1,13 @@
 // import { rendserIds } from '/src/index';
 
-export const cardTemplate = ({original_title,vote_average,vote_count,popularity,genres,overview,poster_path}) =>
+const imgUrl = "https://image.tmdb.org/t/p/w500/";
+export const cardTemplate = ({original_title,vote_average,vote_count,popularity,genres,overview,poster_path},currentPictSrc) =>
  `<li class="card-item list">
     <div class="picture_container">
-        <img class="film-img" src="https://image.tmdb.org/t/p/w500/${poster_path}">
+        <img class="film-img" src="${poster_path === null?currentPictSrc:imgUrl + poster_path}">
     </div>
 
-    <div>
+    <div class="modal-textcontainer">
     
         <h2 class="film-title">${original_title}</h2>
 
@@ -28,11 +29,10 @@ export const cardTemplate = ({original_title,vote_average,vote_count,popularity,
         <p class="modal-overwiew">${overview}</p>
        
 
-    <div class="modal-btn-list">
-        
-        <button class="add-watched-btn "watched-btn btn-text-library btn" type="button">ADD TO WATCHED</button>
-
-        <button class="add-queue-btn btn" type="button">ADD TO QUEUE</button> 
-    </div>
+        <div class="modal-btn-list">
+            
+            <button class="add-watched-btn "watched-btn btn-text-library btn" type="button">ADD TO WATCHED</button>
+            <button class="add-queue-btn btn" type="button">ADD TO QUEUE</button> 
+        </div>
     </div>
 </li>`;
