@@ -7,9 +7,15 @@ console.log(refs);
 refs.list.addEventListener('click', onCardClickOpenModal);
 refs.closeModalBtn.addEventListener('click', toggleModal);
 
+let currentPictSrc = "";
 function onCardClickOpenModal(e) {
+    console.dir(e.target.closest('.film-item img').currentSrc);
     // console.log(e.target.closest('.film-item'));
-    console.log(e);
+
+    
+
+    currentPictSrc = e.target.closest('.film-item img').currentSrc;
+    console.log(currentPictSrc);
     const filmTemplateId =e.target.closest('.film-item').id;
     toggleModal();
 
@@ -17,10 +23,10 @@ function onCardClickOpenModal(e) {
 };
 
 function respFilmInfo(resp) {
-    console.log(resp);
+    console.log(resp.data);
     // console.log(resp.data.popularity);
 
-    refs.cardList.innerHTML = cardTemplate(resp.data);
+    refs.cardList.innerHTML = cardTemplate(resp.data,currentPictSrc);
 
     window.addEventListener('keydown', onEscCloseModal);
     refs.modal.addEventListener('click', onOutsideClickCloseModal);
