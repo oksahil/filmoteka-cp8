@@ -69,22 +69,17 @@
 }
 @media screen and (min-width: 1280) {
     .film-list {
-        gap: 16px;
         grid-row: 16px;
         max-width: 1280px;
     }
 }
 .films {
     width: 280px;
-    // gap: 32px;
-    // gap: 32px;
-
 }
 
 @media screen and (min-width: 768px) {
     .films {
         width: 336px;
-        // gap: 16px;
     }
 }
 
