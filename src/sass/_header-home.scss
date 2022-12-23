@@ -47,6 +47,7 @@
 }
 
 .film {
+  
     width: 28px;
     height: 24px;
     position: relative;
@@ -61,23 +62,45 @@
     stroke: #FF001B;
   }
 
-  animation: pulsing 2s infinite;}
+  animation: pulsing 3s infinite;
+}
 
 
 @keyframes pulsing {
+  
   0% {
   
-    transform: scale(0.8, 0.8) rotate(10deg);
+    transform: scale(0.8, 0.8) rotate(0deg);
   }
-  50% {
+        // 0% {
+    
+        //   transform: scale(0.8, 0.8) rotate(180deg);
+        // }
+0% {
+        
+  transform: scale(0.8, 0.8) rotate(-360deg);
+  }
+// 0% {
+                                
+//   transform: scale(1.8, 1.8) rotate(-180deg);
   
-    transform: scale(1.0, 1.0) rotate(0deg);
-  }
-  100% {
+//   }
+  // 50% {
+  
+  //   transform: scale(1.0, 1.0) rotate(0deg);
+  // }
+  // 100% {
 
-    transform: scale(0.8, 0.8) rotate(10deg);
-  }
+  //   transform: scale(0.8, 0.8) rotate(10deg);
+  // }
+  //   100% {
   
+  //     transform: scale(0.8, 0.8) rotate(-10deg);
+  //   }
+    //  50% {
+  
+    //    transform: scale(0.8, 0.8) rotate(-10deg);
+    //  }
 
 }
 
