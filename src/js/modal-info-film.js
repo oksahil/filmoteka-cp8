@@ -29,7 +29,9 @@ function respFilmInfo(resp) {
     console.log(resp.data);
     // console.log(resp.data.popularity);
 
-    refs.cardList.innerHTML = cardTemplate(resp.data,currentPictSrc);
+    refs.cardList.innerHTML = cardTemplate(resp.data, currentPictSrc);
+    
+    //-------------------------------------------WATCHED-QUEUE-----------------------------------
 
     const addWatched = document.querySelector('.add-watched-btn');
 
