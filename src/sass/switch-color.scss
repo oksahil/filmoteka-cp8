@@ -1,11 +1,20 @@
 body.dark-theme {
     background-color: #21282f;
     color: var(--color-aktive);
+    transition: background-color .3s;
+
+    & .footer a:hover {
+       color: var(--bgcolor-aktive);
+    };
 }
 
 body.light-theme {
     background-color: var(--color-aktive);
     color: var(--color-text);
+
+    & .footer a:hover {
+        color: var(--bgcolor-aktive);
+    };
 }
 
 .light-theme {
@@ -16,16 +25,43 @@ body.light-theme {
 .dark-theme {
     color:  var(--color-aktive);
     background-color: #1a1f24;
+    transition: background-color .3s;
 }
 
 .switch {
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
     padding: 16px 24px;
     margin: 0 auto;
     position: absolute;
-    right: 15;
-    top: 160px;
+    right: 0;
+    top: 180px;
+    overflow-x:hidden;
+}
+
+@media screen and (min-width: 768px) {
+    .switch {
+        padding: 15px 11px;
+        right: 10px;
+        top: 170px;
+    }
+}
+
+@media screen and (min-width: 1280px) {
+    .switch {
+        padding: 16px 18px;
+        right: 1px;
+        top: 160px;
+        justify-content: flex-end;
+    }
+}
+
+.icon-sun, .icon-moon {
+    fill: var(--color-aktive);
+    margin-right: 8px;
+    margin-left: 8px;
+    // overflow-clip-margin: content-box;
+    overflow: hidden;
 }
 
 .switch__wrap {
