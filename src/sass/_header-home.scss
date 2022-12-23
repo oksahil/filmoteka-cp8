@@ -1,25 +1,45 @@
 .header_home {
-  background-color: #2f303a;
-  background-image: url(/src/images/abstract-background-mob.jpg);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  // margin: 0px auto;
-  height: 230px;
+    background-color: #2F303A;
+    background-image: url(/src/images/abstract-background-mob.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 230px;
+
+@media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+ 
+    background-image: url(/src/images/abstract-background-mob-2x.jpg); 
+}
 }
 
 @media screen and (min-width: 768px) {
-  .header_home {
-    background-image: url(/src/images/abstract-background-tab.jpg);
-    height: 216px;
-  }
+    .header_home {
+        background-image: url(/src/images/abstract-background-tab.jpg);
+        height: 216px;
+        @media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+ 
+    background-image: url(/src/images/abstract-background-tab-2x.jpg); 
+}
+    }
 }
 
 @media screen and (min-width: 1280px) {
-  .header_home {
-    background-image: url(/src/images/abstract-background.jpg);
-    height: 216px;
-  }
+    .header_home {
+        background-image: url(/src/images/abstract-background.jpg);
+        
+        height: 216px;
+        @media (min-device-pixel-ratio: 2),
+  (min-resolution: 192dpi),
+  (min-resolution: 2dppx) {
+ 
+    background-image: url(/src/images/abstract-background-2x.jpg); 
+}
+    }
+
 }
 
 .film {
@@ -159,7 +179,7 @@
             color: #757171;
 
     }
-&:hover,
+  &:hover,
   &:focus,
   &:active {
     outline: none;
