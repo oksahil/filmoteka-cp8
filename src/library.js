@@ -1,5 +1,7 @@
 import '/src/sass/index.scss';
 import Notiflix from 'notiflix';
+
+
 var debounce = require('lodash.debounce');
 import { setLocalSt, getLocalSt, remLocalSt } from './js/localStorage';
 
@@ -17,33 +19,33 @@ const refs = {
 
 const addToWatchedList = () => {
   console.log('hello');
-  // let watchArr = [];
-  // const watchArrJson = getLocalSt('watched');
-  // console.log(watchArrJson);
-  // if (watchArrJson) {
-  //     watchArr = [...watchArrJson];
-  // }
-  // let queueArr = [];
-  // const queueArrJson = getLocalSt('queue');
-  // if (watchArrJson) {
-  //   queueArr = [...queueArrJson];
-  // }
-  // const watchSet = new Set(watchArr);
-  // if (watchSet.has(id)) {
-  //     console.log("it's watching time")
-  // } else {
-  //     watchArr.push(id);
-  //     setLocalSt('watched', watchArr);
-  // }
+  let watchArr = [];
+  const watchArrJson = getLocalSt('watched');
+  console.log(watchArrJson);
+  if (watchArrJson) {
+      watchArr = [...watchArrJson];
+  }
+  let queueArr = [];
+  const queueArrJson = getLocalSt('queue');
+  if (watchArrJson) {
+    queueArr = [...queueArrJson];
+  }
+  const watchSet = new Set(watchArr);
+  if (watchSet.has(id)) {
+      console.log("it's watching time")
+  } else {
+      watchArr.push(id);
+      setLocalSt('watched', watchArr);
+  }
 
-  // const queueSet = new Set(queueArr);
-  // if (queueSet.has(id)) {
-  //   remLocalSt('queue');
+  const queueSet = new Set(queueArr);
+  if (queueSet.has(id)) {
+    remLocalSt('queue');
 
-  // let index = queueArr.indexOf(id);
-  // queueArr.splice(index, 1);
-  //     setLocalSt('queue', queueArr);
-  //     }
+  let index = queueArr.indexOf(id);
+  queueArr.splice(index, 1);
+      setLocalSt('queue', queueArr);
+      }
 };
 const makeArr = (id, arr) => {
   let blankArr = [];
