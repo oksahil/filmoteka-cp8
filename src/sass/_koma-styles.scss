@@ -1,57 +1,109 @@
-// .card-item {
-//     // padding: 48px 20px 40px;
-// }
+.card-item {
+    @media screen and (min-width:768px) {
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.picture_container {
+    width: 240px;
+    margin-bottom: 20px;
+    @media screen and (min-width:768px) {
+        min-width: 264px;
+        height: 374px;
+        margin-right: 68px;
+    }
+    @media screen and (min-width:1280px) {
+       width: 375px;
+       height: 478px;
+       margin-right: 16px;
+       margin-bottom: 0;
+       & img {height: 478px;}
+    }
+}
+.modal-textcontainer {
+    @media screen and (min-width:768px) {
+       width: 264px;
+    }
+    @media screen and (min-width:1280px) {
+       width: 391px;
+    }
+}
 
 .film-title {
-    margin-top: 20px;
+    margin-top: 0;
     margin-bottom: 20px;
 
     font-family: 'Roboto';
     font-weight: 500;
     font-size: 20px;
     line-height: 23px;
-
-    color: #000000;
 }
 
 .info-film {
     display: flex;
+    flex-wrap: wrap;
+    width: 240px;
 
 }
-.info-film-left {
-    display: flex;
-    flex-direction: column;
-    margin-right: 40px;
+
+.info_film_left {
+    min-width: 100px;
 
     font-weight: 500;
     line-height: 16px;
 
     color: #8C8C8C;
 }
-.info-film-right {
-    display: flex;
-    flex-direction: column;
+
+.info_film_right {
+    width: 140px;
     line-height: 16px;
 
     color: #000000;
 }
+
 .text-discription {
     display: inline-block;
     margin-bottom: 8px;
 }
+
 .vote-highlighted {
+    display: inline-block;
+    padding-top: 1px;
+    padding-left: 8px;
     width: 36px;
     height: 16px;
 
-    line-height: 14px;
+
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.17;
+    vertical-align: middle;
+
 
     color: #FFFFFF;
-    background: #FF6B01;
+    background: var(--bgcolor-aktive);
     border-radius: 5px;
 }
+
 .to-upercase {
     font-weight: 500;
     font-size: 12px;
     line-height: 16px;
     text-transform: uppercase;
+}
+.modal-overwiew {
+    margin-bottom: 20px;
+    line-height: 1.66;
+}
+
+.modal-about {
+    margin-bottom: 8px;
+    margin-top: 20px;
+}
+
+.modal-btn-list {
+    display: flex;
+    gap: 20px;
+    // margin-top: auto;
 }
