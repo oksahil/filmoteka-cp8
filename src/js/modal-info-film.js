@@ -1,36 +1,73 @@
 import { refs } from '/src/index.js';
 import { fetchFilmInfo } from "/src/js/fetch-film-info";
 import { cardTemplate } from "/src/js/card-templete";
+import { fetchFilmPopularity } from "/src/js/fetch-film-popularity";
+import { getLocalSt, setLocalSt, remLocalSt } from './localStorage';
+
+
 
 console.log(refs);
-refs.list.addEventListener('click', onCardClick);
-// window.addEventListener()
+refs.list.addEventListener('click', onCardClickOpenModal);
+refs.closeModalBtn.addEventListener('click', toggleModal);
 
-function onCardClick(e) {
-    // console.dir(e.target.closest('.film-item').id);
+let currentPictSrc = "";
+function onCardClickOpenModal(e) {
+    console.dir(e.target.closest('.film-item img').currentSrc);
+    // console.log(e.target.closest('.film-item'));
+
+    
+
+    currentPictSrc = e.target.closest('.film-item img').currentSrc;
+    console.log(currentPictSrc);
     const filmTemplateId =e.target.closest('.film-item').id;
     toggleModal();
 
-    fetchFilmInfo(filmTemplateId).then(respFilmInfo);
+    fetchFilmInfo(filmTemplateId).then(respFilmInfo).catch(errorFilmInfo);
 };
 
 function respFilmInfo(resp) {
     console.log(resp.data);
-    console.log(resp.data.popularity);
+    // console.log(resp.data.popularity);
 
-    refs.cardList.innerHTML = cardTemplate(resp.data);
+    refs.cardList.innerHTML = cardTemplate(resp.data,currentPictSrc);
+
+    const addWatched = document.querySelector('.add-watched-btn');
+
+    const onWatchedModalBtn = () => {
+        console.log('hello');
+        let watchArr = [];
+        const watchArrJson = getLocalSt('watched');
+        console.log(watchArrJson);
+        if (watchArrJson) {
+          watchArr = [...watchArrJson];
+        }
+        let queueArr = [];
+        const queueArrJson = getLocalSt('queue');
+        if (watchArrJson) {
+          queueArr = [...queueArrJson];
+        }
+    }
+
+    addWatched.addEventListener('click', onWatchedModalBtn)
 
     window.addEventListener('keydown', onEscCloseModal);
     refs.modal.addEventListener('click', onOutsideClickCloseModal);
 };
-
-//   refs.openModalBtn.addEventListener('click', toggleModal);
-refs.closeModalBtn.addEventListener('click', toggleModal);
+function errorFilmInfo(er) {
+    console.log(er);
+    // fetchFilmPopularity();
+    // refs.cardList.innerHTML = "Sorry we can't load film data!";
+    window.addEventListener('keydown', onEscCloseModal);
+    refs.modal.addEventListener('click', onOutsideClickCloseModal);
+};
 
 function toggleModal() {
     refs.modal.classList.toggle('is-hidden');
 };
 
+
+
+// ----------------- CLOSE MODAL------------------------------
 function onEscCloseModal(e) {
     if (e.code !== 'Escape') {
         return;
