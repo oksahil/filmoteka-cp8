@@ -6,10 +6,9 @@ import { refs } from '/src/index';
 import Notiflix from 'notiflix';
 import { render } from '/src/index';
 
-export async function fetchFilm(e, name = 0, pageNumber = 1) {
+export async function fetchFilm(name = 0, pageNumber = 1) {
   fetchGenres();
-  const value = e.target.value.trim();
-  if (value) {
+
     refs.error.textContent = '';
     try {
       const response = await axios.get(
@@ -31,4 +30,3 @@ export async function fetchFilm(e, name = 0, pageNumber = 1) {
       return Notiflix.Notify.failure('Search result not successful. Enter the correct movie name.');
     }
   }
-}
