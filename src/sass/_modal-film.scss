@@ -55,7 +55,8 @@
 .modal-window {
     width: 100%;
     padding: 48px 20px 40px;
-    // min-height: 500px;
+    max-height: 80%;
+    overflow: auto;
 
     @media screen and (min-width:320px) {
         width: 280px;
@@ -206,11 +207,12 @@
 
 
 .modal_text_container-about {
+    // color: #000000;
     margin-bottom: 8px;
     margin-top: 20px;
 }
 .modal_text_container-overwiew {
-    color: #000000;
+    // color: #000000;
     margin-bottom: 20px;
     line-height: 1.66;
 }
