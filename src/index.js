@@ -28,32 +28,42 @@ export const refs = {
   addWatched: document.querySelector('.add-watched-btn'),
   modalBody: document.querySelector('body'),
 };
-document.addEventListener('DOMContentLoaded', main);
-// const fetchFilmsWithDebounce = debounce(renderSearchFilms, DEBOUNCE_DELAY);
-// refs.input.addEventListener('input', fetchFilmsWithDebounce);
 
+// вызывает основную функцию когда - DOM content is loaded
+document.addEventListener('DOMContentLoaded', main);
+
+// функция для популярных фильмов и пагинации
 async function renderPopularFilms() {
   const filmsData = await fetchFilmPopularity();
+
+  // создание кнопок + всего страниц + количество отображаемых кнопок + текущая кнопка
   const paginationButtons = createPagination(
     filmsData.total_pages,
     5,
     filmsData.page
   );
+
+  // указываем рендеру кнопок класс где создавать
   paginationButtons.render(document.querySelector('.pagination-wrapper'));
+
+  // слушаем на какую кнопку было нажатие и передаем её
   paginationButtons.onChange(e => {
     fetchFilmPopularity(e.target.value);
   });
 }
 
+// функция для поиска фильмов по запросу и пагинации
 function initInputListener() {
   const { input } = refs;
   let paginationButtons;
 
+  // делает e.preventDefault() и все
   const renderFilmsOnInputChange = async e => {
     e.preventDefault();
 
     refs.error.textContent = '';
 
+    // убирает пробелы и проверка, если инпут не пустой и если в ответе страниц больше 0
     const inputText = e.target.value.trim();
     if (inputText !== '') {
       const filmsData = await fetchFilm(inputText, 1);
@@ -80,6 +90,7 @@ function initInputListener() {
   input.addEventListener('input', renderFilmsWithDebounce);
 }
 
+// основная функция, вызывается когда HTML документ полностью загрузился
 async function main() {
   refs.searchForm.addEventListener('submit', e => {
     e.preventDefault();
@@ -88,6 +99,7 @@ async function main() {
   initInputListener();
   renderPopularFilms();
 }
+
 export let items = [];
 export let strGenres = [];
 
