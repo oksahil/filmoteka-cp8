@@ -53,33 +53,39 @@
     position: relative;
     bottom: 23px;
   //  stroke: #FFFFFF;
-  
-    
+   
   &:hover,
   &:focus,
   &:active {
-    animation-play-state: paused;
     stroke: #FF001B;
   }
 
-  animation: pulsing 3s infinite;
+  animation: pulsing 600ms ease-in infinite alternate;
+}
+@keyframes pulsing {
+  from {
+      transform: scale(1);
+    }
+  
+    to {
+      transform: scale(1.2);
+    }
 }
 
-
-@keyframes pulsing {
+// @keyframes pulsing {
   
-  0% {
+//   0% {
   
-    transform: scale(0.8, 0.8) rotate(0deg);
-  }
-        // 0% {
+//     transform: scale(0.8, 0.8) rotate(0deg);
+//   }
+//         // 0% {
     
-        //   transform: scale(0.8, 0.8) rotate(180deg);
-        // }
-0% {
+//         //   transform: scale(0.8, 0.8) rotate(180deg);
+//         // }
+// 0% {
         
-  transform: scale(0.8, 0.8) rotate(-360deg);
-  }
+//   transform: scale(0.8, 0.8) rotate(-360deg);
+//   }
 // 0% {
                                 
 //   transform: scale(1.8, 1.8) rotate(-180deg);
@@ -102,11 +108,13 @@
     //    transform: scale(0.8, 0.8) rotate(-10deg);
     //  }
 
-}
+// }
 
 
 .film-icon {
   overflow: visible;
+
+  // transition: transform 500ms linear;
   &:hover,
   &:focus {
     color: #ff001b;
@@ -124,7 +132,30 @@
   display: flex;
   gap: 8px;
   padding-top: 40px;
+
+  &:hover .film {
+    animation-play-state: paused;
+  }
+  &:hover .film-icon {
+    animation: falling 1500ms normal;
+    animation-fill-mode: forwards;
+  }
 }
+@keyframes falling {
+  0% {
+    transform: perspective(48px) rotateX() scale(1);
+  }
+  70% {
+    transform: perspective(48px) rotateX(360deg);
+  }
+  85% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: rotateX(90deg);
+  }
+}
+
 
 .navigation-list-second {
   display: flex;
@@ -142,6 +173,7 @@
   text-align: center;
   text-transform: uppercase;
   color: #ffffff;
+  transition: color linear 250ms;
   &:hover,
   &:focus {
     color: #ff001b;  
@@ -156,6 +188,7 @@
   align-items: center;
   text-align: center;
   color: #ffffff;
+  transition: color linear 250ms;
     &:hover,
     &:focus {
       color: #ff001b;
@@ -274,7 +307,7 @@ position: absolute;
 
 
 .error {
-    margin-top: 80px;
+    margin-top: -50px;
     font-size: 14px;
     line-height: calc(16px /14px);
     align-items: center;

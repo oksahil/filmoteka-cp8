@@ -1,8 +1,8 @@
 const body = document.querySelector('body');
 const darkFooter = document.querySelector('footer');
-const inputSwitch = document.querySelector('.switch__input');
+const controlSwitch = document.querySelector('.switch__wrap');
 
-inputSwitch.addEventListener('change', onChangeTheme);
+controlSwitch.addEventListener('click', onChangeTheme);
 
 const savedData = localStorage.getItem("theme");
 
@@ -30,6 +30,5 @@ function checkingData() {
     body.classList = savedData;
   } else if(savedData = 'dark-theme') {
     darkFooter.classList.add('dark-theme');
-    inputSwitch.setAttribute('checked', true);
   };
 };

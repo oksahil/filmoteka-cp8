@@ -9,7 +9,7 @@ export async function fetchFilmPopularity(pageNumber = 1) {
   fetchGenres();
   try {
     const response = await axios.get(
-      `https://api.themoviedb.org/3/trending/all/day?api_key=${KEY}&page=${pageNumber}`
+      `https://api.themoviedb.org/3/trending/movie/day?api_key=${KEY}&page=${pageNumber}`
     );
     let items = response.data.results;
     console.log('popular', items);
