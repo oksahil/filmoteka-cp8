@@ -142,6 +142,7 @@
   text-align: center;
   text-transform: uppercase;
   color: #ffffff;
+  transition: color linear 250ms;
   &:hover,
   &:focus {
     color: #ff001b;  
@@ -156,6 +157,7 @@
   align-items: center;
   text-align: center;
   color: #ffffff;
+  transition: color linear 250ms;
     &:hover,
     &:focus {
       color: #ff001b;
