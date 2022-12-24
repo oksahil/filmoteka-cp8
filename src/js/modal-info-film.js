@@ -11,27 +11,22 @@ console.log(refs);
 refs.list.addEventListener('click', onCardClickOpenModal);
 refs.closeModalBtn.addEventListener('click', toggleModal);
 
-let currentPictSrc = "";
+// let currentPictSrc = "";
 function onCardClickOpenModal(e) {
-    console.dir(e.target.closest('.film-item img').currentSrc);
-    // console.log(e.target.closest('.film-item'));
+    console.log(e.target.closest('.film-item'));
 
-    
-
-    currentPictSrc = e.target.closest('.film-item img').currentSrc;
-    console.log(currentPictSrc);
+    // currentPictSrc = e.target.closest('.film-item img').currentSrc;
     const filmTemplateId =e.target.closest('.film-item').id;
     toggleModal();
 
     fetchFilmInfo(filmTemplateId).then(respFilmInfo).catch(errorFilmInfo);
 };
 
-function respFilmInfo({ data }) {
-  console.log(data);
-  console.log(data.id);
-  // console.log(resp.data.popularity);
+function respFilmInfo(resp) {
+    console.log(resp.data);
 
-  refs.cardList.innerHTML = cardTemplate(data, currentPictSrc);
+    refs.cardList.innerHTML = cardTemplate(resp.data);
+    // refs.cardList.innerHTML = cardTemplate(resp.data,currentPictSrc);
 
   //-------------------------------------WATCHED-QUEUE----------------------------------------
 

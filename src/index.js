@@ -97,7 +97,7 @@ export const filmTemplate = ({
   vote_average,
 }) => {
   renderIds(genre_ids, listg);
-  console.log('strGenres', strGenres);
+  // console.log('strGenres', strGenres);
   if (genre_ids === '') {
     genre_ids = 'no genres';
   }
@@ -110,26 +110,24 @@ export const filmTemplate = ({
   if (original_name === undefined) {
     original_name = original_title;
   }
-    let dataFilm = release_date.slice(0, 4);
- 
+  let dataFilm = release_date.slice(0, 4);
+  console.log(dataFilm);
+
+  // <img class="film-img" src="/src/images/BOX.jpg">
   if (poster_path === null) {
     return `<li class="film-item list" id="${id}">
     <div class="films">
-    <div class="text-img">
-    Sorry,<br>haven't found such a poster <br>:(
-    </div>
-    <h2 class="film-title">${original_name}</h2>
-    <h3 class="film-genre">${strGenres} | ${dataFilm} <span>${vote_average}</span></h3>
+      <div class="text-img">Sorry,<br>poster for film don't find <br>:( </div>
+      <h2 class="film-title">${original_name}</h2>
+      <h3 class="film-genre">${strGenres.slice(0, 2)} | ${dataFilm}</h3>
     </div>
     </li>`;
   } else {
     return `<li class="film-item list" id="${id}">
     <div class="films">
-    <img class="film-img" src="https://image.tmdb.org/t/p/w500/${poster_path}">
-    <h2 class="film-title">${original_name}</h2>
-    <h3 class="film-genre">${strGenres} | ${dataFilm} <span class="vote-highlighted">${vote_average.toFixed(
-      1
-    )}</span></h3>
+      <img class="film-img" src="https://image.tmdb.org/t/p/w500/${poster_path}">
+      <h2 class="film-title">${original_name}</h2>
+      <h3 class="film-genre">${strGenres.slice(0, 2)} | ${dataFilm}</h3>
     </div>
     </li>`;
   }
