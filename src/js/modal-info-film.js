@@ -63,7 +63,6 @@ function respFilmInfo(resp) {
     const watchObj = data;
 
     if (addWatched.classList.contains('active')) {
-      console.log(data.id);
       remLocalSt(WATCHED_KEY);
 
       let index = watchArr.indexOf(data.id);
