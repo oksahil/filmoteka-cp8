@@ -1,11 +1,11 @@
-body.dark-theme{background-color:#21282f;color:var(--color-aktive)}body.light-theme{background-color:var(--color-aktive);color:var(--color-text)}.light-theme{background-color:#f7f7f7;color:#545454}.dark-theme{color:var(--color-aktive);background-color:#1a1f24}.switch{display:flex;justify-content:flex-end;padding:16px 24px;margin:0 auto;position:absolute;right:15;top:160px}.switch__wrap{display:flex;align-items:center}.switch__input{position:absolute;left:0;top:0;margin:0;padding:0;opacity:0;height:0;width:0;pointer-events:none}.switch__input:checked~.switch__marker{transform:translateX(19px)}.switch__control{display:flex;align-items:center;flex-shrink:0;position:relative;width:36px;height:18px;border-radius:50em;padding:3px 0}.switch__label{position:absolute;left:0;top:0;width:100%;height:100%;color:rgba(0,0,0,0);-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;background-color:#293434;border-radius:inherit;z-index:1;cursor:pointer}.switch__marker{position:relative;background-color:#fff;width:14px;height:14px;border-radius:50%;z-index:2;pointer-events:none;box-shadow:0 1px 1px rgba(0,0,0,.25);transform:translateX(3px);transition:transform .25s cubic-bezier(0.4, 0, 0.2, 1)}/*# sourceMappingURL=switch-color.css.map */: relative;
-  background-color: #fff;
-  width: 14px;
-  height: 14px;
+body.dark-theme{color:var(--color-aktive);transition:background-color .3s}body.dark-theme .footer a:hover{color:var(--bgcolor-aktive)}body.dark-theme .switch__control{transform:translateX(calc(100% - 2px))}body.light-theme{background-color:var(--color-aktive);color:var(--color-text);transition:transform .5s,background-color .5s}body.light-theme .footer a:hover{color:var(--bgcolor-aktive)}.light-theme{background-color:#f7f7f7;color:#545454;transition:background-color .3s}.dark-theme{color:var(--color-aktive);background-color:#1a1f24;transition:background-color .3s}.switch__wrap{margin-top:105px;margin-left:-60px;width:50px;height:30px;background-color:#222d33;border-radius:30px;justify-content:space-between;align-items:center;padding:2px 6px;cursor:pointer;display:flex;position:relative}@media screen and (min-width: 768px){.switch__wrap{margin-left:25px;margin-top:80px}}@media screen and (min-width: 1280px){.switch__wrap{margin-left:50px}}.switch__wrap::before{background-size:15px 15px;background-repeat:no-repeat;left:6px;background-image:url("https://www.freeiconspng.com/uploads/sun-icon-22.png")}.switch__wrap::after{background-size:15px 15px;background-repeat:no-repeat;right:6px;background-image:url("https://www.freeiconspng.com/uploads/crescent-moon-png-18.png")}.switch__wrap::before,.switch__wrap::after{content:"";display:block;top:50%;margin-top:-7px;height:15px;width:15px;position:absolute}.switch__control{position:absolute;height:20px;width:20px;border-radius:50%;background-color:#fff;z-index:2;transition:transform .25s cubic-bezier(0.4, 0, 0.2, 1);transform:translate(1px);box-shadow:0 1px 1px rgba(0,0,0,.25)}/*# sourceMappingURL=switch-color.css.map */h__control {
+  position: absolute;
+  height: 20px;
+  width: 20px;
   border-radius: 50%;
+  background-color: #fff;
   z-index: 2;
-  pointer-events: none;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
-  transform: translateX(3px);
   transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  transform: translate(1px);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
 }/*# sourceMappingURL=switch-color.css.map */

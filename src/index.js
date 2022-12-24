@@ -51,7 +51,10 @@ function initInputListener() {
 
   const renderFilmsOnInputChange = async e => {
     e.preventDefault();
-    const inputText = e.target.value;
+
+    refs.error.textContent = '';
+
+    const inputText = e.target.value.trim();
     if (inputText !== '') {
       const filmsData = await fetchFilm(inputText, 1);
       if (filmsData.total_pages > 0) {
@@ -66,6 +69,7 @@ function initInputListener() {
         });
       } else {
         destroyPagination();
+        // refs.error.textContent = '';
       }
     }
   };
