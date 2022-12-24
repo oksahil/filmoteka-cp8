@@ -268,7 +268,7 @@ position: absolute;
 
 
 .error {
-margin-top: 80px;
+    margin-top: 80px;
     font-size: 14px;
     line-height: calc(16px /14px);
     align-items: center;
@@ -295,7 +295,12 @@ input[type="search"]::-webkit-search-cancel-button {
 .void {
   width: 100px;
   color: transparent;
+  margin-right: 50px;
 
+}
+
+.header-form {
+  margin-right: 50px;
 }
 
 
