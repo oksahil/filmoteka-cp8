@@ -57,22 +57,23 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    grid-row: 20px;
+    gap: 20px;
 }
 @media screen and (min-width: 768px) {
     .film-list {
         // justify-content: space-between;
-        gap: 32px;
-        max-width: 768px;
+        
+        // max-width: 768px;
         grid-row: 32px;
     }
 }
-@media screen and (min-width: 1280) {
-    .film-list {
-        grid-row: 16px;
-        gap: 16px;
-  }
-}
+// @media screen and (min-width: 1280) {
+//     .film-list {
+//         // grid-row: 16px;
+//         // gap: 16px;
+//         // min-width: 1280px;
+//   }
+// }
 .films {
     width: 280px;
 }
@@ -85,7 +86,7 @@
 
 @media screen and (min-width: 1280px) {
     .films {
-        width: 394px;
+        width: 392px;
     }
 } 
 
