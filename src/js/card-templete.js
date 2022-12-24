@@ -38,7 +38,7 @@ export const cardTemplate = ({
 
         <div class="modal_btn_container">
             
-            <button class="add-watched-btn watched-btn btn" type="button">ADD TO WATCHED</button>
+            <button class="add-watched-btn btn" type="button">ADD TO WATCHED</button>
             <button class="add-queue-btn btn" type="button">ADD TO QUEUE</button> 
         </div>
     </div>
