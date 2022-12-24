@@ -142,6 +142,7 @@ function errorFilmInfo(er) {
 
 function toggleModal() {
     refs.modal.classList.toggle('is-hidden');
+    refs.modalBody.classList.toggle('no-scroll');
 };
 
 
