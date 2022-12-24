@@ -1,7 +1,7 @@
 export const getLocalSt = (key) => {
     try {
-        const gotten = localStorage.getItem(key);
-        return (JSON.parse(gotten) || undefined);
+      const gotten = localStorage.getItem(key);
+      return (JSON.parse(gotten) || undefined);
     } catch (error) {
         console.log("Error", error);
     }
