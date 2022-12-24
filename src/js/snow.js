@@ -30,7 +30,7 @@ class Drop {
 let drops = [];
 for (let i = 0; i < 1000; i += 1) {
     drops.push(new Drop());
-    
+
 }
 
 function anm() {
