@@ -1,0 +1,36 @@
+.dynamic-gallery {
+    position: relative;
+    overflow: hidden;
+    min-height: 40vh;
+    display: flex;
+}
+
+.dynamiv-gallery-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+}
+
+.dynamic__gallery__wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    padding-right: 2rem;
+    position: absolute;
+}
+
+.marquee__photo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 440px;
+    height: 300px;
+    border: 1px solid rgba(0, 0, 0, .08);
+}
+
+.marquee__photo img {
+    object-fit: cover;
+    min-width: 100%;
+    min-height: 100%;
+}
