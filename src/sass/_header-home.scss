@@ -137,23 +137,25 @@
   align-items: center;
   text-align: center;
   text-transform: uppercase;
-
   color: #ffffff;
-
+  &:hover,
+  &:focus {
+    color: #ff001b;  
+  }
 }
 
 .nav-logo {
   font-weight: 500;
   font-size: 30px;
-
   line-height: calc(35px / 30px);
   display: none;
   align-items: center;
   text-align: center;
-
-
   color: #ffffff;
-
+    &:hover,
+    &:focus {
+      color: #ff001b;
+      }
 }
 
 @media screen and (min-width: 768px) {
