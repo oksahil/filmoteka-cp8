@@ -107,10 +107,10 @@ export const filmTemplate = ({
     genre_ids = 'no ganeres';
   }
   if (release_date === '') {
-    release_date = 'no relase date';
+    release_date = ['no relase date'];
   }
   if (release_date === undefined) {
-    release_date = first_air_date;
+    release_date = [first_air_date];
   }
   if (original_name === undefined) {
     original_name = original_title;
@@ -142,6 +142,10 @@ function renderIds(genre_ids, listg) {
   console.log('genre_ids', genre_ids);
   console.log('listg', listg);
   strGenres = [];
+
+  if (genre_ids === undefined || genre_ids !== []) {
+    genre_ids = [2];
+  }
   for (const i of genre_ids) {
     for (const l of listg) {
       if (l.id === i) {
@@ -165,4 +169,3 @@ export function renderInfo(itemsInfo) {
   refs.cardList.innerHTML = '';
   refs.cardList.insertAdjacentHTML('beforeend', filmListInfo.join(''));
 }
-
