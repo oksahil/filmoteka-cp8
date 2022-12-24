@@ -26,6 +26,7 @@ export const refs = {
   error: document.querySelector('.error'),
   searchForm: document.querySelector('.search-form'),
   addWatched: document.querySelector('.add-watched-btn'),
+  modalBody: document.querySelector('body'),
 };
 document.addEventListener('DOMContentLoaded', main);
 // const fetchFilmsWithDebounce = debounce(renderSearchFilms, DEBOUNCE_DELAY);
