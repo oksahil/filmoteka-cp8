@@ -32,6 +32,7 @@ function respFilmInfo(resp) {
 
   const WATCHED_KEY = 'watched';
   const QUEUE_KEY = 'queue';
+  const { data } = resp;
 
   const addQueue = document.querySelector('.add-queue-btn');
   const addWatched = document.querySelector('.add-watched-btn');
