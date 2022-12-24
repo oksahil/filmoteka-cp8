@@ -11,27 +11,22 @@ console.log(refs);
 refs.list.addEventListener('click', onCardClickOpenModal);
 refs.closeModalBtn.addEventListener('click', toggleModal);
 
-let currentPictSrc = "";
+// let currentPictSrc = "";
 function onCardClickOpenModal(e) {
-    console.dir(e.target.closest('.film-item img').currentSrc);
-    // console.log(e.target.closest('.film-item'));
+    console.log(e.target.closest('.film-item'));
 
-    
-
-    currentPictSrc = e.target.closest('.film-item img').currentSrc;
-    console.log(currentPictSrc);
+    // currentPictSrc = e.target.closest('.film-item img').currentSrc;
     const filmTemplateId =e.target.closest('.film-item').id;
     toggleModal();
 
     fetchFilmInfo(filmTemplateId).then(respFilmInfo).catch(errorFilmInfo);
 };
 
-function respFilmInfo({ data }) {
-  console.log(data);
-  console.log(data.id);
-  // console.log(resp.data.popularity);
+function respFilmInfo(resp) {
+    console.log(resp.data);
 
-  refs.cardList.innerHTML = cardTemplate(data, currentPictSrc);
+    refs.cardList.innerHTML = cardTemplate(resp.data);
+    // refs.cardList.innerHTML = cardTemplate(resp.data,currentPictSrc);
 
   //-------------------------------------WATCHED-QUEUE----------------------------------------
 
@@ -39,110 +34,98 @@ function respFilmInfo({ data }) {
   const QUEUE_KEY = 'queue';
 
   const addQueue = document.querySelector('.add-queue-btn');
-    const addWatched = document.querySelector('.add-watched-btn');
+  const addWatched = document.querySelector('.add-watched-btn');
 
-    // const textModalBtn = async (id) => {
-    //     console.log('im here')
-    //     if (makeArr(data.id, WATCHED_KEY)) {
-    //         addWatched.textContent = "Added to watched";
-    //         addWatched.disabled = true;
-
-    //         function changeWatchText() {
-    //             addWatched.disabled = false;
-    //             addWatched.textContent = "Remove from watched";
-    //             addWatched.classList.add('active');
-    //         }
-    //         setTimeout(changeWatchText, 1000);
-
-    //     } else {
-    //         addWatched.textContent = "Add to watched";
-    //         addWatched.disabled = false;
-    //         addWatched.classList.remove('active');
-    //     }
-    //     if (makeArr(data.id, QUEUE_KEY)) {
-    //       addQueue.textContent = 'Added to queue';
-    //       addQueue.disabled = true;
-
-    //       function changeQueueText() {
-    //         addQueue.disabled = false;
-    //         addQueue.textContent = 'Remove from queue';
-    //         addQueue.classList.add('active');
-    //       }
-    //       setTimeout(changeQueueText, 1000);
-    //     } else {
-    //       addQueue.textContent = 'Add to queue';
-    //       addQueue.disabled = false;
-    //       addQueue.classList.remove('active');
-    //     }
-    // }
-    
-    const makeArr = (id, list) => {
-        let newArr = [];
-        let localArr = getLocalSt(list);
-        if (localArr) {
-            newArr = [...localArr];
-        }
-        const arrSet = new Set(newArr);
-        return arrSet.has(id);
+  const makeArr = (id, list) => {
+    let newArr = [];
+    let localArr = getLocalSt(list);
+    if (localArr) {
+      newArr = [...localArr];
     }
+    const arrSet = new Set(newArr);
+    return arrSet.has(id);
+  };
 
-    const onWatchedModalBtn = (e) => {
-        e.preventDefault();
-        let watchArr = [];
-        const cardObj = data;
+  async function textWatchDelay() {
+    setTimeout(() => {
+      addWatched.textContent = 'Remove from watched';
+      addWatched.disabled = false;
+    }, 1000);
+  }
+  async function textQueueDelay() {
+    setTimeout(() => {
+      addQueue.textContent = 'Remove from queue';
+      addQueue.disabled = false;
+    }, 1000);
+  }
+  const onWatchedModalBtn = e => {
+    let watchArr = [];
+    const watchObj = data;
 
-      if (addWatched.classList.contains('active')) {
-          console.log(data.id);
-          remLocalSt(WATCHED_KEY);
+    if (addWatched.classList.contains('active')) {
+      console.log(data.id);
+      remLocalSt(WATCHED_KEY);
 
-          let index = watchArr.indexOf(data.id);
-          watchArr.splice(index, 1);
+      let index = watchArr.indexOf(data.id);
+      watchArr.splice(index, 1);
 
-          setLocalSt(WATCHED_KEY, watchArr);
-          Notiflix.Notify.failure('Removed from watched');
-          addWatched.classList.remove('active');
-          return;
+      const stringedWatchArr = JSON.stringify(watchArr);
+      localStorage.setItem(WATCHED_KEY, stringedWatchArr);
+      console.log(stringedWatchArr);
+      Notiflix.Notify.failure('Removed from watched');
+      addWatched.classList.remove('active');
+      addWatched.textContent = 'Add to watched';
+      return;
     }
-    watchArr.push(cardObj);
+    watchArr.push(watchObj);
+
     const stringedWatchArr = JSON.stringify(watchArr);
     localStorage.setItem('watched', stringedWatchArr);
-      console.log(stringedWatchArr);
-      addWatched.textContent = "Remove from watched";
-      addWatched.classList.add('active');
+    console.log(stringedWatchArr);
+
+    addWatched.textContent = 'Added from watched';
+    addWatched.disabled = true;
+
+    textWatchDelay();
+    addWatched.classList.add('active');
+  };
+
+  const onQueueModalBtn = e => {
+    console.log('hello!');
+    e.preventDefault();
+    let queueArr = [];
+    const queueObj = data;
+
+    if (addQueue.classList.contains('active')) {
+      console.log(data.id);
+      remLocalSt(QUEUE_KEY);
+
+      let index = queueArr.indexOf(data.id);
+      queueArr.splice(index, 1);
+
+      const stringedQueueArr = JSON.stringify(queueArr);
+      localStorage.setItem(QUEUE_KEY, stringedQueueArr);
+      console.log(stringedQueueArr);
+      Notiflix.Notify.failure('Removed from queue');
+      addQueue.classList.remove('active');
+      addQueue.textContent = 'Add to queue';
+      return;
+    }
+    queueArr.push(queueObj);
+
+    const stringedQueueArr = JSON.stringify(queueArr);
+    localStorage.setItem('queue', stringedQueueArr);
+    console.log(stringedQueueArr);
+
+    addQueue.textContent = 'Added from queue';
+    addQueue.disabled = true;
+
+    textQueueDelay();
+    addQueue.classList.add('active');
   };
 
   addWatched.addEventListener('click', onWatchedModalBtn);
-    
-    // const WATCHED_KEY = 'watch';
-    // const QUEUE_KEY = 'queue';
-
-    // let watchedMovieArr = [...JSON.parse(localStorage.getItem(WATCHED_KEY))];
-    // let queueMovieArr = [...JSON.parse(localStorage.getItem(QUEUE_KEY))];
-
-    // refs.watchedBtn.addEventListener('click', onWatchedBtnClick);
-    // refs.queueBtn.addEventListener('click', onQueueBtnClick);
-
-    // const onWatchedBtnClick = e => {
-    //   e.preventDefault();
-    //   if (localStorage.getItem(WATCHED_KEY) !== null) {
-    //     Notify.failure('You have watched this movie');
-    //     return;
-    //   }
-    //   watchedMovieArr.push(movie);
-    //   localStorage.setItem(WATCHED_KEY, JSON.stringify(watchedMovieArr));
-    //   Notify.success('You have added this movie to watched');
-    // };
-    // const onQueueBtnClick = e => {
-    //   e.preventDefault();
-    //   if (localStorage.getItem(QUEUE_KEY) !== null) {
-    //     Notify.failure('You have added this movie to queue');
-    //     return;
-    //   }
-    //   queueMovieArr.push(movie);
-    //   localStorage.setItem(QUEUE_KEY, JSON.stringify(queueMovieArr));
-    //   Notify.success('You have added this movie to queue');
-    // };
-
+  addQueue.addEventListener('click', onQueueModalBtn);
 
   //------------------------------------WATCHED-QUEUE---------------------------
 
