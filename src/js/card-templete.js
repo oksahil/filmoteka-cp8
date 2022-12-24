@@ -1,8 +1,8 @@
 // import { rendserIds } from '/src/index';
 
 const imgUrl = "https://image.tmdb.org/t/p/w500/";
-export const cardTemplate = ({original_title,vote_average,vote_count,popularity,genres,overview,poster_path},currentPictSrc) =>
- `<li class="card-item list">
+export const cardTemplate = ({original_title,vote_average,vote_count,popularity,genres,overview,poster_path},currentPictSrc, id) =>
+ `<li class="card-item list" data-id=${id}>
     <div class="picture_container">
         <img class="film-img" src="${poster_path === null?currentPictSrc:imgUrl + poster_path}">
     </div>

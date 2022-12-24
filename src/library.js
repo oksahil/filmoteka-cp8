@@ -1,9 +1,11 @@
 import '/src/sass/index.scss';
 import Notiflix from 'notiflix';
+import render from './index'
 
 
 var debounce = require('lodash.debounce');
 import { setLocalSt, getLocalSt, remLocalSt } from './js/localStorage';
+import { cardTemplate } from './js/card-templete';
 
 const DEBOUNCE_DELAY = 300;
 const KEY = '27a3692489226a6f77b57cb0bdb9ce9a';
@@ -22,7 +24,7 @@ const QUEUE_KEY = 'queue';
 
 const onWatched = () => {
   const watchFilm = getLocalSt(WATCHED_KEY);
-  render(watchFilm);
+  watchFilm.map(cardTemplate);
 };
 
 const onQueue = () => {};

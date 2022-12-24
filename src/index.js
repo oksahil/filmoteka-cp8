@@ -99,10 +99,10 @@ export const filmTemplate = ({
   renderIds(genre_ids, listg);
   console.log('strGenres', strGenres);
   if (genre_ids === '') {
-    genre_ids = 'no ganeres';
+    genre_ids = 'no genres';
   }
   if (release_date === '') {
-    release_date = 'no relase date';
+    release_date = 'no release date';
   }
   if (release_date === undefined) {
     release_date = first_air_date;
