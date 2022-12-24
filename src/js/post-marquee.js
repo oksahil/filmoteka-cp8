@@ -40,11 +40,6 @@ class LoopingElement {
 }
 
 let elements = document.querySelectorAll('.dynamic__gallery__wrapper');
-console.log(elements[0]);
-console.log(elements[1]);
 
-// elements.forEach(element => {
-//     new LoopingElement(element, 100, 0.2);
-// });
 let newLol = new LoopingElement(elements[0], 0, 0.07);
 let highLol = new LoopingElement(elements[1], -100, 0.07);
