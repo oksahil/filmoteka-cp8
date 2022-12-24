@@ -57,31 +57,28 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    gap: 20px;
+    grid-row: 20px;
 }
 @media screen and (min-width: 768px) {
     .film-list {
-        justify-content: center;
-    // justify-content: space-between;
-    gap: 32px;
+        justify-content: space-between;
+        gap: 32px;
+        max-width: 768px;
+        grid-row: 32px;
     }
 }
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 1280) {
     .film-list {
-        gap: 16px;
+        grid-row: 16px;
     }
 }
 .films {
     width: 280px;
-    gap: 32px;
-    // gap: 32px;
-
 }
 
 @media screen and (min-width: 768px) {
     .films {
         width: 336px;
-        // gap: 16px;
     }
 }
 
