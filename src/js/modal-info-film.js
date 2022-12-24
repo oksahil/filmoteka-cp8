@@ -96,8 +96,11 @@ function respFilmInfo(resp) {
     e.preventDefault();
     let queueArr = [];
     const queueObj = data;
+    if (!addQueue.classList.contains('active')) {
+      addQueue.classList.add('active');
+    }
 
-    if (addQueue.classList.contains('active')) {
+    if (!addQueue.classList.contains('active')) {
       console.log(data.id);
       remLocalSt(QUEUE_KEY);
 
@@ -108,7 +111,7 @@ function respFilmInfo(resp) {
       localStorage.setItem(QUEUE_KEY, stringedQueueArr);
       console.log(stringedQueueArr);
       Notiflix.Notify.failure('Removed from queue');
-      addQueue.classList.remove('active');
+      addQueue.classList.add('active');
       addQueue.textContent = 'Add to queue';
       return;
     }
@@ -122,7 +125,7 @@ function respFilmInfo(resp) {
     addQueue.disabled = true;
 
     textQueueDelay();
-    addQueue.classList.add('active');
+    addQueue.classList.remove('active');
   };
 
   addWatched.addEventListener('click', onWatchedModalBtn);
