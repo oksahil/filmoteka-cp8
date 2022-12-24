@@ -15,7 +15,7 @@
 }
 
 .modal-student {
-    background-color: #303030;
+    background-color: #fff;
     max-height: 90%;
     overflow: auto;
     width: 90%;
@@ -27,9 +27,6 @@
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 999;
-
-    border-radius: 30px;
-
 }
 
 .modal-student__btn-close {
@@ -91,8 +88,6 @@
     text-align: center;
 }
 
-
-
 .student__card {
     display: flex;
     flex-direction: column;
@@ -101,15 +96,6 @@
     box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.12), 0px 1px 1px rgba(0, 0, 0, 0.14),
       0px 2px 1px rgba(0, 0, 0, 0.2);
     border-radius: 0px 0px 4px 4px;
-    
-    transition: transform 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275), 
-    box-shadow 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
-
-    &:hover {
-      transform: scale(1.02);
-      box-shadow: 0px 8px 43px rgba(255, 107, 1, 0.6);
-      background-color: var(--bgcolor-aktive);
-    }
   }
 
   .student__photo {
@@ -126,15 +112,13 @@
   .student__info {
     padding-bottom: 16px;
     padding-top: 30px;
-    background-color: #1e1e1e;
-    border-bottom-left-radius: 30px;
-    border-bottom-right-radius: 30px;
+    background-color: #fff;
   }
 
   .student__name {
     margin-bottom: 10px;
   
-    color: #ffffff;
+    color: #000;
     font-weight: 500;
     font-size: 18px;
     line-height: 1.2;
@@ -170,18 +154,16 @@
     width: 40px;
     height: 40px;
     border-radius: 50%;
-    background-color: #ffffff;
-    color: #000;
-    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1), color 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    background-color: #000;
+    transition: background-color 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
     &:hover {
-        background-color: #000000;
-        color: rgb(221, 53, 53);
+        background-color: rgb(221, 53, 53);
     }
 }
 
 .student__social__link svg {
-    fill: currentColor;
+    fill: #fff;
 }
 
 // Response
