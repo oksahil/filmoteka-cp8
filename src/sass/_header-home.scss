@@ -107,6 +107,10 @@
 
 .film-icon {
   overflow: visible;
+  &:hover,
+  &:focus {
+    color: #ff001b;
+    }
 }
 
 
