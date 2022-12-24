@@ -12,7 +12,9 @@ export const cardTemplate = ({
 }) =>
   `<li class="modal_card_container list">
     <div class="modal_pict_container">
-        <img class="film-img" src="${
+        <img class="film-img"
+        loading="lazy"
+         src="${
           poster_path === null ? '/src/images/BOX.jpg' : imgUrl + poster_path
         }">
     </div>
