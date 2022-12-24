@@ -38,9 +38,18 @@ function respFilmInfo(resp) {
   const addQueue = document.querySelector('.add-queue-btn');
   const addWatched = document.querySelector('.add-watched-btn');
 
-  // if (getLocalSt(WATCHED_KEY).includes(data.id)) {
-  //   addWatched.textContent = "Remove from queue";
-  // }
+  let watchArr = [];
+  const watchObj = data;
+  let queueArr = [];
+  const queueObj = data;
+
+
+  if (!getLocalSt(WATCHED_KEY)) {
+    setLocalSt(WATCHED_KEY, watchArr);
+  }
+  if (!getLocalSt(QUEUE_KEY)) {
+    setLocalSt(QUEUE_KEY, queueArr);
+  }
   
   if (getLocalSt(WATCHED_KEY).find(obj => obj.id === data.id)) {
     addWatched.textContent = "Remove from watched";
@@ -52,15 +61,6 @@ function respFilmInfo(resp) {
    }
 
 
-  const makeArr = (id, list) => {
-    let newArr = [];
-    let localArr = getLocalSt(list);
-    if (localArr) {
-      newArr = [...localArr];
-    }
-    const arrSet = new Set(newArr);
-    return arrSet.has(id);
-  };
 
   async function textWatchDelay() {
     setTimeout(() => {
@@ -77,8 +77,7 @@ function respFilmInfo(resp) {
   const onWatchedModalBtn = e => {
     console.log('hello!');
     e.preventDefault();
-    let watchArr = [];
-    const watchObj = data.id;
+
 
     if (getLocalSt(WATCHED_KEY) === undefined) {
       watchArr.push(watchObj);
@@ -126,8 +125,6 @@ function respFilmInfo(resp) {
   const onQueueModalBtn = e => {
     console.log('hello!');
     e.preventDefault();
-    let queueArr = [];
-    const queueObj = data.id;
 
     if (getLocalSt(QUEUE_KEY) === undefined) {
       queueArr.push(queueObj);
