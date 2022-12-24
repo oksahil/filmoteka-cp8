@@ -16,7 +16,7 @@ export async function fetchFilm(name = 0, pageNumber = 1) {
       );
       let items = response.data.results;
       console.log(items);
-      if (items.lenght === 0) {
+      if (items === []) {
         fetchFilmPopularity();
         refs.error.textContent = 'Search result not successful. Enter the correct movie name.';
       }

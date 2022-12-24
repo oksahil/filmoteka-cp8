@@ -36,7 +36,7 @@ body.light-theme {
     // margin: 0 auto;
     // position: absolute;
     // right: 0;
-    // top: 180px;
+    bottom: 200px;
     overflow-x:hidden;
 }
 
@@ -45,6 +45,7 @@ body.light-theme {
         padding: 15px 11px;
         right: 10px;
         top: 170px;
+        margin-bottom: 25px;
     }
 }
 
@@ -54,6 +55,7 @@ body.light-theme {
         right: 1px;
         top: 160px;
         justify-content: flex-end;
+        margin-bottom: 0px;
     }
 }
 
