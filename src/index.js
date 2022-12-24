@@ -8,6 +8,7 @@ import { fetchFilm } from '/src/js/fetch-film';
 import { listg } from '/src/js/fetch-genres';
 import { createPagination, destroyPagination } from './js/pagination';
 // import './js/auth';
+import  imgTemplate  from "/src/images/BOX.jpg";
 
 var debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 1000;
@@ -119,10 +120,11 @@ export const filmTemplate = ({
   console.log(dataFilm);
 
   // <img class="film-img" src="/src/images/BOX.jpg">
+  // <div class="text-img">Sorry,<br>poster for film don't find <br>:( </div>
   if (poster_path === null) {
     return `<li class="film-item list" id="${id}">
     <div class="films">
-      <div class="text-img">Sorry,<br>poster for film don't find <br>:( </div>
+      <img class="film-img" src="${imgTemplate}">
       <h2 class="film-title">${original_name}</h2>
       <h3 class="film-genre">${strGenres.slice(0, 2)} | ${dataFilm}</h3>
     </div>
