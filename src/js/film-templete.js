@@ -55,18 +55,6 @@ export const filmTemplate = ({
   }
 };
 
-import axios from 'axios';
-import { KEY } from '/src/index';
-import { URL } from '/src/index';
-import { fetchGenres } from '/src/js/fetch-genres';
-import { refs } from '/src/index';
-import Notiflix from 'notiflix';
-import { renderIds } from '/src/index';
-import { fetchFilmPopularity } from '/src/js/fetch-film-popularity';
-import { imgTemplate } from '/src/images/BOX.jpg';
-import { listg } from '/src/js/fetch-genres';
-import { strGenres } from '/src/index';
-
 export const filmTemplated = ({
   poster_path,
   original_name,

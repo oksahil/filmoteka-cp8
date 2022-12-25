@@ -1,7 +1,7 @@
 import '/src/sass/index.scss';
 // import Notiflix from 'notiflix';
-// import { filmTemplate } from './js/film-templete';
-// import { refs } from './index';
+import { filmTemplated } from '../src/js/film-templete';
+import { refs } from '../src/index';
 
 import { getLocalSt } from './js/localStorage';
 
@@ -9,7 +9,7 @@ const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
 
 const renderLibraryFilms = (arr) => {
-  const markup = arr.map(obj => filmTemplate(obj)).join('');
+  const markup = arr.map(obj => filmTemplated(obj)).join('');
 
   refs.list.insertAdjacentHTML('beforeend', markup);
 };
