@@ -9,7 +9,7 @@ import { createPagination, destroyPagination } from './js/pagination';
 import  imgTemplate  from '/src/images/BOX.jpg';
 
 var debounce = require('lodash.debounce');
-const DEBOUNCE_DELAY = 500;
+const DEBOUNCE_DELAY = 300;
 export const KEY = '27a3692489226a6f77b57cb0bdb9ce9a';
 export const URL = 'https://api.themoviedb.org/3/search/movie?api_key=';
 
@@ -25,6 +25,7 @@ export const refs = {
   searchForm: document.querySelector('.search-form'),
   addWatched: document.querySelector('.add-watched-btn'),
   modalBody: document.querySelector('body'),
+  paginationBtn: document.querySelector('.pagination-buttons'),
 };
 
 // вызывает основную функцию когда - DOM content is loaded
@@ -91,7 +92,7 @@ function initInputListener() {
         // удаление кнопок если проверка не прошла
         destroyPagination();
         fetchFilmPopularity();
-        refs.error.textContent = '';
+        // refs.error.textContent = '';
       }
     }
   };

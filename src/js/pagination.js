@@ -1,6 +1,4 @@
-const refs = {
-  paginationBtn: document.querySelector('.pagination-buttons'),
-};
+import { refs } from '/src/index';
 
 const pageNumbers = (total, max, current) => {
   const half = Math.floor(max / 2);
@@ -42,9 +40,9 @@ export function createPagination(
 
   const disabled = {
     start: () => pages[0] === 1,
-    prev: () => currentPage === 1 || currentPage > totalPages,
-    end: () => pages.slice(-1)[0] === totalPages,
-    next: () => currentPage >= totalPages,
+    prev: () => (currentPage === 1) || (currentPage > totalPages),
+    end: () => (pages.slice(-1)[0] === totalPages),
+    next: () => (currentPage >= totalPages),
   };
   const frag = document.createDocumentFragment();
   const paginationButtonContainer = document.createElement('div');
