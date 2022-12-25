@@ -24,9 +24,10 @@ export const refs = {
   cardList: document.querySelector('.card-list'),
   error: document.querySelector('.error'),
   searchForm: document.querySelector('.search-form'),
-  addWatched: document.querySelector('.add-watched-btn'),
   modalBody: document.querySelector('body'),
   paginationBtn: document.querySelector('.pagination-buttons'),
+  watched: document.querySelector('.add-watched-btn'),
+  queue: document.querySelector('.add-queue-btn'),
 };
 
 // вызывает основную функцию когда - DOM content is loaded
@@ -34,7 +35,7 @@ document.addEventListener('DOMContentLoaded', main);
 
 // функция для популярных фильмов и пагинации
 async function renderPopularFilms() {
-  // и так понятно что делает)
+  // и так понятно что делает
   const filmsData = await fetchFilmPopularity();
 
   // создание кнопок + всего страниц + количество отображаемых кнопок + текущая кнопка
