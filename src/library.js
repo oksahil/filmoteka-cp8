@@ -1,13 +1,13 @@
 import '/src/sass/index.scss';
 import Notiflix from 'notiflix';
-import { filmTemplate, render, items, strGenres } from '.';
-import imgTemplate from '/src/images/BOX.jpg';
+import axios from 'axios';
+import { filmTemplate } from '.';
+
 
 
 var debounce = require('lodash.debounce');
 import { setLocalSt, getLocalSt, remLocalSt } from './js/localStorage';
-import { cardTemplate } from './js/card-templete';
-import axios from 'axios';
+
 
 const DEBOUNCE_DELAY = 300;
 const KEY = '27a3692489226a6f77b57cb0bdb9ce9a';
@@ -21,7 +21,7 @@ const refs = {
   list: document.querySelector('.film-list'),
   watched: document.querySelector('.watched-btn'),
   queue: document.querySelector('.queue-btn'),
-  libList: document.querySelector('.film-list-library'),
+  filmList: document.querySelector('.film-list'),
 };
 
 const WATCHED_KEY = 'watched';
@@ -57,14 +57,10 @@ const onGenre = (arr) => {
 const onWatched = () => {
   const watchFilmId = [...getLocalSt(WATCHED_KEY)]
 
-  for (const id of watchFilmId) {
-    createMovieById(id).then(data => {
-      renderLibrary(data);
-    })
-  }
+  const markup = watchFilmId.map(obj => filmTemplate(obj));
 
 
-  console.log(watchFilmId);
+  console.log(markup);
 
   
 };
