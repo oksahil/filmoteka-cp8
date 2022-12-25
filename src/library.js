@@ -1,6 +1,7 @@
 import '/src/sass/index.scss';
 import Notiflix from 'notiflix';
-import { filmTemplate } from '.';
+import { filmTemplate, render, items, strGenres } from '.';
+import imgTemplate from '/src/images/BOX.jpg';
 
 
 var debounce = require('lodash.debounce');
@@ -23,13 +24,20 @@ const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
 
 const onWatched = () => {
-  const watchFilm = [...getLocalSt(WATCHED_KEY)];
+  const watchFilmId = [...getLocalSt(WATCHED_KEY)]
+
+
+
+  console.log(watchFilmId);
+
   
-  watchedArr = watchFilm.map(({ id }) => filmTemplate(id).join(''));
-  refs.filmList.innerHTML = watchedArr;
 };
 
-const onQueue = () => {};
+const onQueue = () => {
+  const queueFilmId = [...getLocalSt(WATCHED_KEY)];
+  
+  console.log(queueFilmId);
+};
 
 refs.watched.addEventListener('click', onWatched);
 refs.queue.addEventListener('click', onQueue);
