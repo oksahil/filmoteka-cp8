@@ -41,7 +41,7 @@ body.dark-theme {
             background-color: var(--bgcolor-aktive);
         }
     };
-    & .modal_btn_container button {
+    & .modal_btn_container .btn {
         color: #FFFFFF;
     }
 }
@@ -75,6 +75,13 @@ body.light-theme {
             background-color: var(--bgcolor-aktive);
         }
     };
+    & .modal_btn_container .btn {
+        border: 1px solid #000000;
+        &:hover,
+        &:focus {
+            border-color: transparent;
+        }
+    }
 }
 
 .light-theme {
