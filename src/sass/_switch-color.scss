@@ -12,6 +12,25 @@ body.dark-theme {
     & .switch__control {
         transform: translateX(calc(100% - 2px));
     };
+    & .modal-window {
+        background-color: #303030;
+        color: var(--color-aktive);
+    };
+    & .film-title {
+        color: var(--color-aktive);
+    };
+    & .modal_text_container-overwiew {
+        color: var(--color-aktive);
+    };
+    & .modal_text_container-about {
+        color: var(--bgcolor-aktive) ;
+    };
+    & .vote_highlighted {
+        color: var(--color-aktive);
+    };
+    & .modal-icon-close {
+        fill: var(--bgcolor-aktive);
+    };
 }
 
 body.light-theme {
@@ -21,6 +40,18 @@ body.light-theme {
 
     & .footer a:hover {
         color: var(--bgcolor-aktive);
+    };
+
+    & .modal-window {
+        background-color: #fff;
+        color: var(--color-text);
+    };
+
+    & .modal_text_container-about {
+        color: var(--bgcolor-aktive) ;
+    };
+    & .modal-icon-close {
+        fill: var(--bgcolor-aktive);
     };
 }
 
