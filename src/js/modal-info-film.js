@@ -36,9 +36,9 @@ function respFilmInfo(resp) {
   const addWatched = document.querySelector('.add-watched-btn');
 
   let watchArr = [];
-  const watchObj = data;
+  const watchObj = data.id;
   let queueArr = [];
-  const queueObj = data;
+  const queueObj = data.id;
   let stringedWatchArr;
   let stringedQueueArr;
 
