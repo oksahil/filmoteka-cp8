@@ -10,7 +10,7 @@ import { imgTemplate } from '/src/images/BOX.jpg';
 import { listg } from '/src/js/fetch-genres';
 import { strGenres } from '/src/index';
 
-export const filmTemplate = ({
+export const filmTemplate1 = ({
   poster_path,
   original_name,
   release_date,
