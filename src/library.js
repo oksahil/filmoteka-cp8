@@ -1,41 +1,30 @@
 import '/src/sass/index.scss';
-// import Notiflix from 'notiflix';
-// import { filmTemplate } from './js/film-templete';
-// import { refs } from './index';
+import Notiflix from 'notiflix';
 
-// import { getLocalSt } from './js/localStorage';
 
-// // const WATCHED_KEY = 'watched';
-// // const QUEUE_KEY = 'queue';
+var debounce = require('lodash.debounce');
+import { setLocalSt, getLocalSt, remLocalSt } from './js/localStorage';
 
-// // const renderLibraryFilms = (arr) => {
-// //   const markup = arr.map(obj => filmTemplate(obj)).join('');
+const DEBOUNCE_DELAY = 300;
+const KEY = '27a3692489226a6f77b57cb0bdb9ce9a';
+const URL = 'https://api.themoviedb.org/3/search/movie?api_key=';
 
-// //   refs.list.insertAdjacentHTML('beforeend', markup);
-// // };
+const refs = {
+  input: document.querySelector('.search-input'),
+  list: document.querySelector('.film-list'),
+  watched: document.querySelector('.watched-btn'),
+  queue: document.querySelector('.queue-btn'),
+  libraryList: document.querySelector('.films-list'),
+};
 
-// // if (getLocalSt(WATCHED_KEY)) {
-// //   refs.list.innerHTML = '';
-// //   const watchFilm = [...getLocalSt(WATCHED_KEY)];
-// //   renderLibraryFilms(watchFilm);
-// // }
-// // if (getLocalSt(QUEUE_KEY)) {
-// //   refs.list.innerHTML = '';
-// //   const queueFilm = [...getLocalSt(QUEUE_KEY)];
-// //   renderLibraryFilms(queueFilm);
-// // }
+const WATCHED_KEY = 'watched';
+const QUEUE_KEY = 'queue';
+const onWatched = () => {
+  const watchFilm = getLocalSt(WATCHED_KEY);
+  render(watchFilm);
+};
 
-// // const onWatched = () => {
-// //   refs.list.innerHTML = '';
-// //   const watchFilm = [...getLocalSt(WATCHED_KEY)];
-// //   renderLibraryFilms(watchFilm);
-// // };
+const onQueue = () => {};
 
-// // const onQueue = () => {
-// //   refs.list.innerHTML = '';
-// //   const queueFilm = [...getLocalSt(QUEUE_KEY)];
-// //   renderLibraryFilms(queueFilm);
-// // };
-
-// // refs.watched.addEventListener('click', onWatched);
-// // refs.queue.addEventListener('click', onQueue);
+refs.watched.addEventListener('click', onWatched);
+refs.queue.addEventListener('click', onQueue);
