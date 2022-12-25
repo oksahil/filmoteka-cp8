@@ -11,6 +11,27 @@
     width: 100%;
 }
 
+.dynamic-gallery__btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    background: rgba(253, 251, 251, 0.5);
+    top: 2px;
+    right: 10px;
+    width: 32px;
+    height: 32px;
+    z-index: 100;
+    border-radius: 50%;
+    border: none;
+    transition: background-color 300ms linear;
+
+    &:hover {
+        background-color: #fff;
+
+    }
+}
+
 .dynamic__gallery__wrapper {
     display: flex;
     flex-direction: row;
