@@ -1,6 +1,6 @@
-// import '/src/sass/index.scss';
-// import Notiflix from 'notiflix';
-// import { filmTemplate } from './js/film-templete';
+import '/src/sass/index.scss';
+import Notiflix from 'notiflix';
+import { filmTemplate } from '../src/js/film-templete';
 // import { refs } from './index';
 
 // import { getLocalSt } from './js/localStorage';
