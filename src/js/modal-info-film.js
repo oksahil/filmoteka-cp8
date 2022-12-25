@@ -36,9 +36,9 @@ function respFilmInfo(resp) {
   const addWatched = document.querySelector('.add-watched-btn');
 
   let watchArr = [];
-  const watchObj = data.id;
+  const watchObj = data;
   let queueArr = [];
-  const queueObj = data.id;
+  const queueObj = data;
   let stringedWatchArr;
   let stringedQueueArr;
 
@@ -145,7 +145,6 @@ function respFilmInfo(resp) {
   addWatched.addEventListener('click', onWatchedModalBtn);
   addQueue.addEventListener('click', onQueueModalBtn);
   //------------------------------------WATCHED-QUEUE---------------------------
-
   window.addEventListener('keydown', onEscCloseModal);
   refs.modal.addEventListener('click', onOutsideClickCloseModal);
 };
