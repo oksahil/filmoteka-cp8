@@ -1,14 +1,9 @@
 import '/src/sass/index.scss';
 import Notiflix from 'notiflix';
-import { refs } from './index';
-
-
-var debounce = require('lodash.debounce');
+import { refs, DEBOUNCE_DELAY, KEY, URL } from './index';
 import { setLocalSt, getLocalSt, remLocalSt } from './js/localStorage';
+var debounce = require('lodash.debounce');
 
-const DEBOUNCE_DELAY = 300;
-const KEY = '27a3692489226a6f77b57cb0bdb9ce9a';
-const URL = 'https://api.themoviedb.org/3/search/movie?api_key=';
 
 
 const WATCHED_KEY = 'watched';
