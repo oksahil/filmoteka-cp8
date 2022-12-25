@@ -39,8 +39,6 @@ function respFilmInfo(resp) {
   const watchObj = data;
   let queueArr = [];
   const queueObj = data;
-  let stringedWatchArr;
-  let stringedQueueArr;
 
 
 
@@ -75,45 +73,42 @@ function respFilmInfo(resp) {
       addQueue.disabled = false;
     }, 1000);
   }
-  async function textWatchDelayPre() {
-    setTimeout(() => {
-      addWatched.textContent = 'Add to watched';
-      addWatched.disabled = false;
-    }, 1000);
-  }
-  async function textQueueDelayPre() {
-    setTimeout(() => {
-      addQueue.textContent = 'Add to queue';
-      addQueue.disabled = false;
-    }, 1000);
-  }
   const onWatchedModalBtn = e => {
     console.log('hello!');
     e.preventDefault();
 
 
-    if (addWatched.classList.contains('active')) {
+    if (getLocalSt(WATCHED_KEY) === undefined) {
+
+      watchArr.push(watchObj);
+      const stringedWatchArr = JSON.stringify(watchArr);
+      localStorage.setItem(WATCHED_KEY, stringedWatchArr);
+      console.log(stringedWatchArr);
+      addWatched.textContent = 'Added from watched';
+      addWatched.disabled = true;
+      textWatchDelay();
+      addWatched.classList.add('active');
+
+    } else if (getLocalSt(WATCHED_KEY).find(obj => obj.id === data.id)) {
       console.log(data.id);
+      watchArr.push(...getLocalSt(WATCHED_KEY));
       let index = watchArr.indexOf(data.id);
       watchArr.splice(index, 1);
-      stringedWatchArr = JSON.stringify(watchArr);
+      const stringedWatchArr = JSON.stringify(watchArr);
       localStorage.setItem(WATCHED_KEY, stringedWatchArr);
       console.log(stringedWatchArr);
       Notiflix.Notify.failure('Removed from watched');
       addWatched.classList.remove('active');
-      addWatched.textContent = 'Removed from watched';
-      addWatched.disabled = true;
-      textWatchDelayPre();
+      addWatched.textContent = 'Add to watched';
       return;
 
     } else {
-      watchArr = [];
+      console.log(watchArr);
       watchArr.push(...getLocalSt(WATCHED_KEY));
       watchArr.push(watchObj);
-      stringedWatchArr = setLocalSt(WATCHED_KEY, watchArr);
-
-      console.log(watchArr)
-
+      const stringedWatchArr = JSON.stringify(watchArr);
+      localStorage.setItem(WATCHED_KEY, stringedWatchArr);
+      console.log(stringedWatchArr);
       addWatched.textContent = 'Added from watched';
       addWatched.disabled = true;
       textWatchDelay();
@@ -124,8 +119,18 @@ function respFilmInfo(resp) {
     console.log('hello!');
     e.preventDefault();
 
-  if (addQueue.classList.contains('active')) {
+    if (getLocalSt(QUEUE_KEY) === undefined) {
+      queueArr.push(queueObj);
+      const stringedQueueArr = JSON.stringify(queueArr);
+      localStorage.setItem('queue', stringedQueueArr);
+      console.log(stringedQueueArr);
+      addQueue.textContent = 'Added from queue';
+      addQueue.disabled = true;
+      textQueueDelay();
+      addQueue.classList.add('active');
+    } else if (getLocalSt(QUEUE_KEY).find(obj => obj.id === data.id)) {
       console.log(data.id);
+      queueArr.push(...getLocalSt(QUEUE_KEY));
       let index = queueArr.indexOf(data.id);
       queueArr.splice(index, 1);
       const stringedQueueArr = JSON.stringify(queueArr);
@@ -133,14 +138,12 @@ function respFilmInfo(resp) {
       console.log(stringedQueueArr);
       Notiflix.Notify.failure('Removed from queue');
       addQueue.classList.remove('active');
-      addQueue.textContent = 'Removed from queue';
-      addQueue.disabled = true;
-      textQueueDelayPre();
+      addQueue.textContent = 'Add to queue';
+      return;
     } else {
-      queueArr = [];
       queueArr.push(...getLocalSt(QUEUE_KEY));
       queueArr.push(queueObj);
-      stringedQueueArr = JSON.stringify(queueArr);
+      const stringedQueueArr = JSON.stringify(queueArr);
       localStorage.setItem('queue', stringedQueueArr);
       console.log(stringedQueueArr);
       addQueue.textContent = 'Added from queue';
