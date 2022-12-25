@@ -25,9 +25,7 @@ export const refs = {
   searchForm: document.querySelector('.search-form'),
   addWatched: document.querySelector('.add-watched-btn'),
   modalBody: document.querySelector('body'),
-  watched: document.querySelector('.watched-btn'),
-  queue: document.querySelector('.queue-btn'),
-  libraryList: document.querySelector('.films-list'),
+  paginationBtn: document.querySelector('.pagination-buttons'),
 };
 
 // вызывает основную функцию когда - DOM content is loaded
