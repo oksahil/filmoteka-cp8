@@ -1,0 +1,2 @@
+const e=document.querySelector("body"),o=document.querySelector("footer");document.querySelector(".change-color__wrap").addEventListener("click",(function(t){e.classList.contains("light-color-theme")?(e.classList.remove("light-color-theme"),o.classList.remove("light-color-theme"),e.classList.add("dark-color-theme"),o.classList.add("dark-color-theme")):(e.classList.remove("dark-color-theme"),o.classList.remove("dark-color-theme"),e.classList.add("light-color-theme"),o.classList.add("light-color-theme"))}));
+//# sourceMappingURL=library.0e022fb2.js.map
