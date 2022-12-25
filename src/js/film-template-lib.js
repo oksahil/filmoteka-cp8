@@ -37,7 +37,11 @@ export const filmTemplate = ({
     <div class="films">
       <img class="film-img" src="${imgTemplate}">
       <h2 class="film-title">${original_name}</h2>
-      <h3 class="film-genre">${genrNamesArr.length > 2 ? genrNamesArr.slice(0, 2).join(', ') + '...' : genrNamesArr}</h3>
+      <h3 class="film-genre">${
+        genrNamesArr.length > 2
+          ? genrNamesArr.slice(0, 2).join(', ') + '...'
+          : genrNamesArr
+      }</h3>
     </div>
     </li>`;
   } else {
