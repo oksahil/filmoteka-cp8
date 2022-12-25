@@ -1,22 +1,79 @@
 body.dark-theme {
     color: var(--color-aktive);
     transition: background-color .3s;
-
+    background-color: #21282F;
+    
+    & .switch__wrap {
+    border: #8e1d2b solid 1px;
+    }
     & .footer a:hover {
        color: var(--bgcolor-aktive);
     };
     & .switch__control {
         transform: translateX(calc(100% - 2px));
     };
+    & .modal-window {
+        background-color: #303030;
+        color: var(--color-aktive);
+    };
+    & .film-title {
+        color: var(--color-aktive);
+    };
+    & .modal_text_container-overwiew {
+        color: var(--color-aktive);
+    };
+    & .modal_text_container-about {
+        color: var(--bgcolor-aktive) ;
+    };
+    & .vote_highlighted {
+        color: var(--color-aktive);
+    };
+    & .btn-close {
+        fill: var(--bgcolor-aktive);
+        transition:fill 500ms cubic-bezier(0.4, 0, 0.2, 1),
+            transform 500ms cubic-bezier(0.4, 0, 0.2, 1),
+            background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover,
+        &:focus {
+            transform: rotate(180deg) scale(1.2);
+            fill: #FFFFFF;
+            background-color: var(--bgcolor-aktive);
+        }
+    };
+    & .modal_btn_container button {
+        color: #FFFFFF;
+    }
 }
 
 body.light-theme {
     background-color: var(--color-aktive);
     color: var(--color-text);
-    transition: transform .5s,background-color .5s;
+    transition: background-color .3s;
 
     & .footer a:hover {
         color: var(--bgcolor-aktive);
+    };
+
+    & .modal-window {
+        background-color: #fff;
+        color: var(--color-text);
+    };
+
+    & .modal_text_container-about {
+        color: var(--bgcolor-aktive) ;
+    };
+    & .btn-close {
+        transition:fill 500ms cubic-bezier(0.4, 0, 0.2, 1),
+        transform 500ms cubic-bezier(0.4, 0, 0.2, 1),
+        background-color 500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+        &:hover,
+        &:focus {
+            transform: rotate(180deg) scale(1.2);
+            fill: #FFFFFF;
+            background-color: var(--bgcolor-aktive);
+        }
     };
 }
 

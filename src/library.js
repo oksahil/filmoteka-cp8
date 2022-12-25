@@ -14,12 +14,11 @@ const refs = {
   list: document.querySelector('.film-list'),
   watched: document.querySelector('.watched-btn'),
   queue: document.querySelector('.queue-btn'),
-  libraryList: document.querySelector('.films-list-library'),
+  libraryList: document.querySelector('.films-list'),
 };
 
 const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
-
 const onWatched = () => {
   const watchFilm = getLocalSt(WATCHED_KEY);
   render(watchFilm);

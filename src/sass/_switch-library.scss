@@ -1,0 +1,100 @@
+body.dark-color-theme {
+    color: var(--color-aktive);
+    transition: background-color .3s;
+    background-color: #21282F;
+    
+    
+    & .footer a:hover {
+      color: var(--bgcolor-aktive);
+    };
+    & .change-color__control {
+     transform: translateX(calc(100% - 2px));
+    };
+}
+    
+body.light-color-theme {
+   background-color: var(--color-aktive);
+   color: var(--color-text);
+   transition: transform .5s,background-color .5s;
+    
+    & .footer a:hover {
+      color: var(--bgcolor-aktive);
+    };
+}
+    
+.light-color-theme {
+    background-color: #F7F7F7;
+    color: #545454;
+    transition: background-color .3s;
+}
+    
+.dark-color-theme {
+    color: var(--color-aktive);
+    background-color: #1a1f24;
+    transition: background-color .3s;
+}
+    
+@media screen and (min-width: 768px) {
+    .change-color__wrap {
+       margin-left: 25px;
+    };
+}
+    
+@media screen and (min-width: 1280px) {
+    .change-color__wrap {
+      margin-top: 80px;
+      margin-left: 2px;
+    };
+}
+    
+.change-color__wrap {
+    margin-top: 0px;
+    margin-left: 2px;
+    width: 50px;
+    height: 30px;
+    background-color: #222d33;
+    border-radius: 30px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2px 6px;
+    cursor: pointer;
+    display: flex;
+    position: relative;
+}
+    
+.change-color__wrap::before {
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    left: 6px;
+    background-image: url("https://www.freeiconspng.com/uploads/sun-icon-22.png");
+}
+    
+.change-color__wrap::after {
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+    right: 6px;
+    background-image: url("https://www.freeiconspng.com/uploads/crescent-moon-png-18.png");
+}
+    
+.change-color__wrap::before, .change-color__wrap::after{
+    content: "";
+    display: block;
+    top: 50%;
+    margin-top: -7px;
+    height: 15px;
+    width: 15px;
+    position: absolute;
+}
+    
+.change-color__control {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: #fff;
+    z-index: 2;
+    transition: transform .25s cubic-bezier(.4,0,.2,1);
+    transform: translate(1px);
+    box-shadow: 0 1px 1px rgb(0 0 0 / 25%);
+}
+    
