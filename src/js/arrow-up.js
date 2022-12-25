@@ -5,6 +5,8 @@ const viewportWidth = window.innerWidth || document.documentElement.clientWidth;
 const viewportHeight = window.innerHeight || document.documentElement.clientHeight;
 const body = document.querySelector('body');
 const controlSwitch = document.querySelector('.switch__wrap');
+const modalStudentOpen = document.querySelector('.student-open-js');
+const modalStudentClose = document.querySelector('.student-close-js');
 
 // створили змінну для координат галереї
 let rect = {};
@@ -26,11 +28,24 @@ function showBtnToTheTop() {
   toTheTopBtnRef.classList.remove('hidden');
 };
 
+// функція - ховаємо кнопку прокрутити вверх
+function hiddenBtnToTheTop() {
+  toTheTopBtnRef.classList.add('hidden');
+}
+
 // функція для перевірки позиції галереї
 function galleryPosition() {
   rect = galleryRef.getBoundingClientRect();
   // console.log(rect);
 }
+
+// перевірка на колір теми
+if (body.classList.contains('dark-theme')) {
+    toTheTopBtnRef.classList.add('dark-mood');
+   } else if (body.classList.contains('light-theme')) {
+    toTheTopBtnRef.classList.remove('dark-mood');
+};
+  
 
 toTheTopBtnRef.addEventListener('click', onClickArrow);
 
@@ -40,7 +55,7 @@ toTheTopBtnRef.addEventListener('click', onClickArrow);
 // перевіряємо наскільки видна галерея
 // якщо не бачимо двох верхніх рядків, то показуємо кнопку ВГОРУ
 function onScrollWindow() {
-  toTheTopBtnRef.classList.add('hidden');
+  hiddenBtnToTheTop();
 
   galleryPosition();
   // console.log(rect.top);
@@ -55,10 +70,7 @@ window.addEventListener('scroll', onScrollWindow);
 
 // змінюємо тему
 controlSwitch.addEventListener('click', onChangeColor);
-
-
 function onChangeColor(event) {
-  
   if (body.classList.contains('dark-theme')) {
     toTheTopBtnRef.classList.add('dark-mood');
    } else if (body.classList.contains('light-theme')) {
@@ -66,3 +78,5 @@ function onChangeColor(event) {
   };
 };
 
+modalStudentOpen.addEventListener('click', hiddenBtnToTheTop);
+modalStudentClose.addEventListener('click', showBtnToTheTop);
