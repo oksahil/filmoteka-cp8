@@ -1,0 +1,81 @@
+.container-arrow {
+  z-index: 800;
+  text-align: center;
+  position: fixed;
+  z-index: 1000;
+  right: 2%;
+  bottom: 12%;
+  font-size: 100%;
+  cursor: pointer;
+}
+
+
+.to-top {
+  padding: 8px;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 1) 30%, rgba(41, 53, 86, 0) 100%);
+  border-radius: 8px;
+  text-transform: uppercase;
+  color: rgb(0, 0, 0);
+  padding-top: 2em;
+  display: inline-block;
+  /* or block */
+  position: relative;
+  border-color: rgb(0, 0, 0);
+  text-decoration: none;
+  transition: all 250ms ease-out;
+}
+
+.to-top:before {
+  padding-top: 6px;
+  content: '▲';
+  font-size: .9em;
+  position: absolute;
+  top: 0;
+  left: 50%;
+  margin-left: -.7em;
+  width: 1.4em;
+  height: 1.4em;
+  line-height: 1.3em;
+  border-color: inherit;
+  transition: transform .5s ease-in;
+}
+
+.to-top:hover {
+  color: rgb(190, 1, 1);
+}
+
+.to-top:hover:before {
+  transform: scale(1.4);
+}
+
+
+.hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+  clip: rect(0 0 0 0);
+}
+
+
+@media screen and (max-width: 1279px) {
+  .container-arrow {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    clip: rect(0 0 0 0);
+    background-color: rgba(255, 0, 0, 0);
+  }
+}
+
+.dark-mood {
+  background-image: radial-gradient(circle, rgb(18, 18, 23) 30%, rgba(41, 53, 86, 0) 100%);
+  color: white;
+}
