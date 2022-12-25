@@ -19,7 +19,6 @@ const refs = {
 
 const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
-
 const onWatched = () => {
   const watchFilm = getLocalSt(WATCHED_KEY);
   render(watchFilm);
