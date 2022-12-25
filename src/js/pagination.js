@@ -106,7 +106,7 @@ export function createPagination(
 
   buttons.set(
     createAndSetupButton(
-      'start',
+      'first',
       'start-page',
       disabled.start(),
       () => (currentPage = 1)
@@ -152,7 +152,7 @@ export function createPagination(
 
   buttons.set(
     createAndSetupButton(
-      'end',
+      'last',
       'end-page',
       disabled.end(),
       () => (currentPage = totalPages)

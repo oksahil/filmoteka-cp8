@@ -1,47 +1,14 @@
-// .is-active {
-//   color: red;
-// }
-
-// .is-hide {
-//   display: none;
-// }
-
-// html,
-// body {
-//   width: 100%;
-//   height: 100%;
-//   margin: 0;
-//   font-family: sans-serif;
-//   padding: 25px;
-//   background: #fff;
-//   color: #111;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
-
-// *,
-// *::after,
-// *::before {
-//   box-sizing: border-box;
-// }
-
 .wrapper {
-  padding-top: 25px;
-  padding-bottom: 25px;
+  padding-top: 10px;
+  padding-bottom: 30px;
   display: flex;
   justify-content: center;
-}
 
-// button {
-//   background: none;
-//   appearance: none;
-//   -webkit-appearance: none;
-//   -ms-appearance: none;
-//   -moz-appearance: none;
-//   border: none;
-//   cursor: pointer;
-// }
+  @media screen and (min-width: 768px) {
+    padding-top: 25px;
+    padding-bottom: 25px;
+  }
+}
 
 .page-btn {
   background: #fff;
@@ -73,8 +40,8 @@
 .pagination-buttons {
   display: flex;
   align-items: center;
-   padding: 0;
- 
+  padding: 0;
+
   cursor: pointer;
   font-family: Roboto;
   font-weight: 500;
@@ -83,7 +50,7 @@
 }
 
 .page-btn[class*='-page'] {
-   background-color: #fff;
+  background-color: #fff;
   border: none;
   color: #ff6b0a;
   font-size: 0.6em;
@@ -91,10 +58,19 @@
 }
 
 .btn-active {
-  background:#ff6b0a ;
+  background: #ff6b0a;
   color: #fff;
 }
 
 .page-btn[disabled] {
   opacity: 0.3;
+}
+
+.start-page,
+.end-page {
+  display: none;
+
+  @media screen and (min-width: 768px) {
+    display: block;
+  }
 }
