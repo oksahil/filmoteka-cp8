@@ -1,9 +1,9 @@
-// import '/src/sass/index.scss';
-// import Notiflix from 'notiflix';
-// import { filmTemplate } from './js/film-templete';
-// import { refs } from './index';
+import '/src/sass/index.scss';
+import Notiflix from 'notiflix';
+import { filmTemplate } from '/src/js/film-templete';
+import { refs } from '/src/index';
 
-// import { getLocalSt } from './js/localStorage';
+import { getLocalSt } from '/src/js/localStorage';
 
 const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
