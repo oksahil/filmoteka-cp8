@@ -4,7 +4,7 @@ const controlSwitch = document.querySelector('.switch__wrap');
 
 controlSwitch.addEventListener('click', onChangeTheme);
 
-const savedData = localStorage.getItem("theme");
+//const savedData = localStorage.getItem("theme");
 
 function onChangeTheme (event) {
 
@@ -20,15 +20,15 @@ function onChangeTheme (event) {
     darkFooter.classList.add('light-theme');
    };
 
-   localStorage.setItem('theme', body.classList);
+   //localStorage.setItem('theme', body.classList);
 };
 
-checkingData();
+// checkingData();
 
-function checkingData() {
-  if(savedData) {
-    body.classList = savedData;
-  } else if(savedData = 'dark-theme') {
-    darkFooter.classList.add('dark-theme');
-  };
-};
+// function checkingData() {
+//   if(savedData) {
+//     body.classList = savedData;
+//   } else if(savedData = 'dark-theme') {
+//     darkFooter.classList.add('dark-theme');
+//   };
+// };
