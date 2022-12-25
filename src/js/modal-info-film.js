@@ -39,9 +39,8 @@ function respFilmInfo(resp) {
   const watchObj = data;
   let queueArr = [];
   const queueObj = data;
-
-
-
+  let stringedWatchArr;
+  let stringedQueueArr;
 
   if (!getLocalSt(WATCHED_KEY)) {
     setLocalSt(WATCHED_KEY, []);
