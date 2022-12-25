@@ -8,7 +8,7 @@ import { fetchFilm } from '/src/js/fetch-film';
 import { listg } from '/src/js/fetch-genres';
 import { createPagination, destroyPagination } from './js/pagination';
 // import './js/auth';
-import  imgTemplate  from "/src/images/BOX.jpg";
+import imgTemplate from '/src/images/BOX.jpg';
 
 var debounce = require('lodash.debounce');
 const DEBOUNCE_DELAY = 1000;
@@ -54,6 +54,7 @@ async function renderPopularFilms() {
   // слушаем на какую кнопку было нажатие и передаем её
   paginationButtons.onChange(e => {
     fetchFilmPopularity(e.target.value);
+    refs.list.innerHTML = '';
   });
 }
 
@@ -71,6 +72,7 @@ function initInputListener() {
     // убирает пробелы + проверка, если инпут не пустой и если в ответе страниц больше 0
     const inputText = e.target.value.trim();
     if (inputText !== '') {
+      refs.list.innerHTML = '';
       const filmsData = await fetchFilm(inputText, 1);
 
       // если страниц больше 0 создаем кнопки
@@ -89,6 +91,7 @@ function initInputListener() {
         // слушаем на какую кнопку было нажатие, передаем её и текст с инпута
         paginationButtons.onChange(e => {
           fetchFilm(inputText, e.target.value);
+          refs.list.innerHTML = '';
         });
       } else {
         // удаление кнопок если проверка не прошла
