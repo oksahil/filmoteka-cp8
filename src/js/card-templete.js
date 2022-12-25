@@ -55,5 +55,3 @@ export const cardTemplate = ({
         </div>
     </div>
 </li>`;
-
-// <img class="film-img" src="${poster_path === null?currentPictSrc:imgUrl + poster_path}">
