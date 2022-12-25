@@ -29,59 +29,86 @@ export const refs = {
   addWatched: document.querySelector('.add-watched-btn'),
   modalBody: document.querySelector('body'),
 };
-document.addEventListener('DOMContentLoaded', main);
-// const fetchFilmsWithDebounce = debounce(renderSearchFilms, DEBOUNCE_DELAY);
-// refs.input.addEventListener('input', fetchFilmsWithDebounce);
 
+// вызывает основную функцию когда - DOM content is loaded
+document.addEventListener('DOMContentLoaded', main);
+
+// функция для популярных фильмов и пагинации
 async function renderPopularFilms() {
+  // и так понятно что делает)
   const filmsData = await fetchFilmPopularity();
+
+  // создание кнопок + всего страниц + количество отображаемых кнопок + текущая кнопка
   const paginationButtons = createPagination(
+    // количество страниц
     filmsData.total_pages,
+    // отображается страниц
     5,
+    // текущая страница
     filmsData.page
   );
+
+  // указываем рендеру кнопок класс где создавать
   paginationButtons.render(document.querySelector('.pagination-wrapper'));
+
+  // слушаем на какую кнопку было нажатие и передаем её
   paginationButtons.onChange(e => {
     fetchFilmPopularity(e.target.value);
   });
 }
 
+// функция для поиска фильмов по запросу и пагинации
 function initInputListener() {
   const { input } = refs;
   let paginationButtons;
 
+  // делает e.preventDefault() и все
   const renderFilmsOnInputChange = async e => {
     e.preventDefault();
 
     refs.error.textContent = '';
 
+    // убирает пробелы + проверка, если инпут не пустой и если в ответе страниц больше 0
     const inputText = e.target.value.trim();
     if (inputText !== '') {
       const filmsData = await fetchFilm(inputText, 1);
+
+      // если страниц больше 0 создаем кнопки
       if (filmsData.total_pages > 0) {
         paginationButtons = createPagination(
+          // количество страниц
           filmsData.total_pages,
+          // отображается страниц
           5,
+          // текущая страница
           filmsData.page
         );
+        // указываем рендеру кнопок класс где создавать
         paginationButtons.render(document.querySelector('.pagination-wrapper'));
+
+        // слушаем на какую кнопку было нажатие, передаем её и текст с инпута
         paginationButtons.onChange(e => {
           fetchFilm(inputText, e.target.value);
         });
       } else {
+        // удаление кнопок если проверка не прошла
         destroyPagination();
         // refs.error.textContent = '';
       }
     }
   };
+  // debounce для input
   const renderFilmsWithDebounce = debounce(
     renderFilmsOnInputChange,
     DEBOUNCE_DELAY
   );
+  // слушатель input с debounce
   input.addEventListener('input', renderFilmsWithDebounce);
 }
 
+// основная функция, вызывается когда HTML документ полностью загрузился
 async function main() {
+  // делает e.preventDefault() и все
   refs.searchForm.addEventListener('submit', e => {
     e.preventDefault();
   });
@@ -89,6 +116,7 @@ async function main() {
   initInputListener();
   renderPopularFilms();
 }
+
 export let items = [];
 export let strGenres = [];
 
@@ -167,4 +195,3 @@ export function renderInfo(itemsInfo) {
   refs.cardList.innerHTML = '';
   refs.cardList.insertAdjacentHTML('beforeend', filmListInfo.join(''));
 }
-
