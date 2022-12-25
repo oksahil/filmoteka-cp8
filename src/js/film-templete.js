@@ -15,15 +15,16 @@ export const filmTemplate = ({
   original_name,
   release_date,
   genre_ids,
+  genres,
   first_air_date,
   id,
   original_title,
   vote_average,
 }) => {
-  renderIds(genre_ids, listg);
+  // renderIds(genres, listg);
   // console.log('strGenres', strGenres);
-  if (genre_ids === '') {
-    genre_ids = 'no ganeres';
+  if (genres === '') {
+    genres = 'no ganeres';
   }
   if (release_date === '') {
     release_date = 'no relase date';
@@ -36,12 +37,17 @@ export const filmTemplate = ({
   }
   let dataFilm = release_date.slice(0, 4);
   console.log(dataFilm);
+  genrNamesArr = genres.map(genre => genre.name);
   if (poster_path === null) {
     return `<li class="film-item list" id="${id}">
     <div class="films">
       <img class="film-img" src="${imgTemplate}">
       <h2 class="film-title">${original_name}</h2>
-      <h3 class="film-genre">${strGenres.length > 2?strGenres.slice(0, 2)+"..":strGenres.slice(0, 2)} | ${dataFilm}</h3>
+      <h3 class="film-genre">${
+        genrNamesArr.length > 2
+          ? genrNamesArr.slice(0, 2).join(', ') + '...'
+          : genrNamesArr
+      }</h3>
     </div>
     </li>`;
   } else {
@@ -49,7 +55,11 @@ export const filmTemplate = ({
     <div class="films">
       <img class="film-img" src="https://image.tmdb.org/t/p/w500/${poster_path}">
       <h2 class="film-title">${original_name}</h2>
-      <h3 class="film-genre">${strGenres.length > 2?strGenres.slice(0, 2)+"..":strGenres.slice(0, 2)} | ${dataFilm}</h3>
+      <h3 class="film-genre">${
+        genrNamesArr.length > 2
+          ? genrNamesArr.slice(0, 2).join(', ') + '...'
+          : genrNamesArr
+      }</h3>
     </div>
     </li>`;
   }
