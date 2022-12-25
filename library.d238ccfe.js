@@ -1,2 +1,0 @@
-const e=e=>{const t=e.map((e=>filmTemplate(e))).join("");refs.list.insertAdjacentHTML("beforeend",t)};if(getLocalSt("watched")){refs.list.innerHTML="";const t=[...getLocalSt("watched")];e(t)}if(getLocalSt("queue")){refs.list.innerHTML="";const t=[...getLocalSt("queue")];e(t)}refs.watched.addEventListener("click",(()=>{refs.list.innerHTML="";const t=[...getLocalSt("watched")];e(t)})),refs.queue.addEventListener("click",(()=>{refs.list.innerHTML="";const t=[...getLocalSt("queue")];e(t)}));
-//# sourceMappingURL=library.d238ccfe.js.map
