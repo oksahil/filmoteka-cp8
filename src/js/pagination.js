@@ -17,6 +17,7 @@ const pageNumbers = (total, max, current) => {
   return Array.from({ length: Math.min(total, max) }, (_, i) => i + 1 + from);
 };
 
+// функция удаления пагинации
 export const destroyPagination = () => {
   const paginationButtons = document.querySelector('.pagination-buttons');
   if (paginationButtons) {
@@ -24,12 +25,13 @@ export const destroyPagination = () => {
   }
 };
 
+// создает пагинацию
 export function createPagination(
   totalPages = 50,
   maxPagesVisible = 5,
   currentPage = 1
 ) {
-  // destroy pagination if it exists already on the page
+  // удаляет пагинацию ели она присутствует
   const destroy = destroyPagination;
 
   destroy();
@@ -52,16 +54,20 @@ export function createPagination(
   const render = (container = document.body) => {
     container.appendChild(paginationButtonContainer);
   };
+
+  // обновление циферок
   const update = (newPageNumber = currentPage) => {
     currentPage = newPageNumber;
     pages = pageNumbers(totalPages, maxPagesVisible, currentPage);
     buttons.forEach((updateButton, btn) => updateButton(btn));
   };
 
+  // слушатель кнопок пагинации
   const onChange = handler => {
     paginationButtonContainer.addEventListener('change', handler);
   };
 
+  // создание html разметки с кнопками
   const createAndSetupButton = (
     label = '',
     cls = '',
@@ -88,6 +94,7 @@ export function createPagination(
   const onPageButtonClick = e =>
     (currentPage = Number(e.currentTarget.textContent));
 
+  // переключение активных кнопок
   const onPageButtonUpdate = index => btn => {
     btn.textContent = pages[index];
 
