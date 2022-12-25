@@ -23,10 +23,9 @@ export const refs = {
   cardList: document.querySelector('.card-list'),
   error: document.querySelector('.error'),
   searchForm: document.querySelector('.search-form'),
+  addWatched: document.querySelector('.add-watched-btn'),
   modalBody: document.querySelector('body'),
   paginationBtn: document.querySelector('.pagination-buttons'),
-  watched: document.querySelector('.watched-btn'),
-  queue: document.querySelector('.queue-btn'),
 };
 
 // вызывает основную функцию когда - DOM content is loaded
