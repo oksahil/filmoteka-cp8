@@ -23,10 +23,10 @@ function onCardClickOpenModal(e) {
 };
 
 function respFilmInfo(resp) {
-    console.log(resp.data);
+  console.log(resp.data);
 
-    refs.cardList.innerHTML = cardTemplate(resp.data);
-    // refs.cardList.innerHTML = cardTemplate(resp.data,currentPictSrc);
+  refs.cardList.innerHTML = cardTemplate(resp.data);
+  // refs.cardList.innerHTML = cardTemplate(resp.data,currentPictSrc);
 
   //-------------------------------------WATCHED-QUEUE----------------------------------------
   const WATCHED_KEY = 'watched';
@@ -41,9 +41,6 @@ function respFilmInfo(resp) {
   const queueObj = data.id;
   let stringedWatchArr;
   let stringedQueueArr;
-
-
-
 
   if (!getLocalSt(WATCHED_KEY)) {
     setLocalSt(WATCHED_KEY, []);
@@ -60,8 +57,6 @@ function respFilmInfo(resp) {
     addQueue.textContent = 'Remove from queue';
     addQueue.classList.add('active');
   }
-
-
 
   async function textWatchDelay() {
     setTimeout(() => {
@@ -91,7 +86,6 @@ function respFilmInfo(resp) {
     console.log('hello!');
     e.preventDefault();
 
-
     if (addWatched.classList.contains('active')) {
       console.log(data.id);
       let index = watchArr.indexOf(data.id);
@@ -105,14 +99,13 @@ function respFilmInfo(resp) {
       addWatched.disabled = true;
       textWatchDelayPre();
       return;
-
     } else {
       watchArr = [];
       watchArr.push(...getLocalSt(WATCHED_KEY));
       watchArr.push(watchObj);
       stringedWatchArr = setLocalSt(WATCHED_KEY, watchArr);
 
-      console.log(watchArr)
+      console.log(watchArr);
 
       addWatched.textContent = 'Added from watched';
       addWatched.disabled = true;
@@ -124,7 +117,7 @@ function respFilmInfo(resp) {
     console.log('hello!');
     e.preventDefault();
 
-  if (addQueue.classList.contains('active')) {
+    if (addQueue.classList.contains('active')) {
       console.log(data.id);
       let index = queueArr.indexOf(data.id);
       queueArr.splice(index, 1);
