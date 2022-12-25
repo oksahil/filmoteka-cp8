@@ -23,15 +23,27 @@ const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
 
 
-const onWatched = () => {
-
-  const watchFilm = [...getLocalSt(WATCHED_KEY)]
+const renderLibraryFilms = (arr, key) => {
 
 
 
-  const markup = watchFilm.map(obj => filmTemplate(obj)).join('');
+
+  const markup = arr.map(obj => filmTemplate(obj)).join('');
 
   refs.filmList.insertAdjacentHTML('beforeend', markup);
+}
+
+if (getLocalSt(WATCHED_KEY)) {
+  const watchFilm = [...getLocalSt(WATCHED_KEY)];
+  renderLibraryFilms(watchFilm, WATCHED_KEY);
+}
+
+
+
+const onWatched = () => {
+  refs.filmList.innerHTML = '';
+  const watchFilm = [...getLocalSt(WATCHED_KEY)];
+  renderLibraryFilms(watchFilm, WATCHED_KEY);
 
 
   console.log(markup);
@@ -40,17 +52,9 @@ const onWatched = () => {
 };
 
 const onQueue = () => {
+  refs.filmList.innerHTML = '';
   const queueFilm = [...getLocalSt(QUEUE_KEY)];
-  
-  const markup = queueFilm.map(obj => {
-    const listg = obj.genres;
-    filmTemplate(obj)
-
-  });
-
-  refs.filmList.insertAdjacentHTML('beforeend', markup);
-
-  console.log(markup);
+  renderLibraryFilms(queueFilm, QUEUE_KEY);
 };
 
 refs.watched.addEventListener('click', onWatched);
