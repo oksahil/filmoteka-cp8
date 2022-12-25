@@ -1,6 +1,6 @@
 import '/src/sass/index.scss';
 import Notiflix from 'notiflix';
-
+import { render } from '/src/index';
 
 var debounce = require('lodash.debounce');
 import { setLocalSt, getLocalSt, remLocalSt } from './js/localStorage';
