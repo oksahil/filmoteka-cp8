@@ -41,7 +41,7 @@ export const filmTemplate = ({
     <div class="films">
       <img class="film-img" src="${imgTemplate}">
       <h2 class="film-title">${original_name}</h2>
-      <h3 class="film-genre">${strGenres.slice(0, 2)} | ${dataFilm}</h3>
+      <h3 class="film-genre">${strGenres.length > 2?strGenres.slice(0, 2)+"..":strGenres.slice(0, 2)} | ${dataFilm}</h3>
     </div>
     </li>`;
   } else {
@@ -49,7 +49,7 @@ export const filmTemplate = ({
     <div class="films">
       <img class="film-img" src="https://image.tmdb.org/t/p/w500/${poster_path}">
       <h2 class="film-title">${original_name}</h2>
-      <h3 class="film-genre">${strGenres.slice(0, 2)} | ${dataFilm}</h3>
+      <h3 class="film-genre">${strGenres.length > 2?strGenres.slice(0, 2)+"..":strGenres.slice(0, 2)} | ${dataFilm}</h3>
     </div>
     </li>`;
   }
