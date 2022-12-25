@@ -1,3 +1,8 @@
+const pauseBtn = document.querySelector('.btn-js-pause');
+const playBtn = document.querySelector('.btn-js-play');
+
+playBtn.style.display = 'none';
+
 class LoopingElement {
     constructor (element, currentTranslation, speed) {
         this.element = element;
@@ -10,8 +15,26 @@ class LoopingElement {
             target: this.currentTranslation,
             ease: 0.1,
         };
-
+        this.events();
         this.render();
+    }
+
+    events() {
+        pauseBtn.addEventListener('click', (e) => {
+            if (e.currentTarget) {
+                this.speed = 0;
+                pauseBtn.style.display = 'none';
+                playBtn.style.display = 'flex';
+            }
+        })
+
+        playBtn.addEventListener('click', (e) => {
+            if (e.currentTarget) {
+                this.speed = 0.07;
+                playBtn.style.display = 'none';
+                pauseBtn.style.display = 'flex';
+            }
+        })
     }
 
     lerpFunc(current, target, ease) {

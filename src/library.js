@@ -6,15 +6,10 @@ import { filmTemplate } from './js/film-templete-lib';
 
 var debounce = require('lodash.debounce');
 import { setLocalSt, getLocalSt, remLocalSt } from './js/localStorage';
-import axios from 'axios';
-import { fetchGenres } from './js/fetch-genres';
 
 const DEBOUNCE_DELAY = 300;
 const KEY = '27a3692489226a6f77b57cb0bdb9ce9a';
 const URL = 'https://api.themoviedb.org/3/search/movie?api_key=';
-
-
-const ID_URL = `https://api.themoviedb.org/3/search/movie/`;
 
 const refs = {
   input: document.querySelector('.search-input'),
@@ -27,27 +22,6 @@ const refs = {
 const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
 
-// const createMovieById = async (id) => {
-//   try {
-//     const { data } = await axios.get(`${ID_URL}${id}?api_key=${KEY}`);
-
-//     const dataObj = {
-//       ...data,
-//       year: createYear(data),
-//       genre: onGenre(data),
-//     };
-//     return dataObj;
-//   } catch {
-//     console.log('Error', error);
-//   }
-// }
-
-// const createYear = (obj) => {
-//   return obj.release_date ? obj.release_date.split('-')[0] : '';
-// }
-// const onGenre = (arr) => {
-//   return arr.genres.map(genre => genre.name).slice(0, 3).flat();
-// }
 
 const onWatched = () => {
 

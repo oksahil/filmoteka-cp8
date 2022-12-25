@@ -9,17 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./sass/index.scss" />
     <script type="module" src="./index.js"></script>
-    
   </head>
   <body class="popul-film">
-  
-   
-    <include src="./partials/header-home.html"></include>
-   
-    <main>
+  <include src="./partials/header-home.html"></include>
+  <main>
 
       <section class="dynamic-gallery">
         <div class="dynamiv-gallery-container">
+          <button class="dynamic-gallery__btn btn-js-pause" type="button">||</button>
+          <button class="dynamic-gallery__btn btn-js-play" type="button">></button>
           <div class="dynamic__gallery__wrapper">
             <div class="marquee__item">
                   <div class="marquee__photo">
@@ -202,11 +200,11 @@
                   </ul>
           </div>
       </section>
-      <include src="./partials/pagination.html"></include>
-
+    
+    <include src="./partials/pagination.html"></include>
     <include src="./partials/footer.html"></include>
 
-
+  </main>
     <div class="fogging is-hidden" data-modal>
       <div class="modal-window">
         <button type="button" class="btn-close" data-modal-close>
