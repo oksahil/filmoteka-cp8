@@ -1,7 +1,11 @@
 body.dark-theme {
     color: var(--color-aktive);
     transition: background-color .3s;
-
+    background-color: #21282F;
+     
+    & .switch__wrap {
+    border: #8e1d2b solid 1px;
+    }
     & .footer a:hover {
        color: var(--bgcolor-aktive);
     };
@@ -13,7 +17,7 @@ body.dark-theme {
 body.light-theme {
     background-color: var(--color-aktive);
     color: var(--color-text);
-    transition: transform .5s,background-color .5s;
+    transition: background-color .3s;
 
     & .footer a:hover {
         color: var(--bgcolor-aktive);
