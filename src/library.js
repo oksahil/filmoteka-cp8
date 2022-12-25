@@ -1,7 +1,6 @@
 import '/src/sass/index.scss';
 import Notiflix from 'notiflix';
 import { filmTemplate } from './js/film-templete-lib';
-// import imgTemplate from '/src/images/BOX.jpg';
 
 
 var debounce = require('lodash.debounce');
@@ -16,17 +15,13 @@ const refs = {
   list: document.querySelector('.film-list'),
   watched: document.querySelector('.watched-btn'),
   queue: document.querySelector('.queue-btn'),
-  filmList: document.querySelector('.film-list'),
+  libraryList: document.querySelector('.films-list-library'),
 };
 
 const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
 
-
 const renderLibraryFilms = (arr, key) => {
-
-
-
 
   const markup = arr.map(obj => filmTemplate(obj)).join('');
 
@@ -34,8 +29,14 @@ const renderLibraryFilms = (arr, key) => {
 }
 
 if (getLocalSt(WATCHED_KEY)) {
+  refs.filmList.innerHTML = '';
   const watchFilm = [...getLocalSt(WATCHED_KEY)];
   renderLibraryFilms(watchFilm, WATCHED_KEY);
+}
+if (getLocalSt(QUEUE_KEY)) {
+  refs.filmList.innerHTML = '';
+  const queueFilm = [...getLocalSt(QUEUE_KEY)];
+  renderLibraryFilms(queueFilm, QUEUE_KEY);
 }
 
 
@@ -44,10 +45,6 @@ const onWatched = () => {
   refs.filmList.innerHTML = '';
   const watchFilm = [...getLocalSt(WATCHED_KEY)];
   renderLibraryFilms(watchFilm, WATCHED_KEY);
-
-
-  console.log(markup);
-
   
 };
 
