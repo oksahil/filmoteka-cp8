@@ -66,4 +66,3 @@ let elements = document.querySelectorAll('.dynamic__gallery__wrapper');
 
 let newLol = new LoopingElement(elements[0], 0, 0.07);
 let highLol = new LoopingElement(elements[1], -100, 0.07);
-let currentTranslationEl = currentTranslation.current;
