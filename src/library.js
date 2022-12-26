@@ -6,6 +6,8 @@ import { imgTemplate } from '/src/images/BOX.jpg';
 
 import { getLocalSt } from './js/localStorage';
 
+import Notiflix from 'notiflix';
+
 const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
 
@@ -104,12 +106,14 @@ const onWatched = () => {
   listLib.innerHTML = '';
   const watchFilm = [...getLocalSt(WATCHED_KEY)];
   renderLibraryFilms(watchFilm);
+  Notiflix.Notify.info("Let's see what we have in watched...")
 };
 
 const onQueue = () => {
   listLib.innerHTML = '';
   const queueFilm = [...getLocalSt(QUEUE_KEY)];
   renderLibraryFilms(queueFilm);
+  Notiflix.Notify.info("Let's see what we have in queue...");
 };
 
 watched.addEventListener('click', onWatched);

@@ -6,7 +6,9 @@ import { refs } from '/src/index';
 import Notiflix from 'notiflix';
 import { render } from '/src/index';
 import { fetchFilmPopularity } from '/src/js/fetch-film-popularity';
-
+import debounce from 'lodash.debounce';
+var debounce = require('lodash.debounce');
+const DEBOUNCE_POPUL = 1000;
 
 export async function fetchFilm(name = 0, pageNumber = 1) {
   fetchGenres();
@@ -19,14 +21,14 @@ export async function fetchFilm(name = 0, pageNumber = 1) {
       let items = response.data.results;
       console.log(items);
       if (items.length === 0) {
-        fetchFilmPopularity();
+        debounce(fetchFilmPopularity(), DEBOUNCE_POPUL);
         refs.error.textContent = 'Search result not successful. Enter the correct movie name.';
       }
       render(items);
       return response.data;
     } catch (error) {
       console.log(error.message);
-      fetchFilmPopularity();
+      // fetchFilmPopularity();
       refs.error.textContent = 'Search result not successful. Enter the correct movie name.';
       refs.list.innerHTML = '';
       // return Notiflix.Notify.failure('Search result not successful. Enter the correct movie name.');
