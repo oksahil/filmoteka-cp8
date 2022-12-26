@@ -96,7 +96,7 @@ function initInputListener() {
       } else {
         // удаление кнопок если проверка не прошла
         destroyPagination();
-        // fetchFilmPopularity();
+        fetchFilmPopularity();
         // refs.error.textContent = '';
       }
     }
