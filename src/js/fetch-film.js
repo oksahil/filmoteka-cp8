@@ -11,7 +11,7 @@ var debounce = require('lodash.debounce');
 const DEBOUNCE_POPUL = 1000;
 
 export async function fetchFilm(name = 0, pageNumber = 1) {
-  fetchGenres();
+  // fetchGenres();
 
     refs.error.textContent = '';
     try {
@@ -27,7 +27,7 @@ export async function fetchFilm(name = 0, pageNumber = 1) {
       render(items);
       return response.data;
     } catch (error) {
-      console.log(error.message);
+      // console.log(error.message);
       // fetchFilmPopularity();
       refs.error.textContent = 'Search result not successful. Enter the correct movie name.';
       refs.list.innerHTML = '';

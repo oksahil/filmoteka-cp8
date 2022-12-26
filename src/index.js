@@ -10,7 +10,7 @@ import { createPagination, destroyPagination } from './js/pagination';
 import imgTemplate from '/src/images/BOX.jpg';
 
 var debounce = require('lodash.debounce');
-const DEBOUNCE_DELAY = 750;
+const DEBOUNCE_DELAY = 300;
 export const KEY = '27a3692489226a6f77b57cb0bdb9ce9a';
 export const URL = 'https://api.themoviedb.org/3/search/movie?api_key=';
 
@@ -32,7 +32,7 @@ export const refs = {
 
 // вызывает основную функцию когда - DOM content is loaded
 document.addEventListener('DOMContentLoaded', main);
-
+document.addEventListener('DOMContentLoaded', fetchGenres());
 // функция для популярных фильмов и пагинации
 async function renderPopularFilms() {
   // и так понятно что делает
@@ -123,6 +123,7 @@ async function main() {
 
 export let items = [];
 export let strGenres = [];
+const GENRE_DATA = 'genres';
 
 export function renderIds(genre_ids, listg) {
   console.log('genre_ids', genre_ids);
@@ -136,7 +137,8 @@ export function renderIds(genre_ids, listg) {
     }
   }
 
-  return strGenres;
+  const listArr = localStorage.setItem(GENRE_DATA, strGenres)
+  return listArr;
 }
 
 export function render(items) {
