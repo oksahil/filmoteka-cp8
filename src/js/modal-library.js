@@ -1,11 +1,11 @@
-import { refs } from '/src/index.js';
-import { fetchFilmInfo } from '/src/js/fetch-film-info';
-import { cardTemplate } from '/src/js/card-templete';
-import { fetchFilmPopularity } from '/src/js/fetch-film-popularity';
-import { getLocalSt, setLocalSt, remLocalSt } from './localStorage';
-import imgTemplate from '/src/images/BOX.jpg';
-import Notiflix from 'notiflix';
-// import { add } from 'lodash';
+// import { refs } from '/src/index.js';
+// import { fetchFilmInfo } from '/src/js/fetch-film-info';
+// import { cardTemplate } from '/src/js/card-templete';
+// import { fetchFilmPopularity } from '/src/js/fetch-film-popularity';
+// import { getLocalSt, setLocalSt, remLocalSt } from './localStorage';
+// import imgTemplate from '/src/images/BOX.jpg';
+// import Notiflix from 'notiflix';
+// // import { add } from 'lodash';
 
 console.log(refs);
 refs.list.addEventListener('click', onCardClickOpenModal);
