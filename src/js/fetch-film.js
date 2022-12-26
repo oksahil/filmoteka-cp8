@@ -11,7 +11,7 @@ var debounce = require('lodash.debounce');
 const DEBOUNCE_POPUL = 1000;
 
 export async function fetchFilm(name = 0, pageNumber = 1) {
-  fetchGenres();
+  //fetchGenres();
 
     refs.error.textContent = '';
     try {

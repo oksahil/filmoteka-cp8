@@ -1,6 +1,7 @@
 import '/src/sass/index.scss';
 // import Notiflix from 'notiflix';
 import { filmTemplate } from '/src/js/film-templete';
+import { fetchGenres } from '/src/js/fetch-genres';
 import { fetchFilmPopularity } from '/src/js/fetch-film-popularity';
 import { fetchFilmInfo } from '/src/js/fetch-film-info';
 import { fetchFilm } from '/src/js/fetch-film';
@@ -32,7 +33,7 @@ export const refs = {
 
 // вызывает основную функцию когда - DOM content is loaded
 document.addEventListener('DOMContentLoaded', main);
-// document.addEventListener('DOMContentLoaded', fetchGenres());
+document.addEventListener('DOMContentLoaded', fetchGenres());
 // функция для популярных фильмов и пагинации
 async function renderPopularFilms() {
   // и так понятно что делает
