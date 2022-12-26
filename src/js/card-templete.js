@@ -16,7 +16,7 @@ export const cardTemplate = ({
     <div class="modal_pict_container">
         <img class="film-img" loading="lazy"
          src="${
-          poster_path === null ? '/src/images/BOX.jpg' : imgUrl + poster_path
+          poster_path === null ? imgTemplate : imgUrl + poster_path
         }">
     </div>
 
