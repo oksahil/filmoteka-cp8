@@ -9,6 +9,12 @@ import { getLocalSt } from './js/localStorage';
 const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
 
+const watched = document.querySelector('.watched-btn');
+
+const queue = document.querySelector('.queue-btn');
+const listLib = document.querySelector('.film-list');
+
+
 const filmTemplated = ({
   poster_path,
   original_name,
@@ -65,31 +71,31 @@ const filmTemplated = ({
 const renderLibraryFilms = (arr) => {
   const markup = arr.map(obj => filmTemplated(obj)).join('');
 
-  refs.list.insertAdjacentHTML('beforeend', markup);
+  listLib.insertAdjacentHTML('beforeend', markup);
 };
 
 if (getLocalSt(WATCHED_KEY)) {
-  refs.list.innerHTML = '';
+  listLib.innerHTML = '';
   const watchFilm = [...getLocalSt(WATCHED_KEY)];
   renderLibraryFilms(watchFilm);
 }
 if (getLocalSt(QUEUE_KEY)) {
-  refs.list.innerHTML = '';
+  listLib.innerHTML = '';
   const queueFilm = [...getLocalSt(QUEUE_KEY)];
   renderLibraryFilms(queueFilm);
 }
 
 const onWatched = () => {
-  refs.list.innerHTML = '';
+  listLib.innerHTML = '';
   const watchFilm = [...getLocalSt(WATCHED_KEY)];
   renderLibraryFilms(watchFilm);
 };
 
 const onQueue = () => {
-  refs.list.innerHTML = '';
+  listLib.innerHTML = '';
   const queueFilm = [...getLocalSt(QUEUE_KEY)];
   renderLibraryFilms(queueFilm);
 };
 
-refs.watched.addEventListener('click', onWatched);
-refs.queue.addEventListener('click', onQueue);
+watched.addEventListener('click', onWatched);
+queue.addEventListener('click', onQueue);
