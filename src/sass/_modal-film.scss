@@ -295,19 +295,17 @@
     line-height: 1.2;
     letter-spacing: 0.03em;
     outline: none;
-    // border-radius: 0 30px;
-    // background-color: #8C8C8C;
-    border-color: #000000;
+    border-radius: 0 30px;
+    background-color: #8C8C8C;
     color: #000000;
     transition: border-radius 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275), 
     background-color 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275), 
     color 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     &:hover, &:focus {
-        // border-radius: 30px 0;
+        border-radius: 30px 0;
         background-color: var(--bgcolor-aktive);
         color: #ffffff;
-        border-color: transparent;
     }
 }
 .add-queue-btn {
@@ -317,19 +315,17 @@
     line-height: 1.2;
     letter-spacing: 0.03em;
     outline: none;
-    // border-radius: 30px 0;
-    // background-color: #8C8C8C;
-    border-color: #000000;
+    border-radius: 30px 0;
+    background-color: #8C8C8C;
     color: #000000;
     transition: border-radius 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275), 
     background-color 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275), 
     color 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 
     &:hover, &:focus {
-        // border-radius: 0 30px;
+        border-radius: 0 30px;
         background-color: var(--bgcolor-aktive);
         color: #ffffff;
-        border-color: transparent;
     }
 }
 
