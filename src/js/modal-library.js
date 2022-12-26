@@ -1,15 +1,17 @@
-// import { refs } from '/src/index.js';
-// import { fetchFilmInfo } from '/src/js/fetch-film-info';
-// import { cardTemplate } from '/src/js/card-templete';
-// import { fetchFilmPopularity } from '/src/js/fetch-film-popularity';
-// import { getLocalSt, setLocalSt, remLocalSt } from './localStorage';
-// import imgTemplate from '/src/images/BOX.jpg';
-// import Notiflix from 'notiflix';
-// // import { add } from 'lodash';
 
-console.log(refs);
-refs.list.addEventListener('click', onCardClickOpenModal);
-refs.closeModalBtn.addEventListener('click', toggleModal);
+// import { fetchFilmInfo } from '/src/js/fetch-film-info';
+import { getLocalSt, setLocalSt, remLocalSt } from './localStorage';
+import imgTemplate from '/src/images/BOX.jpg';
+import Notiflix from 'notiflix';
+
+const listModal = document.querySelector('.film-list');
+const closeModal = document.querySelector('[data-modal-close]');
+const modalLib = document.querySelector('[data-modal]');
+const modalBodyLib = document.querySelector('body');
+const cardListLib = document.querySelector('.card-list');
+
+listModal.addEventListener('click', onCardClickOpenModal);
+closeModal.addEventListener('click', toggleModal);
 
 // import { rendserIds } from '/src/index';
 
