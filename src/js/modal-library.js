@@ -1,12 +1,8 @@
-import { fetchFilmInfo } from '/src/js/fetch-film-info';
+// import { fetchFilmInfo } from '/src/js/fetch-film-info';
 import { getLocalSt, setLocalSt, remLocalSt } from './localStorage';
 import imgTemplate from '/src/images/BOX.jpg';
 import Notiflix from 'notiflix';
 
-
-import { fetchFilmInfo } from '/src/js/fetch-film-info';
-import imgTemplate from '/src/images/BOX.jpg';
-import Notiflix from 'notiflix';
 const listModal = document.querySelector('.film-list');
 const closeModal = document.querySelector('[data-modal-close]');
 const modalLib = document.querySelector('[data-modal]');
