@@ -41,8 +41,19 @@ body.dark-theme {
             background-color: var(--bgcolor-aktive);
         }
     };
-    & .modal_btn_container button {
+    & .modal_btn_container .add-watched-btn {
         color: #FFFFFF;
+        border-color: #FFFFFF;
+        &:hover {
+            border-color: transparent;
+        }
+    }
+    & .modal_btn_container .add-queue-btn {
+        color: #FFFFFF;
+        border-color: #FFFFFF;
+        &:hover {
+            border-color: transparent;
+        }
     }
 }
 
