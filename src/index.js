@@ -137,8 +137,8 @@ export function renderIds(genre_ids, listg) {
     }
   }
 
-  listArr = localStorage.setItem(GENRE_DATA, strGenres)
-  return strGenres;
+  const listArr = localStorage.setItem(GENRE_DATA, strGenres)
+  return listArr;
 }
 
 export function render(items) {
