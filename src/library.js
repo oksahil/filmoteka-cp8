@@ -13,9 +13,12 @@ const watched = document.querySelector('.watched-btn');
 
 const queue = document.querySelector('.queue-btn');
 const listLib = document.querySelector('.film-list');
+const galleryLib = document.querySelector('.gallery-library');
+const errorDiv = document.querySelector('.error-div');
 
 watched.focus();
 
+//----------------------------------------Render------------------------
 
 const filmTemplated = ({
   poster_path,
@@ -73,11 +76,29 @@ const renderLibraryFilms = (arr) => {
   listLib.insertAdjacentHTML('beforeend', markup);
 };
 
+//----------------------------------Checks--------------------------------
+
 if (getLocalSt(WATCHED_KEY)) {
+  galleryLib.classList.remove('empty');
   listLib.innerHTML = '';
   const watchFilm = [...getLocalSt(WATCHED_KEY)];
   renderLibraryFilms(watchFilm);
 }
+if (getLocalSt(WATCHED_KEY).every(obj => obj.length === 0)) {
+  galleryLib.classList.add('empty');
+} else if (getLocalSt(QUEUE_KEY).every(obj => obj.length === 0)) {
+  galleryLib.classList.add('empty');
+}
+    
+
+if (galleryLib.classList.contains('empty')) {
+  errorDiv.classList.remove('is-hidden');
+} else {
+  errorDiv.classList.add('is-hidden');
+}
+
+
+//-------------------------------------Library----------------------------------
 
 const onWatched = () => {
   listLib.innerHTML = '';
