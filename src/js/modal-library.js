@@ -1,13 +1,17 @@
-import { fetchFilmInfo } from '/src/js/fetch-film-info';
-import imgTemplate from '/src/images/BOX.jpg';
-import Notiflix from 'notiflix';
+// import { refs } from '/src/index.js';
+// import { fetchFilmInfo } from '/src/js/fetch-film-info';
+// import { cardTemplate } from '/src/js/card-templete';
+// import { fetchFilmPopularity } from '/src/js/fetch-film-popularity';
+// import { getLocalSt, setLocalSt, remLocalSt } from './localStorage';
+// import imgTemplate from '/src/images/BOX.jpg';
+// import Notiflix from 'notiflix';
+// // import { add } from 'lodash';
 
-const listModal = document.querySelector('.film-list');
-const closeModal = document.querySelector('[data-modal-close]');
-const modalLib = document.querySelector('[data-modal]');
-const modalBodyLib = document.querySelector('body');
+console.log(refs);
+refs.list.addEventListener('click', onCardClickOpenModal);
+refs.closeModalBtn.addEventListener('click', toggleModal);
 
-
+// import { rendserIds } from '/src/index';
 
 const imgUrl = 'https://image.tmdb.org/t/p/w500/';
 
@@ -74,11 +78,9 @@ function onCardClickOpenModal(e) {
 }
 
 function respFilmInfo(resp) {
-    console.log(resp.data);
-    
-    const cardListModal = document.querySelector('.card-list');
+  console.log(resp.data);
 
-  cardListModal.innerHTML = cardTemplated(resp.data);
+  refs.cardList.innerHTML = cardTemplated(resp.data);
   // refs.cardList.innerHTML = cardTemplate(resp.data,currentPictSrc);
 
   //-------------------------------------WATCHED-QUEUE----------------------------------------
@@ -211,19 +213,19 @@ function respFilmInfo(resp) {
 
   //------------------------------------WATCHED-QUEUE---------------------------
   window.addEventListener('keydown', onEscCloseModal);
-  modalLib.addEventListener('click', onOutsideClickCloseModal);
+  refs.modal.addEventListener('click', onOutsideClickCloseModal);
 }
 function errorFilmInfo(er) {
   console.log(er);
   // fetchFilmPopularity();
   // refs.cardList.innerHTML = "Sorry we can't load film data!";
   window.addEventListener('keydown', onEscCloseModal);
-modalLib.addEventListener('click', onOutsideClickCloseModal);
+  refs.modal.addEventListener('click', onOutsideClickCloseModal);
 }
 
 function toggleModal() {
-  modalLib.classList.toggle('is-hidden');
-  modalBodyLib.classList.toggle('no-scroll');
+  refs.modal.classList.toggle('is-hidden');
+  refs.modalBody.classList.toggle('no-scroll');
 }
 
 // ----------------- CLOSE MODAL------------------------------
@@ -244,5 +246,5 @@ function onOutsideClickCloseModal(e) {
 }
 function removeAddEventlisteners() {
   window.removeEventListener('keydown', onEscCloseModal);
-  modalLib.removeEventListener('click', onOutsideClickCloseModal);
+  refs.modal.removeEventListener('click', onOutsideClickCloseModal);
 }
