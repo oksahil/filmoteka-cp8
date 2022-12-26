@@ -29,6 +29,7 @@ function respFilmInfo(resp) {
   // refs.cardList.innerHTML = cardTemplate(resp.data,currentPictSrc);
 
   //-------------------------------------WATCHED-QUEUE----------------------------------------
+  //Declaration----------------
   const WATCHED_KEY = 'watched';
   const QUEUE_KEY = 'queue';
   const { data } = resp;
@@ -41,6 +42,8 @@ function respFilmInfo(resp) {
   const queueObj = data;
   let stringedWatchArr;
   let stringedQueueArr;
+
+  //Checks-------------------------
 
   if (!getLocalSt(WATCHED_KEY)) {
     setLocalSt(WATCHED_KEY, []);
@@ -58,6 +61,7 @@ function respFilmInfo(resp) {
     addQueue.classList.add('active');
   }
 
+  //textdelay-----------------------------
   async function textWatchDelay() {
     setTimeout(() => {
       addWatched.textContent = 'Remove from watched';
@@ -82,6 +86,8 @@ function respFilmInfo(resp) {
       addQueue.disabled = false;
     }, 1000);
   }
+
+  //Buttons Functionality-----------------------------
   const onWatchedModalBtn = e => {
     console.log('hello!');
     e.preventDefault();
@@ -142,8 +148,11 @@ function respFilmInfo(resp) {
       addQueue.classList.add('active');
     }
   };
+
+
   addWatched.addEventListener('click', onWatchedModalBtn);
   addQueue.addEventListener('click', onQueueModalBtn);
+
   //------------------------------------WATCHED-QUEUE---------------------------
   window.addEventListener('keydown', onEscCloseModal);
   refs.modal.addEventListener('click', onOutsideClickCloseModal);
