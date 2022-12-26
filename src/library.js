@@ -26,9 +26,6 @@ const filmTemplated = ({
   vote_average,
 }) => {
   // console.log('strGenres', strGenres);
-  if (genres === '') {
-    genre_ids = 'no ganeres';
-  }
   if (release_date === '') {
     release_date = 'no relase date';
   }
@@ -40,7 +37,7 @@ const filmTemplated = ({
   }
   let dataFilm = release_date.slice(0, 4);
   console.log(dataFilm);
-  genrNamesArr = genres.map(genre => genre.name);
+  const genrNamesArr = genres.map(genre => genre.name);
   if (poster_path === null) {
     return `<li class="film-item list" id="${id}">
     <div class="films">
