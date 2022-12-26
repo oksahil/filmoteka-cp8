@@ -4,11 +4,14 @@ const controlSwitch = document.querySelector('.switch__wrap');
 
 controlSwitch.addEventListener('click', onChangeTheme);
 
-//const savedData = localStorage.getItem("theme");
+// body.classList.add("light-theme");
+// darkFooter.classList.add("light-theme");
+
+const savedData = localStorage.getItem("theme");
 
 function onChangeTheme (event) {
 
-   if(body.classList.contains('light-theme')) {
+   if(body.classList.contains('light-theme') && darkFooter.classList.contains("light-theme")) {
     body.classList.remove('light-theme');
     darkFooter.classList.remove('light-theme');
     body.classList.add('dark-theme');
@@ -20,15 +23,20 @@ function onChangeTheme (event) {
     darkFooter.classList.add('light-theme');
    };
 
-   //localStorage.setItem('theme', body.classList);
+   localStorage.setItem('theme', body.classList);
 };
 
-// checkingData();
+checkingData();
 
-// function checkingData() {
-//   if(savedData) {
-//     body.classList = savedData;
-//   } else if(savedData = 'dark-theme') {
-//     darkFooter.classList.add('dark-theme');
-//   };
-// };
+function checkingData() {
+  if(savedData) {
+    body.classList = savedData;
+    darkFooter.classList = savedData;
+  } else if(savedData = 'dark-theme') {
+    darkFooter.classList.add('dark-theme');
+    body.classList.add('dark-theme');
+  }else if(savedData = 'light-theme') {
+    darkFooter.classList.add('light-theme');
+    body.classList.add('light-theme');
+  };
+};
