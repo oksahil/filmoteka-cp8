@@ -32,7 +32,7 @@ export const refs = {
 
 // вызывает основную функцию когда - DOM content is loaded
 document.addEventListener('DOMContentLoaded', main);
-document.addEventListener('DOMContentLoaded', fetchGenres());
+// document.addEventListener('DOMContentLoaded', fetchGenres());
 // функция для популярных фильмов и пагинации
 async function renderPopularFilms() {
   // и так понятно что делает

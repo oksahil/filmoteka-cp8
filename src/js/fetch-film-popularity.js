@@ -6,7 +6,7 @@ import Notiflix from 'notiflix';
 import { render } from '/src/index';
 
 export async function fetchFilmPopularity(pageNumber = 1) {
-  // fetchGenres();
+  fetchGenres();
   try {
     const response = await axios.get(
       `https://api.themoviedb.org/3/trending/movie/day?api_key=${KEY}&page=${pageNumber}`
