@@ -95,6 +95,8 @@ function respFilmInfo(resp) {
     if (addWatched.classList.contains('active')) {
       console.log(data.id);
       let index = watchArr.indexOf(data.id);
+      watchArr = [];
+      watchArr.push(...getLocalSt(WATCHED_KEY));
       watchArr.splice(index, 1);
       stringedWatchArr = JSON.stringify(watchArr);
       localStorage.setItem(WATCHED_KEY, stringedWatchArr);
@@ -125,8 +127,11 @@ function respFilmInfo(resp) {
 
     if (addQueue.classList.contains('active')) {
       console.log(data.id);
-      let index = queueArr.indexOf(data.id);
-      queueArr.splice(index, 1);
+      queueArr = [];
+      queueArr.push(...getLocalSt(WATCHED_KEY));
+
+      queueArr.filter(obj => obj.poster_path === data.poster_path);
+      console.log(queueArr);
       const stringedQueueArr = JSON.stringify(queueArr);
       localStorage.setItem(QUEUE_KEY, stringedQueueArr);
       console.log(stringedQueueArr);
