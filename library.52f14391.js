@@ -1,2 +1,0 @@
-const e=e=>{try{const t=localStorage.getItem(e);return JSON.parse(t)}catch(e){console.log("Error",e)}},t=e=>{const t=e.map((e=>filmTemplate(e))).join("");refs.list.insertAdjacentHTML("beforeend",t)};if(e("watched")){refs.list.innerHTML="";const n=[...e("watched")];t(n)}if(e("queue")){refs.list.innerHTML="";const n=[...e("queue")];t(n)}refs.watched.addEventListener("click",(()=>{refs.list.innerHTML="";const n=[...e("watched")];t(n)})),refs.queue.addEventListener("click",(()=>{refs.list.innerHTML="";const n=[...e("queue")];t(n)}));
-//# sourceMappingURL=library.52f14391.js.map
