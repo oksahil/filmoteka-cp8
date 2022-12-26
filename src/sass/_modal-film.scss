@@ -287,6 +287,48 @@
     // margin-top: auto;
 }
 
+
+.add-watched-btn {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+    outline: none;
+    border-radius: 0 30px;
+    background-color: #8C8C8C;
+    color: #000000;
+    transition: border-radius 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+    background-color 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+    color 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &:hover, &:focus {
+        border-radius: 30px 0;
+        background-color: var(--bgcolor-aktive);
+        color: #ffffff;
+    }
+}
+.add-queue-btn {
+    font-family: 'Roboto', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: 0.03em;
+    outline: none;
+    border-radius: 30px 0;
+    background-color: #8C8C8C;
+    color: #000000;
+    transition: border-radius 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+    background-color 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275), 
+    color 250ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
+    &:hover, &:focus {
+        border-radius: 0 30px;
+        background-color: var(--bgcolor-aktive);
+        color: #ffffff;
+    }
+}
+
 .no-scroll {
     overflow: hidden;
 }
