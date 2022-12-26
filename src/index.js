@@ -10,7 +10,7 @@ import { createPagination, destroyPagination } from './js/pagination';
 import imgTemplate from '/src/images/BOX.jpg';
 
 var debounce = require('lodash.debounce');
-const DEBOUNCE_DELAY = 300;
+const DEBOUNCE_DELAY = 750;
 export const KEY = '27a3692489226a6f77b57cb0bdb9ce9a';
 export const URL = 'https://api.themoviedb.org/3/search/movie?api_key=';
 
@@ -96,7 +96,7 @@ function initInputListener() {
       } else {
         // удаление кнопок если проверка не прошла
         destroyPagination();
-        fetchFilmPopularity();
+        // fetchFilmPopularity();
         // refs.error.textContent = '';
       }
     }
