@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -11,25 +10,37 @@
     <link rel="stylesheet" href="./sass/index.scss" />
     <script type="module" src="./library.js"></script>
 </head>
-
 <body>
     <include src="./partials/header-library.html"></include>
     <main>
         <section class="gallery-library">
             <div class="container">
                 <ul class="film-list list">
-
                 </ul>
-
             </div>
         </section>
         <div class="error-div">
             <img class="error-img" src="./images/perfect.png" alt="Perfetto!" loading="lazy">
-            <p class="error-text">You're going through an immaculately clean gallery. Perfect! ;)</p>
+            <p class="error-text">You're going through an immaculately clean gallery. Acceptible.</p>
         </div>
     </main>
+
+    <div class="fogging is-hidden" data-modal>
+        <div class="modal-window">
+            <button type="button" class="btn-close" data-modal-close>
+                <svg class="modal-icon-close" width="22" height="22">
+                    <use href="/src/images/icons.svg#icon-close"></use>
+                </svg>
+            </button>
+            <div class="card">
+                <ul class="card-list list"></ul>
+            </div>
+        </div>
+    </div>
+
         <include src="./partials/footer.html"></include>
         <script type="module"  src="./js/switch-library.js" ></script>
+        <script type="module"  src="./js/modal-library.js" ></script>
 </body>
 
 </html>
