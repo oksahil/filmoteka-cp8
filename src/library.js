@@ -10,6 +10,7 @@ const WATCHED_KEY = 'watched';
 const QUEUE_KEY = 'queue';
 
 const watched = document.querySelector('.watched-btn');
+
 const queue = document.querySelector('.queue-btn');
 const listLib = document.querySelector('.film-list');
 
