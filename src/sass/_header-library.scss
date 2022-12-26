@@ -107,8 +107,25 @@
     justify-content: center;
 }
 
+.watched-btn {
+    outline: none;
+    border: 1px solid #ffffff;
+
+    &:hover, &:focus {
+        background-color: var(--bgcolor-aktive);
+        border: none;
+    }
+}
+
 .queue-btn {
 margin-left: 16px;
+
+border: 1px solid #ffffff;
+
+    &:hover, &:focus {
+        background-color: var(--bgcolor-aktive);
+        border: none;
+    }
 }
 
 @media screen and (min-width: 768px) {

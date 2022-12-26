@@ -14,6 +14,8 @@ const watched = document.querySelector('.watched-btn');
 const queue = document.querySelector('.queue-btn');
 const listLib = document.querySelector('.film-list');
 
+watched.focus();
+
 
 const filmTemplated = ({
   poster_path,
@@ -75,11 +77,6 @@ if (getLocalSt(WATCHED_KEY)) {
   listLib.innerHTML = '';
   const watchFilm = [...getLocalSt(WATCHED_KEY)];
   renderLibraryFilms(watchFilm);
-}
-if (getLocalSt(QUEUE_KEY)) {
-  listLib.innerHTML = '';
-  const queueFilm = [...getLocalSt(QUEUE_KEY)];
-  renderLibraryFilms(queueFilm);
 }
 
 const onWatched = () => {
