@@ -1,5 +1,6 @@
 import '/src/sass/index.scss';
 import { imgTemplate } from '/src/images/BOX.jpg';
+
 // import Notiflix from 'notiflix';
 // import { filmTemplate } from './js/film-templete';
 // import { refs } from './index';

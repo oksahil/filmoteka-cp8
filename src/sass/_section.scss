@@ -53,8 +53,14 @@
     object-fit: cover;
     border-radius: 5px;
     aspect-ratio: 1/1.4;
+    background-color: #c2bbb6;
 }
-
+.error-msg{
+    position: absolute;
+    top:30%;
+    right: 15%;
+   
+}
 .film-list {
     display: flex;
     flex-wrap: wrap;

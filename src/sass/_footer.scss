@@ -1,4 +1,5 @@
 .footer {
+    position: relative;
 height: 100px;
 padding-top: 30px;
 }
@@ -75,7 +76,7 @@ text-align: center;
     gap: 5px;
     height: 100px;
     justify-content: center;
-    text-justify: auto;
+   
 }
 @media screen and (min-width: 768px) {
     .footer-list {
@@ -90,21 +91,3 @@ text-align: center;
     }
 }
 
-.footer-list-second {
-    display: flex;
-    gap: 5px;
-    justify-content: center;
-    margin-top: 10px;
-}
-@media screen and (min-width: 768px) {
-    .footer-list-second {
-        margin-top: 0px;
-    }
-}
-
-@media screen and (min-width: 1280px) {
-    .footer-list-second {
-        margin-top: 0px;
-        justify-content: center;
-    }
-}
