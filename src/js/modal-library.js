@@ -1,3 +1,4 @@
+
 // import { fetchFilmInfo } from '/src/js/fetch-film-info';
 import { getLocalSt, setLocalSt, remLocalSt } from './localStorage';
 import imgTemplate from '/src/images/BOX.jpg';
@@ -79,9 +80,10 @@ function onCardClickOpenModal(e) {
 }
 
 function respFilmInfo(resp) {
+  console.log(resp.data);
 
-  cardListLib.innerHTML = cardTemplated(resp.data);
-  // cardList.innerHTML = cardTemplate(resp.data,currentPictSrc);
+  refs.cardList.innerHTML = cardTemplated(resp.data);
+  // refs.cardList.innerHTML = cardTemplate(resp.data,currentPictSrc);
 
   //-------------------------------------WATCHED-QUEUE----------------------------------------
   //Declaration----------------
@@ -213,19 +215,19 @@ function respFilmInfo(resp) {
 
   //------------------------------------WATCHED-QUEUE---------------------------
   window.addEventListener('keydown', onEscCloseModal);
-  modalLib.addEventListener('click', onOutsideClickCloseModal);
+  refs.modal.addEventListener('click', onOutsideClickCloseModal);
 }
 function errorFilmInfo(er) {
   console.log(er);
   // fetchFilmPopularity();
-  // cardList.innerHTML = "Sorry we can't load film data!";
+  // refs.cardList.innerHTML = "Sorry we can't load film data!";
   window.addEventListener('keydown', onEscCloseModal);
-  modalLib.addEventListener('click', onOutsideClickCloseModal);
+  refs.modal.addEventListener('click', onOutsideClickCloseModal);
 }
 
 function toggleModal() {
-  modalLib.classList.toggle('is-hidden');
-  modalBodyLib.classList.toggle('no-scroll');
+  refs.modal.classList.toggle('is-hidden');
+  refs.modalBody.classList.toggle('no-scroll');
 }
 
 // ----------------- CLOSE MODAL------------------------------
@@ -246,5 +248,5 @@ function onOutsideClickCloseModal(e) {
 }
 function removeAddEventlisteners() {
   window.removeEventListener('keydown', onEscCloseModal);
-  modalLib.removeEventListener('click', onOutsideClickCloseModal);
+  refs.modal.removeEventListener('click', onOutsideClickCloseModal);
 }
