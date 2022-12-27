@@ -7,6 +7,12 @@ body.dark-theme {
     border: #8e1d2b solid 1px;
     }
     & .footer a:hover {
+        color: var(--bgcolor-aktive);
+    };
+    & .change-color__control {
+    transform: translateX(calc(100% - 2px));
+    };
+    & .footer a:hover {
        color: var(--bgcolor-aktive);
     };
     & .switch__control {
