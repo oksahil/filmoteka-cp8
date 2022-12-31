@@ -26,6 +26,7 @@ const profile = document.querySelector('.profile');
 const logout = document.querySelector('.navigation-item-second.logout');
 //------------------------
 
+//----------------------------------------Firebase-------------------
 // const user = document.querySelector('.auth-form__username').value;
 const email = document.querySelector('.auth-form__email').value;
 const password = document.querySelector('.auth-form__password').value;
@@ -88,7 +89,7 @@ const onLogout = () => {
       profile.style.display = "none";
     }
   });
-
+//--------------------------------------------end of authentication
 
 
 //---------------------Modal handling---------------
