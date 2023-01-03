@@ -219,10 +219,33 @@
         </div>
       </div>
     </div>
+    <div class="backdrop das-hidden">
+      <div class="auth-div">
+        <button class="backdrop__close">
+          <svg class="backdrop__close-icon">
+            <use href="./images/icons.svg#icon-close"></use>
+          </svg>
+        </button>
+        <form class="auth-form">
+            <!-- <label class="auth-form__label"> Your username:
+              <input class="auth-form__username" type="text" id="name" placeholder="Enter your name...">
+            </label> -->
+            <label class="auth-form__label label-email"> Your email:
+              <input class="auth-form__email" type="email" id="email" placeholder="Enter your email...">
+            </label>
+            <label class="auth-form__label"> Your password:
+              <input class="auth-form__password" type="text" id="password" placeholder="Enter your password...">
+            </label>
+            <button class="auth-form__submit signup-button" type="button">Sign Up</button>
+            <button class="auth-form__submit signin-button" type="button">Sign In</button>
+          </form>
+      </div>
+    </div>
     <script type="module" src="./js/post-marquee.js"></script>
     <script type="module" src="./js/modal-info-film.js"></script>
     <script type="module" src="./js/color-switch.js"></script>
     <script type="module" src="../src/js/pagination.js"></script>
     <script type="module" src="./js/arrow-up.js"></script>
+    <script type="module" src="./js/Firebase/auth-signup.js"></script>
   </body>
 </html>
