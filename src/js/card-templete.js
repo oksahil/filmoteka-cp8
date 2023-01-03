@@ -1,6 +1,6 @@
 // import { rendserIds } from '/src/index';
 
-import  imgTemplate  from "/src/images/BOX.jpg";
+import  imgTemplate  from "/src/images/image template.jpg";
 
 const imgUrl = "https://image.tmdb.org/t/p/w500/";
 export const cardTemplate = ({
