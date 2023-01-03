@@ -4,9 +4,6 @@ const controlSwitch = document.querySelector('.switch__wrap');
 
 controlSwitch.addEventListener('click', onChangeTheme);
 
-// body.classList.add("light-theme");
-// darkFooter.classList.add("light-theme");
-
 const savedData = localStorage.getItem("theme");
 
 function onChangeTheme (event) {
@@ -14,11 +11,15 @@ function onChangeTheme (event) {
    if(body.classList.contains('light-theme') && darkFooter.classList.contains("light-theme")) {
     body.classList.remove('light-theme');
     darkFooter.classList.remove('light-theme');
+    body.classList.remove('light-color-theme');
+    darkFooter.classList.remove('light-color-theme');
     body.classList.add('dark-theme');
     darkFooter.classList.add('dark-theme');
    } else {
     body.classList.remove('dark-theme');
     darkFooter.classList.remove('dark-theme');
+    body.classList.remove('dark-color-theme');
+    darkFooter.classList.remove('dark-color-theme');
     body.classList.add('light-theme');
     darkFooter.classList.add('light-theme');
    };
