@@ -152,9 +152,8 @@ function respFilmInfo(resp) {
       console.log(data.id);
       watchArr = [];
       watchArr.push(...getLocalSt(WATCHED_KEY));
-      let index = watchArr.indexOf(data.id);
-      watchArr.splice(index, 1);
-      stringedWatchArr = JSON.stringify(watchArr);
+      const filteredArr = watchArr.filter(item => item.id !== data.id);
+      stringedWatchArr = JSON.stringify(filteredArr);
       localStorage.setItem(WATCHED_KEY, stringedWatchArr);
       console.log(stringedWatchArr);
       Notiflix.Notify.failure('Removed from watched');
@@ -162,16 +161,17 @@ function respFilmInfo(resp) {
       addWatched.textContent = 'Removed from watched';
       addWatched.disabled = true;
       textWatchDelayPre();
+      window.location.reload();
       return;
     } else {
       watchArr = [];
       watchArr.push(...getLocalSt(WATCHED_KEY));
-      watchArr.push(watchObj);
+      watchArr.push(watchObj.id);
       stringedWatchArr = setLocalSt(WATCHED_KEY, watchArr);
 
       console.log(watchArr);
 
-      addWatched.textContent = 'Added from watched';
+      addWatched.textContent = 'Added to watched';
       addWatched.disabled = true;
       textWatchDelay();
       addWatched.classList.add('active');
@@ -185,9 +185,8 @@ function respFilmInfo(resp) {
       console.log(data.id);
       queueArr = [];
       queueArr.push(...getLocalSt(QUEUE_KEY));
-      let index = queueArr.indexOf(data.id);
-      queueArr.splice(index, 1);
-      const stringedQueueArr = JSON.stringify(queueArr);
+      const filteredArr = queueArr.filter(item => item.id !== data.id);
+      const stringedQueueArr = JSON.stringify(filteredArr);
       localStorage.setItem(QUEUE_KEY, stringedQueueArr);
       console.log(stringedQueueArr);
       Notiflix.Notify.failure('Removed from queue');
@@ -195,14 +194,15 @@ function respFilmInfo(resp) {
       addQueue.textContent = 'Removed from queue';
       addQueue.disabled = true;
       textQueueDelayPre();
+      window.location.reload();
     } else {
       queueArr = [];
       queueArr.push(...getLocalSt(QUEUE_KEY));
-      queueArr.push(queueObj);
+      queueArr.push(queueObj.id);
       stringedQueueArr = JSON.stringify(queueArr);
       localStorage.setItem('queue', stringedQueueArr);
       console.log(stringedQueueArr);
-      addQueue.textContent = 'Added from queue';
+      addQueue.textContent = 'Added to queue';
       addQueue.disabled = true;
       textQueueDelay();
       addQueue.classList.add('active');
