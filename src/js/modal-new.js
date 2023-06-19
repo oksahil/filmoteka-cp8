@@ -196,6 +196,7 @@ function respFilmInfo(resp) {
       textQueueDelayPre();
       window.location.reload();
     } else {
+      
       queueArr = [];
       queueArr.push(...getLocalSt(QUEUE_KEY));
       queueArr.push(queueObj.id);
