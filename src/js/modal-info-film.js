@@ -91,6 +91,7 @@ function respFilmInfo(resp) {
     console.log('hello!');
     e.preventDefault();
 
+    
     if (addWatched.classList.contains('active')) {
       console.log(data.id);
       watchArr = [];
