@@ -71,3 +71,4 @@ If a blank page opens, make sure there are no errors in the `Console` tab relate
 1. After each push to the `main` branch of the GitHub repository, a special script (GitHub Action) is launched from the `.github/workflows/deploy.yml` file.
 2. All repository files are copied to the server, where the project is initialized and built before deployment.
 3. If all steps are successful, the built production version of the project files is sent to the `gh-pages` branch. Otherwise, the script execution log will indicate what the problem is..
+4. just for bump
